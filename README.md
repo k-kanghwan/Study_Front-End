@@ -21,9 +21,16 @@
 -->
 
 # Front-End
+## References
+- [HTML tag reference - https://www.w3schools.com/tags/default.asp](https://www.w3schools.com/tags/default.asp "HTML tag reference")
+- [HTML Input Types - https://www.w3schools.com/tags/tag_input.asp](https://www.w3schools.com/tags/tag_input.asp "HTML Input Types")
+- [HTML validation - https://validator.w3.org/#validate_by_uri](https://validator.w3.org/#validate_by_uri "HTML validation")
+- [웹 접근성 진단 서비스 - https://accessibility.kr/](https://accessibility.kr/ "웹 접근성 진단 서비스")
+- [WEBP 지원 브라우저 확인 - https://caniuse.com/webp](https://caniuse.com/webp "WEBP 지원 브라우저 확인")
 
 ## Table of Contents
 - [Front-End](#front-end)
+  - [References](#references)
   - [Table of Contents](#table-of-contents)
   - [Section1. 강의 준비](#section1-강의-준비)
     - [설치](#설치)
@@ -36,6 +43,10 @@
       - [LINK](#link)
       - [STYLE](#style)
       - [주요 body 내의 태그](#주요-body-내의-태그)
+      - [Semantic Web](#semantic-web)
+      - [알아둘 사항](#알아둘-사항)
+      - [이미지](#이미지)
+  - [Section3. 모던 웹의 핵심 상세한 CSS 기본](#section3-모던-웹의-핵심-상세한-css-기본)
     
 ---
 
@@ -254,4 +265,71 @@
     | method | 폼 제출 방식             | **GET** 또는 **POST**                                                              |
     | target | 폼 제출 시 이동할 프레임 | **_blank**(새 창), **_self**(현재 창), **_parent**(부모 프레임), **_top**(전체 창) |
 
+9. `<input>`: 입력 태그로, 사용자 입력을 받는 태그
+    - 참고: [HTML Input Types](https://www.w3schools.com/tags/tag_input.asp)
+    
+    ```html
+    <input type="text" name="이름" placeholder="이름을 입력하세요">
+    ```
+    |     속성     | 설명           | 주요값                                                                                   |
+    | :----------: | -------------- | ---------------------------------------------------------------------------------------- |
+    |     type     | 입력 타입      | **text**(텍스트), **password**(비밀번호), **checkbox**(체크박스), **radio**(라디오 버튼) |
+    |  maxlength   | 최대 길이      | 입력 필드에 입력할 수 있는 최대 문자 수                                                  |
+    |  minlength   | 최소 길이      | 입력 필드에 입력할 수 있는 최소 문자 수                                                  |
+    |  autofocus   | 자동 포커스    | 페이지 로드 시 자동으로 커서가 놓이도록 하는 설정                                        |
+    | autocomplete | 자동 완성 여부 | **on**(자동 완성), **off**(자동 완성 안함)                                               |
+    |   **name**   | 입력 필드 이름 | 서버로 **전송되는 데이터의 이름**                                                        |
+    |    value     | 기본값         | 입력 필드의 기본값                                                                       |
+    |   required   | 필수 입력 여부 | **required**(필수 입력)                                                                  |
+    |   disabled   | 비활성화 여부  | **disabled**(비활성화)                                                                   |
 
+#### Semantic Web
+- html5에서 추가된 태그로, 웹사이트의 구조를 명확하게 정의하는 태그
+- **구조화**하여 검색 엔진이 이해할 수 있도록 하는 기술
+
+    | 시멘틱 웹 태그 | 설명                                      |
+    | :------------: | :---------------------------------------- |
+    |     header     | 웹사이트의 머리말을 나타내는 태그         |
+    |      nav       | 웹사이트의 내비게이션을 나타내는 태그     |
+    |     aside      | 웹사이트의 사이드바를 나타내는 태그       |
+    |    section     | 본문의 여러 내용(article)을 포함하는 부분 |
+    |    article     | 본문의 주 내용이 들어가는 부분            |
+    |     footer     | 웹사이트의 바닥글을 나타내는 태그         |
+
+    <p style="text-align: ;">
+        <img width="400" height="" src="MD_image/SemanticWeb.png">
+    </p>
+
+#### 알아둘 사항
+1. 웹 표준 
+2. 웹 접근성
+3. 크로스 브라우징 : 웹사이트가 다양한 브라우저에서 동일하게 보이도록 하는 것
+
+#### 이미지
+- 이미지는 비트맵과 벡터 이미지로 구분
+    - 비트맵: 픽셀로 구성된 이미지
+        - 정교하고 다양한 색상을 표현할 수 있지만, **확대하면 픽셀이 깨짐**
+        - JPG, PNG, GIF, BMP
+    - 벡터 이미지: 수학적 공식으로 구성된 이미지
+        - 확대해도 깨지지 않지만, **색상 표현이 제한적**
+        - SVG, AI, EPS
+
+
+1. JPEG(JPG) : 높은 압축률 
+    - 손실 압축 방식(원본 이미지와 일부 다른 정보)
+
+2. GIF
+    - 8비트 색상(256색)
+    - 비손실 압축 방식(원본 이미지와 동일한 정보)
+
+3. PNG
+    - W3C 권장 이미지 포맷
+    - 비손실 압축 방식(원본 이미지와 동일한 정보), 단 파일 용량이 큼
+
+4. <span style='color: #000000; background-color: #eecef2'>**⭐️WEBP : 동영상, 투명도 지원되는 JPG, PNG, GIF 모두 지원**</span>
+    - Google 에서 개발한 이미지 포맷
+    - 일부 브라우저에서 미지원
+    - 손실/비손실 압축 방식 모두 지원
+        
+        
+## Section3. 모던 웹의 핵심 상세한 CSS 기본
