@@ -27,6 +27,8 @@
 - [HTML validation - https://validator.w3.org/#validate_by_uri](https://validator.w3.org/#validate_by_uri "HTML validation")
 - [웹 접근성 진단 서비스 - https://accessibility.kr/](https://accessibility.kr/ "웹 접근성 진단 서비스")
 - [WEBP 지원 브라우저 확인 - https://caniuse.com/webp](https://caniuse.com/webp "WEBP 지원 브라우저 확인")
+- [Google Material Color Palette - https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors "Google Material Color Palette")
+- [Adobe Color - https://color.adobe.com/ko/explore](https://color.adobe.com/ko/explore "Adobe Color")
 
 ## Table of Contents
 - [Front-End](#front-end)
@@ -47,6 +49,19 @@
       - [알아둘 사항](#알아둘-사항)
       - [이미지](#이미지)
   - [Section3. 모던 웹의 핵심 상세한 CSS 기본](#section3-모던-웹의-핵심-상세한-css-기본)
+    - [CSS 기본 정리](#css-기본-정리)
+      - [CSS란?](#css란)
+      - [Selector(CSS Selector 라고도 함)](#selectorcss-selector-라고도-함)
+      - [HTML CSS 연동 방법](#html-css-연동-방법)
+        - [1. 적용할 태그에 style 속성으로 넣기(해당 태그에만 적용)](#1-적용할-태그에-style-속성으로-넣기해당-태그에만-적용)
+        - [2. HTML 문서 `<head>`에 `<style>...</style>` 태그로 넣기(전체 문서에 적용)](#2-html-문서-head에-stylestyle-태그로-넣기전체-문서에-적용)
+        - [3. HTML 문서 `<head>`안에 CSS 파일로 링크하기(전체 문서에 적용)](#3-html-문서-head안에-css-파일로-링크하기전체-문서에-적용)
+      - [Reset CSS](#reset-css)
+    - [CSS 단위](#css-단위)
+      - [CSS 크기 단위](#css-크기-단위)
+      - [반응형 Viewport 단위](#반응형-viewport-단위)
+        - [Viewport 단위](#viewport-단위)
+      - [색상 표현 단위](#색상-표현-단위)
     
 ---
 
@@ -101,7 +116,7 @@
 ### HTML
 > - 📕PDF
 >     - [x] [01_html정리.pdf](https://drive.google.com/file/d/1lXknhzfqBIp-l_rE3z46yaC3dlEURHw8/view?usp=drive_link "01_html정리.pdf")
-> - 🧪실슬파일
+> - 🧪실습파일
 >     - [x] [html](https://codesandbox.io/p/sandbox/html-jgdr7 "Go to url")
 >     - [x] [html_tag](https://codesandbox.io/p/sandbox/htmltag-ueveh?file=%2Fsrc%2Findex.js%3A1%2C1-2%2C1 "Go to url")
 
@@ -333,3 +348,183 @@
         
         
 ## Section3. 모던 웹의 핵심 상세한 CSS 기본
+### CSS 기본 정리
+> - 📕PDF
+>     - [x] [02_css_기본정리](https://drive.google.com/file/d/1DxiRLXVQvC4DAX8rjNiyn7-c5PDbnjm6/view?usp=drive_link "02_css_기본정리")
+> - 🧪실습파일
+>     - <blank>
+
+#### CSS란?
+- Cascading Style Sheets의 약자로 HTML 문서의 **스타일을 지정**하는 언어
+- HTML로 구조화된 문서를 어떻게 브라우저 상에 렌더링할지 표현 방법을 정의하기 위한 언어
+- 현재 사용하는 CSS는 CSS3로, CSS2의 모든 기능을 포함하고 있으며, CSS2.1에서 추가된 기능도 포함
+    <p style="text-align:;">
+        <img width="600" height="" src="MD_image/html-css-javascript.png">
+    </p>
+
+#### Selector(CSS Selector 라고도 함)
+- CSS에서 스타일을 적용할 HTML 요소를 선택하는 방법
+    <p style="text-align: ;">
+        <img width="600" height="" src="MD_image/css-selector.png">
+    </p>
+
+
+#### HTML CSS 연동 방법
+##### 1. 적용할 태그에 style 속성으로 넣기(해당 태그에만 적용)
+> 가급적 지양할 것
+```html
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1 style="color:blue;">Hello World!</h1>
+        <p style="color:red;">This is a paragraph.</p>
+    </body>
+</html>
+```
+
+##### 2. HTML 문서 `<head>`에 `<style>...</style>` 태그로 넣기(전체 문서에 적용)
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            h1 {
+                color: blue;
+            }
+            p {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+        <p>This is a paragraph.</p>
+    </body>
+</html>
+```
+
+
+##### 3. HTML 문서 `<head>`안에 CSS 파일로 링크하기(전체 문서에 적용)
+- home.html
+    ```html
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+            <h1>Hello World!</h1>
+            <p>This is a paragraph.</p>
+        </body>
+    </html>
+    ```
+
+- style.css
+    ```css
+    h1 {
+        color: blue;
+    }
+    p {
+        color: red;
+    }
+    ```
+
+#### Reset CSS
+- 웹 브라우저마다 기본 스타일이 다르기 때문에, 모든 브라우저에서 동일한 스타일을 적용하기 위해 사용
+    > 실무에서 필요에 의해 임의로 만든 설정
+- 최근에는 normalize.css를 많이 사용
+    - cdn(Contents Delivery Network)을 통해서 링크하거나, npm으로 설치하여 사용
+    - [https://cdnjs.com/libraries/normalize](https://cdnjs.com/libraries/normalize)
+    ```html
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    ```
+
+    - css / min.css
+        - css: 일반 css 파일
+        - min.css: 압축된 css 파일 
+
+### CSS 단위
+#### CSS 크기 단위
+> - 📕PDF
+>     - [x] [03_css_단위정리.pdf](https://drive.google.com/file/d/1E2ugWfrnQuxI0oogCk9tPnRUJlLEJzds/view?usp=sharing "03_css_단위정리.pdf")
+> - 🧪실습파일
+>     - [x] [css 단위](https://codesandbox.io/p/sandbox/cssdanwi-u2g72 "Go to url")
+>     - [x] [viewport 단위](https://codesandbox.io/p/sandbox/cssviewport-x2qrx "Go to url")
+
+1. px
+    - 픽셀(화소) 단위, 해상도에 따라 상대적인 크기를 가짐
+        <p style="text-align: ;">
+            <img width="400" height="" src="MD_image/pixel.png">
+        </p>
+
+2. %(percent)
+    - 백분율 단위의 상대 단위, 지정 사이즈를 기반으로 상대적인 비율의 크기를 가짐
+
+3. em
+    - 배수 단위, 지정 사이즈를 기반으로 배수로 계산된 크기를 가짐
+    - 중첩된 자식 요소에 em을 지정하면 **모든 자식 요소 사이즈에 영향을 주므로 주의**
+        <p style="text-align: ;">
+            <img width="600" height="" src="MD_image/size_examples.png">
+        </p>
+
+4. rem 
+    - em과 달리 rem은 root em으로, 최상위 요소(html) 사이즈를 기준으로 함
+
+
+#### 반응형 Viewport 단위
+    - viewport 단위는 화면 크기에 따라 상대적인 크기를 가짐
+
+##### Viewport 단위
+| 단위  | 설명                                                                 |
+| :---: | -------------------------------------------------------------------- |
+|  vw   | viewport width의 약자로, 뷰포트 너비의 1%를 의미                     |
+|  vh   | viewport height의 약자로, 뷰포트 높이의 1%를 의미                    |
+| vmin  | viewport minimum의 약자로, 뷰포트 너비와 높이 중 작은 값의 1%를 의미 |
+| vmax  | viewport maximum의 약자로, 뷰포트 너비와 높이 중 큰 값의 1%를 의미   |
+
+``` html
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .box {
+                width: 50vw; /* 뷰포트 너비의 50% */
+                height: 50vh; /* 뷰포트 높이의 50% */
+                background-color: lightblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+    </body>
+</html>
+```
+
+#### 색상 표현 단위
+
+- [Google Material Color Palette - https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors "Google Material Color Palette")
+- [Adobe Color - https://color.adobe.com/ko/explore](https://color.adobe.com/ko/explore "Adobe Color")
+
+1. 색상 이름으로 표기하는 방법 : 주요 색상 이름 참고 [https://www.w3schools.com/colors/colors_names.asp](https://www.w3schools.com/colors/colors_names.asp "Go to url")
+2. 16진수로 표기하는 방법
+    - #RRGGBB 형식으로 표기
+    - R: Red, G: Green, B: Blue
+    - 00 ~ FF(16진수)로 표현
+    - 예) #FF0000(빨강), #00FF00(초록), #0000FF(파랑)
+
+        <p style="text-align: ;">
+            <img width="400" heigGht="" src="MD_image/color_hex.png">
+        </p>
+
+3. RGB로 표기하는 방법
+    - rgb(0 ~ 255, 0 ~ 255, 0 ~ 255) 형식으로 표기
+    - 예) rgb(255, 0, 0)(빨강), rgb(0, 255, 0)(초록), rgb(0, 0, 255)(파랑)
+
+4. RGBA로 표기하는 방법
+    - rgba(0 ~ 255, 0 ~ 255, 0 ~ 255, 0.0 ~ 1.0) 형식으로 표기
+    - 예) rgba(255, 0, 0, 0.5)(빨강 반투명), rgba(0, 255, 0, 1.0)(초록 불투명), rgba(0, 0, 255, 0.2)(파랑 투명)
+
+
+
+
+
