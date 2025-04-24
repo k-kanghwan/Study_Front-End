@@ -29,6 +29,9 @@
 - [WEBP 지원 브라우저 확인 - https://caniuse.com/webp](https://caniuse.com/webp "WEBP 지원 브라우저 확인")
 - [Google Material Color Palette - https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors "Google Material Color Palette")
 - [Adobe Color - https://color.adobe.com/ko/explore](https://color.adobe.com/ko/explore "Adobe Color")
+- [CSS Diner](https://flukeout.github.io/ "CSS Diner")
+- [liveweave - css 연습 사이트](https://liveweave.com/# "liveweave - css 연습 사이트")
+
 
 ## Table of Contents
 - [Front-End](#front-end)
@@ -62,6 +65,15 @@
       - [반응형 Viewport 단위](#반응형-viewport-단위)
         - [Viewport 단위](#viewport-단위)
       - [색상 표현 단위](#색상-표현-단위)
+    - [CSS Selector](#css-selector)
+      - [복합 Selector(Combinator)](#복합-selectorcombinator)
+        - [1. 후손 셀렉터(Descendant Selector)](#1-후손-셀렉터descendant-selector)
+        - [2. 자식 셀렉터(Child Selector)](#2-자식-셀렉터child-selector)
+        - [3. 인접 형제 셀렉터(Adjacent Sibling Selector)](#3-인접-형제-셀렉터adjacent-sibling-selector)
+        - [4. 일반 형제 셀렉터(General Sibling Selector)](#4-일반-형제-셀렉터general-sibling-selector)
+      - [가상 클래스 셀렉터(Pseudo-class Selector)](#가상-클래스-셀렉터pseudo-class-selector)
+        - [가상클래스 종류](#가상클래스-종류)
+        - [UI 요소 상태 셀렉터(UI Element State Pseudo-Class)](#ui-요소-상태-셀렉터ui-element-state-pseudo-class)
     
 ---
 
@@ -524,7 +536,145 @@
     - rgba(0 ~ 255, 0 ~ 255, 0 ~ 255, 0.0 ~ 1.0) 형식으로 표기
     - 예) rgba(255, 0, 0, 0.5)(빨강 반투명), rgba(0, 255, 0, 1.0)(초록 불투명), rgba(0, 0, 255, 0.2)(파랑 투명)
 
+### CSS Selector
+> - 📕PDF
+>     - [x] [04_css_selector.pdf](https://drive.google.com/file/d/1ZRi4JNYhdTVvQcYU3xyiaoGCeRd1LFy3/view?usp=sharing "04_css_selector.pdf")
+> - 🧪실습파일
+>     - [x] [css_selector](https://codesandbox.io/p/sandbox/cssselector-r59je?file=%2Fsrc%2Findex.js "Go to url")
 
+> PDF 참조
 
+#### 복합 Selector(Combinator)
+- 후손 셀렉터(Descendant Selector) : 스페이스로 표시 
+- 자식 셀렉터(Child Selector) : >로 표시
+- 인접 형제 셀렉터(Adjacent Sibling Selector) : +로 표시
+- 일반 형제 셀렉터(General Sibling Selector) : ~로 표시
 
+##### 1. 후손 셀렉터(Descendant Selector)
+- 부모 태그 안에 있는 모든 하위 태그를 하위 요소, 후손 요소라고 부름
+```css
+div p {
+    color: red;
+}
+```
 
+##### 2. 자식 셀렉터(Child Selector)
+- 부모 태그 안에 있는 **바로 다음 레벨**의 태그 선택
+```css
+div > p {
+    color: red;
+}
+```
+- `div` 태그 안에 있는 p 태그 중에서 div 태그의 **직계 자식**인 p 태그만 선택
+
+##### 3. 인접 형제 셀렉터(Adjacent Sibling Selector)
+- 특정 태그 바로 다음에 오는 형제 태그를 선택
+    - *사이에 다른 태그가 없어야 함*
+``` html
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            h1 + p {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>제목</h1>
+        <p>내용</p>  (<- selector 적용)
+        <p>내용2</p>
+    </body>
+</html>
+```
+
+##### 4. 일반 형제 셀렉터(General Sibling Selector)
+- 특정 태그 다음에 오는 형제 태그를 선택
+    - *사이에 다른 태그가 있어도 상관 없음*
+``` css
+h1 ~ p {
+    color: red;
+}
+```
+
+#### 가상 클래스 셀렉터(Pseudo-class Selector)
+> - 🧪실습파일
+>     - [x] [Pseudo-class Selector](https://codesandbox.io/p/sandbox/css-pseudo-class-selector-1z7sm "Go to url")
+>     - [x] [UI Element State Pseudo-Class](https://codesandbox.io/p/sandbox/css-ui-element-pseudo-class-selector-mecrs "Go to url")
+
+##### 가상클래스 종류
+| 순번  | 가상클래스 | 설명                           |
+| :---: | :--------- | ------------------------------ |
+|   1   | :link      | 링크가 클릭되지 않은 상태      |
+|   2   | :visited   | 링크가 클릭된 상태             |
+|   3   | :hover     | 마우스가 링크 위에 올라간 상태 |
+|   4   | :active    | 링크가 클릭된 상태             |
+|   5   | :focus     | 링크가 포커스된 상태           |
+
+```html
+    <style>
+      a:link {
+        color: red;
+      }
+      a:visited {
+        color: blue;
+      }
+      a:hover {
+        color: green;
+      }
+      a:active {
+        color: gray;
+      }
+      input:focus {
+        color: brown;
+      }
+    </style>
+```
+
+##### UI 요소 상태 셀렉터(UI Element State Pseudo-Class)
+- enabled : Ui 셀렉터가 사용 가능한 상태
+- disabled : Ui 셀렉터가 사용 불가능한 상태
+- checked : Ui 셀렉터가 체크된 상태
+- indeterminate : UI 셀렉터 상태가 결정되지 않은 상태(예: 체크박스가 체크되지 않은 상태, 라디오 버튼이 하나도 선택되지 않은 상태)
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      input[type="radio"]:indeterminate + span {
+        color: red;
+      }
+      input[type="radio"]:checked + span {
+        color: orange;
+      }
+      input[type="checkbox"]:enabled + span {
+        color: blue;
+      }
+      input[type="checkbox"]:disabled + span {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Dave Lee</h1>
+      <a href="https://www.fun-coding.org/">잔재미코딩</a>
+      <form action="https://www.fun-coding.org/" method="get">
+        <input type="radio" value="item1" name="item" /><span>item1</span><br />
+        <input type="radio" value="item2" name="item" /><span>item2</span><br />
+
+        <input type="checkbox" value="check1" name="check" /><span>check1</span
+        ><br />
+        <input type="checkbox" value="check2" name="check" disabled /><span
+          >check2</span
+        ><br />
+
+        <input type="text" id="data" name="data" /><br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>
+```
