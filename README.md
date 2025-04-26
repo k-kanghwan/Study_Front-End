@@ -74,6 +74,11 @@
       - [가상 클래스 셀렉터(Pseudo-class Selector)](#가상-클래스-셀렉터pseudo-class-selector)
         - [가상클래스 종류](#가상클래스-종류)
         - [UI 요소 상태 셀렉터(UI Element State Pseudo-Class)](#ui-요소-상태-셀렉터ui-element-state-pseudo-class)
+        - [구조 가상 클래스 셀렉터(Structural Pseudo-Class Selector)](#구조-가상-클래스-셀렉터structural-pseudo-class-selector)
+        - [부정 셀렉터(Negation Pseudo-Class Selector)](#부정-셀렉터negation-pseudo-class-selector)
+        - [정합성 체크 셀렉터(Validity Pseudo-Class Selector)](#정합성-체크-셀렉터validity-pseudo-class-selector)
+        - [가상 요소 셀렉터(Pseudo-element Selector)](#가상-요소-셀렉터pseudo-element-selector)
+  - [Section4. 모던 웹의 핵심 상세한 CSS 기본 프로퍼티](#section4-모던-웹의-핵심-상세한-css-기본-프로퍼티)
     
 ---
 
@@ -150,7 +155,7 @@
 ```html
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 ```
-- 인터넷 익스플로러(ID)에서 최신 표준 모드로 렌더린 되도록 하는 설정
+- 인터넷 익스플로러(ID)에서 최신 표준 모드로 렌더링 되도록 하는 설정
 
 #### 반응형 웹 관련 태그
 ```html
@@ -300,7 +305,7 @@
     ```
     |     속성     | 설명           | 주요값                                                                                   |
     | :----------: | -------------- | ---------------------------------------------------------------------------------------- |
-    |     type     | 입력 타입      | **text**(텍스트), **password**(비밀번호), **checkbox**(체크박스), **radio**(라디오 버튼) |
+    |   **type**   | 입력 타입      | **text**(텍스트), **password**(비밀번호), **checkbox**(체크박스), **radio**(라디오 버튼) |
     |  maxlength   | 최대 길이      | 입력 필드에 입력할 수 있는 최대 문자 수                                                  |
     |  minlength   | 최소 길이      | 입력 필드에 입력할 수 있는 최소 문자 수                                                  |
     |  autofocus   | 자동 포커스    | 페이지 로드 시 자동으로 커서가 놓이도록 하는 설정                                        |
@@ -324,7 +329,7 @@
     |     footer     | 웹사이트의 바닥글을 나타내는 태그         |
 
     <p style="text-align: ;">
-        <img width="400" height="" src="MD_image/SemanticWeb.png">
+        <img width="400" height="" src="https://wikidocs.net/images/page/214478/111.png">
     </p>
 
 #### 알아둘 사항
@@ -474,7 +479,7 @@
 
 3. em
     - 배수 단위, 지정 사이즈를 기반으로 배수로 계산된 크기를 가짐
-    - 중첩된 자식 요소에 em을 지정하면 **모든 자식 요소 사이즈에 영향을 주므로 주의**
+    - 중첩된 요소에 em을 지정하면 **모든 자식 요소 사이즈에 영향을 주므로 주의**
         <p style="text-align: ;">
             <img width="600" height="" src="MD_image/size_examples.png">
         </p>
@@ -484,7 +489,7 @@
 
 
 #### 반응형 Viewport 단위
-    - viewport 단위는 화면 크기에 따라 상대적인 크기를 가짐
+- viewport 단위는 <u>화면 크기에 따라 상대적인 크기를 가짐</u>
 
 ##### Viewport 단위
 | 단위  | 설명                                                                 |
@@ -678,3 +683,137 @@ h1 ~ p {
   </body>
 </html>
 ```
+
+##### 구조 가상 클래스 셀렉터(Structural Pseudo-Class Selector)
+> - 🧪실습파일
+>     - [x] [css structured pseudo class selector 2](https://codesandbox.io/p/sandbox/css-structured-pseudo-class-selector-b3r9x "Go to url")
+>     - [x] [css structured pseudo class selector 3](https://codesandbox.io/p/sandbox/css-structured-pseudo-class-selector3-c7nrv?file=%2Fsrc%2Findex.js%3A1%2C1-4%2C1 "Go to url")
+
+- first-child : 부모 태그의 첫 번째 자식 태그
+- last-child : 부모 태그의 마지막 자식 태그
+- nth-child(n) : 부모 태그의 n번째 자식 태그
+- nth-last-child(n) : 부모 태그의 n번째 자식 태그(뒤에서부터)
+
+    ```css
+    <style>
+        p:first-child {
+            color: red;
+        }
+        p:last-child {
+            color: blue;
+        }
+        p:nth-child(2) {
+            color: green;
+        }
+        p:nth-last-child(3) {
+            color: brown;
+        }
+        /* 자식들의 홀수만 */
+        p:nth-child(2n-1) {
+            color: orange;
+        }
+        /* 자식들의 뒤에서 홀수만 */
+        p:nth-last-child(2n-1) {
+            color: purple;
+        }
+    </style>
+    ```
+
+- first-of-type : 부모 태그의 첫 번째 자식 태그(같은 타입)
+- last-of-type : 부모 태그의 마지막 자식 태그(같은 타입)
+- nth-of-type(n) : 부모 태그의 n번째 자식 태그(같은 타입)
+- nth-last-of-type(n) : 부모 태그의 n번째 자식 태그(같은 타입, 뒤에서부터)
+
+    ```css
+    <style>
+        p:first-of-type {
+            color: red;
+        }
+        p:last-of-type {
+            color: blue;
+        }
+        p:nth-of-type(2) {
+            color: green;
+        }
+        p:nth-last-of-type(3) {
+            color: brown;
+        }
+        /* 자식들의 홀수만 */
+        p:nth-of-type(2n-1) {
+            color: orange;
+        }
+    </style>
+    ``` 
+
+##### 부정 셀렉터(Negation Pseudo-Class Selector)
+
+- :not(selector) : selector를 제외한 나머지 태그 선택
+
+```css
+p:not(.red) {
+    color: blue;
+}
+```
+
+##### 정합성 체크 셀렉터(Validity Pseudo-Class Selector)
+> - 🧪실습파일
+>    - [x] [css required selector](https://codesandbox.io/p/sandbox/css-required-selector-l7wzb "Go to url")
+>    - [x] [css pattern selector](https://codesandbox.io/p/sandbox/css-pattern-selector-187zm "Go to url")
+
+- valid(셀렉터) : 정합성이 검증된 input 또는 form 요소 선택
+- invalid(셀렉터) : 정합성이 검증이 실패한 input 또는 form 요소 선택    
+
+1. required 속성
+    - input 태그로 생성된 입력창에 데이터를 무조건 넣어야 함(데이터가 입력창에 들어가야 정합성이 검증됐다고 판단됨)
+
+2. pattern 속성
+    - input 태그로 생성된 입력창에 정규표현식으로 정합성을 검증할 수 있음
+    - pattern 속성에 정규표현식을 넣어주면, 해당 정규표현식과 일치하는 데이터만 입력 가능
+
+    ```html
+    <input type="text" id="data2" name="data2" pattern="[0-9]{3}" /><br />
+    ```
+
+##### 가상 요소 셀렉터(Pseudo-element Selector)
+> - 🧪실습파일
+>     - [x] [css Pseudo-Element Selector](https://codesandbox.io/p/sandbox/css-pseudo-element-selector-forked-w794fg?file=%2Findex.html%3A20%2C21 "Go to url")
+
+- 선택한 요소 안의 특정 부분을 선택(예: 특정 요소의 첫 글자, 마지막 글자 등)
+- first-letter: 요소의 첫 글자
+- first-line: 요소의 첫 라인(줄) 선택(주의 : block 요소에만 적용 가능)
+- after: 요소의 마지막에 추가, **content property**와 함께 사용
+- before: 요소의 처음에 추가, **content property**와 함께 사용
+> 다른 가상 셀렉터와 달리 두개의 콜론(::)을 사용
+
+```css
+h1::first-letter {
+    font-size: 2em;
+    color: red;
+}
+h1::first-line {
+    font-size: 1.5em;
+    color: blue;
+}
+h1::after {
+    content: "h1 태그의 끝에 넣을 내용";
+    color: green;
+}
+h1::before {
+    content: "h1 태그의 시작에 넣을 내용";
+    color: orange;
+}
+```
+
+## Section4. 모던 웹의 핵심 상세한 CSS 기본 프로퍼티
+
+
+
+
+
+
+[🔝 돌아가기](#table-of-contents)
+
+
+
+
+    
