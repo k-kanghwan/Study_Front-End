@@ -31,6 +31,8 @@
 - [Adobe Color - https://color.adobe.com/ko/explore](https://color.adobe.com/ko/explore "Adobe Color")
 - [CSS Diner](https://flukeout.github.io/ "CSS Diner")
 - [liveweave - css 연습 사이트](https://liveweave.com/# "liveweave - css 연습 사이트")
+- [Border styles](https://developer.mozilla.org/ko/docs/Web/CSS/border-style "Border styles")
+- [Border radius](https://developer.mozilla.org/ko/docs/Web/CSS/border-radius "Border radius")
 
 
 ## Table of Contents
@@ -66,6 +68,12 @@
         - [Viewport 단위](#viewport-단위)
       - [색상 표현 단위](#색상-표현-단위)
     - [CSS Selector](#css-selector)
+      - [속성 Selector](#속성-selector)
+        - [1. `[속성~="값"]` - 속성값이 "값"을 (공백으로 분리된) 포함하는 경우](#1-속성값---속성값이-값을-공백으로-분리된-포함하는-경우)
+        - [2. `[속성|="값"]` - 속성값이 "값"이거나 "값-"으로 시작하는 모든 태그(요소)(ex: "en-US")](#2-속성값---속성값이-값이거나-값-으로-시작하는-모든-태그요소ex-en-us)
+        - [3. `[속성^="값"]` - 속성값이 "값"으로 시작하는 경우](#3-속성값---속성값이-값으로-시작하는-경우)
+        - [4. `[속성$="값"]` - 속성값이 "값"으로 끝나는 경우](#4-속성값---속성값이-값으로-끝나는-경우)
+        - [5. `[속성*="값"]` - 속성값이 "값"을 포함하는 경우](#5-속성값---속성값이-값을-포함하는-경우)
       - [복합 Selector(Combinator)](#복합-selectorcombinator)
         - [1. 후손 셀렉터(Descendant Selector)](#1-후손-셀렉터descendant-selector)
         - [2. 자식 셀렉터(Child Selector)](#2-자식-셀렉터child-selector)
@@ -79,6 +87,15 @@
         - [정합성 체크 셀렉터(Validity Pseudo-Class Selector)](#정합성-체크-셀렉터validity-pseudo-class-selector)
         - [가상 요소 셀렉터(Pseudo-element Selector)](#가상-요소-셀렉터pseudo-element-selector)
   - [Section4. 모던 웹의 핵심 상세한 CSS 기본 프로퍼티](#section4-모던-웹의-핵심-상세한-css-기본-프로퍼티)
+    - [CSS BOX MODEL(박스 모델) 이해](#css-box-model박스-모델-이해)
+      - [BOX Model property](#box-model-property)
+      - [주요 프로퍼티property](#주요-프로퍼티property)
+        - [1. width, height](#1-width-height)
+        - [2. margin / padding](#2-margin--padding)
+        - [3. 참고](#3-참고)
+        - [4. border](#4-border)
+        - [5. box-sizing](#5-box-sizing)
+    - [CSS background 이해](#css-background-이해)
     
 ---
 
@@ -549,11 +566,89 @@
 
 > PDF 참조
 
+#### 속성 Selector
+- 속성 셀렉터는 HTML 태그의 속성을 기준으로 선택하는 방법
+
+- CSS 속성 선택자 요약표
+
+    | 선택자         | 의미                                                     | 예시             | 매칭 조건                    |
+    | :------------- | :------------------------------------------------------- | :--------------- | :--------------------------- |
+    | `[attr~="값"]` | 속성값을 공백으로 구분한 단어 중 하나가 "값"과 일치할 때 | `[class~="btn"]` | `class="btn primary"` → 매칭 |
+    | `[attr⏐="값"]` | 속성값이 "값"과 정확히 일치하거나 "값-"으로 시작할 때    | `[lang="en"]`    | `lang="en-US"` → 매칭        |
+    | `[attr^="값"]` | 속성값이 "값"으로 시작할 때                              | `[kk^="test"]`   | `kk="test123"` → 매칭        |
+    | `[attr$="값"]` | 속성값이 "값"으로 끝날 때                                | `[kk$="test"]`   | `kk="mytest"` → 매칭         |
+    | `[attr*="값"]` | 속성값 어디에든 "값"이 포함되어 있을 때                  | `[kk*="test"]`   | `kk="latest-version"` → 매칭 |
+
+
+##### 1. `[속성~="값"]` - 속성값이 "값"을 (공백으로 분리된) 포함하는 경우
+
+```html
+<style>
+    p[kk~="test"] {
+        color: lightblue;
+    }
+</style>
+<p kk="test test2">테스트</p> <!-- 적용 -->
+<p kk="test3">테스트</p> <!-- 적용안됨 -->
+```
+
+##### 2. `[속성|="값"]` - 속성값이 "값"이거나 "값-"으로 시작하는 모든 태그(요소)(ex: "en-US")
+
+```html
+<style>
+    p[kk|="test"] {
+        color: lightblue;
+    }
+</style>
+<p kk="test">테스트</p> <!-- 적용 -->
+<p kk="test-test">테스트</p> <!-- 적용 -->
+<p kk="test2">테스트</p> <!-- 적용안됨 -->
+```
+
+##### 3. `[속성^="값"]` - 속성값이 "값"으로 시작하는 경우
+
+```html
+<style>
+    p[kk^="test"] {
+        color: lightblue;
+    }
+</style>
+<p kk="test">테스트</p> <!-- 적용 -->
+<p kk="test-test">테스트</p> <!-- 적용 -->
+<p kk="not-test">테스트</p> <!-- 적용안됨 -->
+```
+
+##### 4. `[속성$="값"]` - 속성값이 "값"으로 끝나는 경우
+
+```html
+<style>
+    p[kk$="test"] {
+        color: lightblue;
+    }
+</style>
+<p kk="test">테스트</p> <!-- 적용 -->
+<p kk="test-test">테스트</p> <!-- 적용 -->
+<p kk="test2">테스트</p> <!-- 적용안됨 -->
+```
+
+##### 5. `[속성*="값"]` - 속성값이 "값"을 포함하는 경우
+
+```html
+<style>
+    p[kk*="test"] {
+        color: lightblue;
+    }
+</style>
+<p kk="test">테스트</p> <!-- 적용 -->
+<p kk="test-test">테스트</p> <!-- 적용 -->
+<p kk="not">테스트</p> <!-- 적용안됨 -->
+```
+
 #### 복합 Selector(Combinator)
-- 후손 셀렉터(Descendant Selector) : 스페이스로 표시 
-- 자식 셀렉터(Child Selector) : >로 표시
-- 인접 형제 셀렉터(Adjacent Sibling Selector) : +로 표시
-- 일반 형제 셀렉터(General Sibling Selector) : ~로 표시
+- 후손 셀렉터(Descendant Selector) : `스페이스`로 표시 
+- 자식 셀렉터(Child Selector) : `>`로 표시
+- 인접 형제 셀렉터(Adjacent Sibling Selector) : `+`로 표시
+- 일반 형제 셀렉터(General Sibling Selector) : `~`로 표시
 
 ##### 1. 후손 셀렉터(Descendant Selector)
 - 부모 태그 안에 있는 모든 하위 태그를 하위 요소, 후손 요소라고 부름
@@ -608,13 +703,11 @@ h1 ~ p {
 >     - [x] [UI Element State Pseudo-Class](https://codesandbox.io/p/sandbox/css-ui-element-pseudo-class-selector-mecrs "Go to url")
 
 ##### 가상클래스 종류
-| 순번  | 가상클래스 | 설명                           |
-| :---: | :--------- | ------------------------------ |
-|   1   | :link      | 링크가 클릭되지 않은 상태      |
-|   2   | :visited   | 링크가 클릭된 상태             |
-|   3   | :hover     | 마우스가 링크 위에 올라간 상태 |
-|   4   | :active    | 링크가 클릭된 상태             |
-|   5   | :focus     | 링크가 포커스된 상태           |
+- `:link` : 링크가 클릭되지 않은 상태
+- `:visited` : 링크가 클릭된 상태
+- `:hover` : 마우스가 링크 위에 올라간 상태
+- `:active` : 링크가 클릭된 상태
+- `:focus` : 링크가 포커스된 상태
 
 ```html
     <style>
@@ -637,10 +730,10 @@ h1 ~ p {
 ```
 
 ##### UI 요소 상태 셀렉터(UI Element State Pseudo-Class)
-- enabled : Ui 셀렉터가 사용 가능한 상태
-- disabled : Ui 셀렉터가 사용 불가능한 상태
-- checked : Ui 셀렉터가 체크된 상태
-- indeterminate : UI 셀렉터 상태가 결정되지 않은 상태(예: 체크박스가 체크되지 않은 상태, 라디오 버튼이 하나도 선택되지 않은 상태)
+- `:enabled` : Ui 셀렉터가 사용 가능한 상태
+- `:disabled` : Ui 셀렉터가 사용 불가능한 상태
+- `:checked` : Ui 셀렉터가 체크된 상태
+- `:indeterminate` : UI 셀렉터 상태가 결정되지 않은 상태(예: 체크박스가 체크되지 않은 상태, 라디오 버튼이 하나도 선택되지 않은 상태)
 
 ```html
 <!DOCTYPE html>
@@ -805,15 +898,141 @@ h1::before {
 ```
 
 ## Section4. 모던 웹의 핵심 상세한 CSS 기본 프로퍼티
+> - 📕PDF
+>     - [x] [05_css_boxmodel.pdf](https://drive.google.com/file/d/12Wd_nHCZSUmrKYSCpwzgfHjlhYUHYH4x/view?usp=drive_link "05_css_boxmodel.pdf")
+
+### CSS BOX MODEL(박스 모델) 이해
+> - 🧪실습파일
+>     - [x] [css_boxmodel_basic](https://codesandbox.io/p/sandbox/cssboxmodelbasic-vsm17 "Go to url")
+
+- block 또는 inline-block 특성을 가지는 요소는 형태를 가지며, box 형태의 세부 사항을 수정할 수 있음
+
+<p style="text-align:center;">
+    <img width="400" height="" src="MD_image/css-box-model.png">
+</p>
+
+#### BOX Model property
+
+|  속성   | 설명                                                           |
+| :-----: | -------------------------------------------------------------- |
+| content | 요소의 내용 영역, width와 height로 크기 조절 가능              |
+| padding | 요소의 내용과 테두리 사이의 여백, content와 border 사이에 위치 |
+| border  | 요소의 테두리, padding과 margin 사이에 위치                    |
+| margin  | 요소와 다른 요소 사이의 여백, border와 body 사이에 위치        |
 
 
+```html
+<style>
+    div {
+    /* 배경색 지정: content 와 padding 영역에 적용 */
+    background-color: lightblue;
+    /* 디폴트로 content 영역 너비, box-sizing 프로퍼티를 통해 변경 가능(추후 설명) */
+    width: 300px;
+    /* 패딩 영역 두께 */
+    padding: 20px;
+    /* 테두리: 두께 형태 색상 (테두리는 색상도 지정 가능) */
+    border: 10px solid lightcoral;
+    /* 마진 영역 두께 */
+    margin: 20px;
+    }
+</style>
+```
 
+#### 주요 프로퍼티<sup>property</sup>
+##### 1. width, height
+> - 🧪실습파일
+>     - [x] [css_boxmodel_width](https://codesandbox.io/p/sandbox/cssboxmodelwidth-ge954?file=%2Findex.html%3A8%2C1-9%2C1 "Go to url")
+>     - [x] [css_boxmodel_maxwidth](https://codesandbox.io/p/sandbox/cssboxmodelmaxwidth-wot82 "Go to url")
+> 
+- width / height 포함, 모든 box model 관련 프로퍼티(margin, padding, border, box-sizing)는 **상속되지 않음**
+> 컨텐츠가 지정된 width, height를 초과할 경우 overflow 속성에 따라 처리됨
 
+##### 2. margin / padding
+> - 🧪실습파일
+>     - [x] [css_boxmodel_padding](https://codesandbox.io/p/sandbox/cssboxmodelpadding-hrzf3 "Go to url")
+
+- margin 또는 padding은 프로퍼티에 윗쪽, 오른쪽, 아래쪽, 왼쪽 순서로 단축 프로퍼티 사용 가능
+    > 위쪽부터 시작해서 시계방향으로 지정
+- 3개 프로퍼티 값 설정 시
+
+    ```css
+    padding: 10px 20px 30px;
+    
+    /* 다음과 동일 */
+    padding-top: 10px;
+    padding-right: 20px; padding-left: 20px;
+    padding-bottom: 30px;
+    ```
+
+- 2개 프로퍼티 값 설정 시
+
+    ```css
+    padding: 10px 20px;
+    
+    /* 다음과 동일 */
+    padding-top: 10px; padding-bottom: 10px;
+    padding-right: 20px; padding-left: 20px;
+    ```
+
+- 1개 프로퍼티 값 설정 시
+
+    ```css
+    padding: 10px;
+    
+    /* 다음과 동일 */
+    padding-top: 10px; padding-bottom: 10px;
+    padding-right: 10px; padding-left: 10px;
+    ```
+
+##### 3. 참고
+- block 특성을 가지 요소에 대한 **중앙 정렬**(margin 활용)
+```css
+width: 100px; /* 명시적으로 지정해야 함 */
+margin-left: auto;
+margin-right: auto;
+```
+
+##### 4. border
+> - 🧪실습파일
+>     - [x] [css_boxmodel_border](https://codesandbox.io/p/sandbox/cssboxmodelborder-rmhys "Go to url")
+
+- `border-style`: 선 스타일 설정 [Border styles](https://developer.mozilla.org/ko/docs/Web/CSS/border-style "Border styles")
+- `border-width`: 선 두께 설정(키워드도 설정 가능 ex: <u>thin, medium, thick</u>)
+- `border-color`: 선 색상 설정  
+- `border-radius`: 둥글게 설정(모서리 둥글게 설정)
+    - border-radius: 10px; /* 모든 모서리 둥글게 설정 */
+    - Border radius 참고  [https://developer.mozilla.org/ko/docs/Web/CSS/border-radius](https://developer.mozilla.org/ko/docs/Web/CSS/border-radius "Border radius")
+
+##### 5. box-sizing
+> - 🧪실습파일
+>     - [x] [css_boxmodel_box-sizing](https://codesandbox.io/p/sandbox/cssboxmodelboxsizing-12n9i "Go to url")
+
+- width, height 대상 영역 설정
+
+    |      속성      | 설명                                           |
+    | :------------: | ---------------------------------------------- |
+    | **border-box** | width, height에 padding, border 포함(기본값)   |
+    |  content-box   | width, height에 padding, border 미포함(기본값) |
+
+    ```css
+    * {
+        box-sizing: border-box; /* 모든 요소에 border-box 적용 */
+    }
+    ```
+
+- **참고 : CSS 스타일링과 bos-sizing**
+    - css 적용 시, 모든 block 요소는 box-sizing을 border-box롤 설정하는 것이 일반적
+    - box-sizing은 디폴트로 상속이 되지 않고, HTML 요소의 디폴트 box-sizing은 content-box 이므로, 전체 요소에 box-sizing을 border-box로 설정하기 위해 다음과 같은 CSS 설정을 많이 사용함
+
+    ```css
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+    ```
+
+### CSS background 이해
 
 
 [🔝 돌아가기](#table-of-contents)
-
-
-
-
-    
