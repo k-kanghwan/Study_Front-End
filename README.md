@@ -111,6 +111,19 @@
       - [CSS visibility 프로퍼티](#css-visibility-프로퍼티)
       - [inline-block 특성](#inline-block-특성)
     - [CSS font 이해](#css-font-이해)
+      - [font-size 프로퍼티](#font-size-프로퍼티)
+      - [font-family 프로퍼티](#font-family-프로퍼티)
+      - [웹폰트 사용법](#웹폰트-사용법)
+      - [font-style 프로퍼티](#font-style-프로퍼티)
+      - [font-weight 프로퍼티](#font-weight-프로퍼티)
+      - [font-variant 프로퍼티](#font-variant-프로퍼티)
+      - [line-height 프로퍼티](#line-height-프로퍼티)
+      - [font 단축 프로퍼티](#font-단축-프로퍼티)
+      - [letter-spacing, word-spacing 프로퍼티](#letter-spacing-word-spacing-프로퍼티)
+      - [text-align 프로퍼티](#text-align-프로퍼티)
+      - [text-decoration 프로퍼티](#text-decoration-프로퍼티)
+      - [white-space 프로퍼티](#white-space-프로퍼티)
+      - [text-overflow 프로퍼티](#text-overflow-프로퍼티)
     
 ---
 
@@ -1209,7 +1222,128 @@ body {
 > - 📕PDF
 >    - [x] [08_css_font.pdf](https://drive.google.com/file/d/1eORR0mLuzT7X6ZKkRXOXpjV8TjLkD66g/view?usp=sharing "08_css_font.pdf")
 > - 🧪실습파일
-<!-- >   - [x] [css_block_inline](https://codesandbox.io/p/sandbox/cssblock-7w97o "Go to url") -->
+>   - [x] [css_font](https://codesandbox.io/p/sandbox/cssfont-1bi3m "Go to url")
+
+
+#### font-size 프로퍼티
+- 문자 크기 설정
+- 주요값
+    - medium : 웹브라우저에서 정한 기본 글자 크기(디폴트)
+    - xx-small, x-small, small, large, x-large, xx-large : 상대적인 크기
+    - smaller, larger : 부모 요소의그자 크기에 대한 상대적인 크기
+    - length : px, em, <u>**rem**</u>, % 등으로 절대적인 크기
+
+#### font-family 프로퍼티
+- 문자 폰트 설정
+> 일반적으로 font-family에 여러 폰트를 설정하는 경우가 많음
+```
+font-family: "first-font", "second-font", "third-font";
+```
+- 디폴트로 설정한 폰트가 없을 경우, 다음 폰트를 사용함
+- 일반적으로 세 가지 정도 폰트를 설정하고, 마지막 폰트는 어느 PC에나 있을법한 generic-family 을 설정함
+- generic-family 종류
+    - serif : 세리프 계열 폰트(예: Times New Roman)
+    - sans-serif : 산세리프 계열 폰트(예: Arial)
+    - monospace : 고정폭 폰트(예: Courier New)
+    - cursive : 필기체 계열 폰트(예: Comic Sans MS)
+    - fantasy : 장식체 계열 폰트(예: Papyrus)
+
+#### 웹폰트 사용법
+- 사용자 PC에 설치된 폰트가 아닌 웹에서 제공하는 폰트를 사용하고 싶을 때 사용
+- 구글 웹폰트 사용법
+    1. [구글 웹폰트](https://fonts.google.com/)에 접속하여 원하는 폰트를 선택
+    2. 선택한 폰트의 링크를 HTML 문서의 `<head>` 태그 안에 추가
+    3. CSS에서 `font-family` 속성을 사용하여 선택한 폰트를 적용
+
+```html
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
+  </head>
+```
+
+#### font-style 프로퍼티
+- 글자 스타일 설정
+    - normal : 일반 글자(디폴트)
+    - italic : 기울임꼴
+    - oblique : 비스듬한 글자
+
+#### font-weight 프로퍼티
+- 글자 두께 설정
+    - number : 100, 200, 300, **400**, 500, 600, **700**, 800, 900(폰트에서 지원해야 미세조정 가능)
+    - normal : 400과 동일
+    - bold : 700과 동일
+    - bolder : 부모 요소보다 두꺼운 글자
+    - lighter : 부모 요소보다 얇은 글자
+
+#### font-variant 프로퍼티
+- **소문자 크기의 대문자로 바꾸는 설정**
+    - normal : 일반 글자(디폴트)
+    - small-caps : 소문자를 소문자 크기의 대문자로 바꿈
+
+#### line-height 프로퍼티
+- 라인 높이 설정 
+    - normal : 일반 높이(디폴트)
+    - length : px, em, % 등으로 절대적인 높이
+    - number : 1.5, 2 등으로 상대적인 높이(디폴트 글자 크기의 배수)
+
+#### font 단축 프로퍼티 
+```css
+font: font-style(옵션) font-variant(옵션) font-weight(옵션) font-size(필수) line-height(옵션) font-family(필수);
+```
+
+#### letter-spacing, word-spacing 프로퍼티
+- 글자 사이 간격은 letter-spacing, 단어 사이 간격은 word-spacing으로 설정 가능
+- 보통 px 단위로 설정함
+
+#### text-align 프로퍼티
+- 텍스트 정렬 설정
+    - left : 왼쪽 정렬(디폴트)
+    - right : 오른쪽 정렬
+    - center : 중앙 정렬
+    - justify : 양쪽 정렬
+
+#### text-decoration 프로퍼티
+- 텍스트 장식 설정
+    - none : 장식 없음(디폴트)
+    - underline : 밑줄
+    - overline : 윗줄
+    - line-through : 취소선
+
+#### white-space 프로퍼티
+- 공백 처리 설정
+
+    | 프로퍼티 값 | 스페이스와 탭 | 줄바꿈 | 자동 줄바꿈 |
+    | :---------- | :-----------: | :----: | :---------: |
+    | normal      |     병합      |  병합  |      O      |
+    | nowrap      |     병합      |  병합  |      X      |
+    | pre         |     보존      |  보존  |      X      |
+    | pre-wrap    |     보존      |  보존  |      O      |
+    | pre-line    |     병합      |  보존  |      O      |
+
+#### text-overflow 프로퍼티
+- 텍스트가 요소의 크기를 초과할 경우 처리 방법 설정
+    - 다음 조건이 설정되어야 함
+        1. width 프로퍼티 설정
+        2. white-space: nowrap 설정
+        3. overflow 프로퍼티가 visible 이외의 값 설정
+
+    - **text-overflow** 프로퍼티 값
+        - clip : 잘림(디폴트)
+        - ellipsis : ...으로 표시
+        - <del><span style='color: red;'>string : 지정한 문자열로 표시</span></del> *호환성이 떨어지므로 사용하지 않음*
+
+
+
+
 
 
 
