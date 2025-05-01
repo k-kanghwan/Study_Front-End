@@ -124,15 +124,21 @@
       - [text-decoration 프로퍼티](#text-decoration-프로퍼티)
       - [white-space 프로퍼티](#white-space-프로퍼티)
       - [text-overflow 프로퍼티](#text-overflow-프로퍼티)
+  - [Section5. 모던 웹의 핵심 상세한 CSS 배치와 애니메이션](#section5-모던-웹의-핵심-상세한-css-배치와-애니메이션)
+    - [CSS position 이해](#css-position-이해)
+    - [z-index, overflow 프로퍼티](#z-index-overflow-프로퍼티)
+      - [z-index 프로퍼티에 큰 숫자값을 지정할수록 화면 전면에 출력](#z-index-프로퍼티에-큰-숫자값을-지정할수록-화면-전면에-출력)
+      - [overflow 프로퍼티는 자식 요소가 부모 요소 영역을 벗어났을 때의 처리 방법을 정의](#overflow-프로퍼티는-자식-요소가-부모-요소-영역을-벗어났을-때의-처리-방법을-정의)
     
 ---
+
 
 ## Section1. 강의 준비
 ### 설치
 > - 📕PDF
 >     - [x] [00_Preparation.pdf](https://drive.google.com/file/d/1TJ0KkEzyqJiwDax4bvAxFS34ar49OVJQ/view?usp=drive_link "00_Preparation.pdf")
 
---- 
+<hr>
 
 ## Section2. 모던 웹 기본 기술 이해
 
@@ -409,6 +415,8 @@
     - 손실/비손실 압축 방식 모두 지원
         
         
+<hr>
+
 ## Section3. 모던 웹의 핵심 상세한 CSS 기본
 ### CSS 기본 정리
 > - 📕PDF
@@ -925,6 +933,8 @@ h1::before {
 }
 ```
 
+<hr>
+
 ## Section4. 모던 웹의 핵심 상세한 CSS 기본 프로퍼티
 > - 📕PDF
 >     - [x] [05_css_boxmodel.pdf](https://drive.google.com/file/d/12Wd_nHCZSUmrKYSCpwzgfHjlhYUHYH4x/view?usp=drive_link "05_css_boxmodel.pdf")
@@ -1342,8 +1352,63 @@ font: font-style(옵션) font-variant(옵션) font-weight(옵션) font-size(필�
         - <del><span style='color: red;'>string : 지정한 문자열로 표시</span></del> *호환성이 떨어지므로 사용하지 않음*
 
 
+<hr>
+
+## Section5. 모던 웹의 핵심 상세한 CSS 배치와 애니메이션
+### CSS position 이해
+> - 📕PDF
+>    - [x] [09_css_position.pdf](https://drive.google.com/file/d/15KnKkC8gRvsHkHov99uZ6mjx0QPkEqdN/view?usp=drive_link "09_css_position.pdf")
+> - 🧪실습파일
+>   - [x] [css_position](https://codesandbox.io/p/sandbox/cssposition-j3y46 "Go to url")
 
 
+1. 정적 위치 (Static Position)
+    - 디폴트로 모든 요소는 `static` 위치를 가짐
+    - `top`, `right`, `bottom`, `left` 프로퍼티는 적용되지 않음
+    - 요소는 문서 흐름에 따라 배치됨
+
+2. 상대 위치 (Relative Position)
+    - `position: relative` 설정
+    - 요소는 문서 흐름에 따라 배치되지만, `top`, `right`, `bottom`, `left` 프로퍼티를 사용하여 **원래 위치를 기준으로** 이동할 수 있음
+    - 이동해도 **원래 자리의 공간은 유지됨**
+
+3. 절대 위치 (Absolute Position)
+    - `position: absolute` 설정
+    - 요소는 문서 흐름에서 제거됨
+    - **가장 가까운 `position`이 `relative`, `absolute`, `fixed`, `sticky`인 부모 요소**를 기준으로 `top`, `right`, `bottom`, `left` 값을 사용해 위치를 조정함
+    - 만약 그런 부모 요소가 없으면, 문서 전체 (`<html>` 요소)를 기준으로 배치됨
+        
+4. 고정 위치 (Fixed Position)
+    - `position: fixed` 설정
+    - 요소는 문서 흐름에서 제거됨
+    - **뷰포트(브라우저 창)를 기준**으로 `top`, `right`, `bottom`, `left` 값을 사용해 위치를 조정함
+    - 스크롤 시에도 고정된 위치에 **남아 있음**
+
+    <span style="text-align: left;">
+        <img width="" height="" src="MD_image/css-position-code.png">
+    </span><span style="text-align: right;">
+        <img width="50%" height="" src="MD_image/css-position.png">
+    </span>
+
+### z-index, overflow 프로퍼티
+> - 📕PDF
+>    - [x] [09_css_position.pdf](https://drive.google.com/file/d/15KnKkC8gRvsHkHov99uZ6mjx0QPkEqdN/view?usp=drive_link "09_css_position.pdf")
+
+#### z-index 프로퍼티에 큰 숫자값을 지정할수록 화면 전면에 출력
+> - 🧪실습파일
+>   - [x] [css_position](https://codesandbox.io/p/sandbox/cssposition-j3y46 "Go to url") index2.html
+- position 프로퍼티가 `absolute`, `relative`, `fixed`인 요소에만 적용됨
+
+#### overflow 프로퍼티는 자식 요소가 부모 요소 영역을 벗어났을 때의 처리 방법을 정의
+> - 🧪실습파일
+>   - [x] [css_position](https://codesandbox.io/p/sandbox/cssposition-j3y46 "Go to url") index3.html
+
+|    속성    | 설명                                                                  |
+| :--------: | --------------------------------------------------------------------- |
+|  visible   | 자식 요소가 부모 요소 영역을 벗어나도 보임(디폴트)                    |
+| **hidden** | 자식 요소가 부모 요소 영역을 벗어나면 보이지 않음                     |
+|   scroll   | 자식 요소가 부모 요소 영역을 벗어나면 스크롤바가 생김                 |
+|  **auto**  | 자식 요소가 부모 요소 영역을 벗어나면 스크롤바가 생기거나 보이지 않음 |
 
 
 
