@@ -104,6 +104,13 @@
       - [background-position 프로퍼티](#background-position-프로퍼티)
       - [background-color 프로퍼티](#background-color-프로퍼티)
       - [background 단축 프로퍼티](#background-단축-프로퍼티)
+    - [CSS block과 inline 이해](#css-block과-inline-이해)
+      - [block 특성](#block-특성)
+      - [inline 특성](#inline-특성)
+      - [CSS display 프로퍼티](#css-display-프로퍼티)
+      - [CSS visibility 프로퍼티](#css-visibility-프로퍼티)
+      - [inline-block 특성](#inline-block-특성)
+    - [CSS font 이해](#css-font-이해)
     
 ---
 
@@ -1127,6 +1134,83 @@ body {
     background: lightblue url("https://www...") no-repeat fixed center;
 }
 ```
+
+### CSS block과 inline 이해
+> - 📕PDF
+>    - [x] [07_css_block_inline.pdf](https://drive.google.com/file/d/1_8_lstI2U00oyGipuU2WYge4gSFbGSI8/view?usp=sharing "07_css_block_inline.pdf")
+> - 🧪실습파일
+>   - [x] [css_block_inline](https://codesandbox.io/p/sandbox/cssblock-7w97o "Go to url")
+
+#### block 특성
+- block 특성을 가지는 요소는 다음과 같은 특성을 가짐
+    - 항상 **새로운 줄에서 시작**
+    - width, height, margin, padding 를 지정할 수 있음
+    - block 요소 안에 **inline 요소를 포함할 수 있음**
+    - 디폴트로 block 특성을 가지는 주요 html 태그
+        - `div`
+        - `h1 ~ h6`
+        - `p`, `ul`, `ol`, `li`
+        - `hr`, `table`, `form` 등
+
+#### inline 특성
+- inline 특성을 가지는 요소는 다음과 같은 특성을 가짐
+    - 새로운 줄에서 시작하지 않음
+    - content 영역의 크기만큼만 차지함
+    - width, height, margin, padding을 **지정할 수 없음**
+        - 상, 하 여백은 **line-height**로 조정 가능
+    - inline 요소 안에 **block 요소를 포함할 수 없음**
+    - 디폴트로 inline 특성을 가지는 주요 html 태그
+        - `span`, `a`, `img`, `strong`, `em`, `br`, `input` 등
+
+#### CSS display 프로퍼티
+- 모든 html 태그는 디폴트로 block 또는 inline 특성을 가지지만, display **프로퍼티를 사용하여 특성을 변경할 수 있음**
+
+    | 디폴트 display 속성 | 설명                                                       |
+    | :-----------------: | ---------------------------------------------------------- |
+    |   block / inline    | 디폴트로 block 또는 inline 특성을 가짐                     |
+    |    inline-block     | block과 inline 특성을 모두 가짐(가로, 세로 크기 지정 가능) |
+    |        none         | 요소를 화면에 표시하지 않음(공간도 차지하지 않음)          |
+
+```html
+<style>
+    div {
+        display: block; /* 디폴트 */
+    }
+    span {
+        display: inline; /* 디폴트 */
+    }
+    img {
+        display: inline-block; /* block과 inline 특성을 모두 가짐 */
+    }
+    p {
+        display: none; /* 요소를 화면에 표시하지 않음 */
+    }
+</style>
+<div>
+    <p>이 문장은 보이지 않습니다.</p>
+    <span>이 문장은 보입니다.</span>
+    <img src="https://www.w3schools.com/w3images/fjords.jpg" alt="fjords" />
+    <span>이 문장도 보입니다.</span>
+</div>
+```
+
+#### CSS visibility 프로퍼티
+- display 프로퍼티와 비슷하지만, 요소를 화면에 표시하지 않더라도 공간을 차지함
+    - **visible**: 요소를 화면에 표시함(기본값)
+    - hidden: 요소를 화면에 표시하지 않음(공간 차지함)
+    - collapse: 테이블에서만 사용 가능, 테이블 행 또는 열을 숨김
+
+#### inline-block 특성
+- inline-block 특성을 가지는 요소는 다음과 같은 특성을 가짐
+    - block과 inline 특성을 모두 가짐
+    - width, height, margin, padding을 지정할 수 있음
+
+### CSS font 이해
+> - 📕PDF
+>    - [x] [08_css_font.pdf](https://drive.google.com/file/d/1eORR0mLuzT7X6ZKkRXOXpjV8TjLkD66g/view?usp=sharing "08_css_font.pdf")
+> - 🧪실습파일
+<!-- >   - [x] [css_block_inline](https://codesandbox.io/p/sandbox/cssblock-7w97o "Go to url") -->
+
 
 
 [🔝 돌아가기](#table-of-contents)
