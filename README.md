@@ -33,6 +33,7 @@
 - [liveweave - css 연습 사이트](https://liveweave.com/# "liveweave - css 연습 사이트")
 - [Border styles](https://developer.mozilla.org/ko/docs/Web/CSS/border-style "Border styles")
 - [Border radius](https://developer.mozilla.org/ko/docs/Web/CSS/border-radius "Border radius")
+- [Background size](https://cssreference.io/property/background-size/ "Background size")
 
 
 ## Table of Contents
@@ -96,6 +97,13 @@
         - [4. border](#4-border)
         - [5. box-sizing](#5-box-sizing)
     - [CSS background 이해](#css-background-이해)
+      - [background-image 프로퍼티](#background-image-프로퍼티)
+      - [background-repeat 프로퍼티](#background-repeat-프로퍼티)
+      - [background-size 프로퍼티](#background-size-프로퍼티)
+      - [background-attachment 프로퍼티](#background-attachment-프로퍼티)
+      - [background-position 프로퍼티](#background-position-프로퍼티)
+      - [background-color 프로퍼티](#background-color-프로퍼티)
+      - [background 단축 프로퍼티](#background-단축-프로퍼티)
     
 ---
 
@@ -547,7 +555,7 @@
     - 예) #FF0000(빨강), #00FF00(초록), #0000FF(파랑)
 
         <p style="text-align: ;">
-            <img width="400" heigGht="" src="MD_image/color_hex.png">
+            <img width="400" height="" src="MD_image/color_hex.png">
         </p>
 
 3. RGB로 표기하는 방법
@@ -1033,6 +1041,92 @@ margin-right: auto;
     ```
 
 ### CSS background 이해
+> - 📕PDF
+>     - [x] [06_css_background.pdf](https://drive.google.com/file/d/10Iu1LKasuq46dvU7QBiPHNbUlTUFL_Qw/view?usp=sharing "06_css_background.pdf")
+> - 🧪실습파일
+>    - [x] [css_background](https://codesandbox.io/p/sandbox/cssbackgroundimage-v45e6?file=%2Fsrc%2Findex.js%3A1%2C1-2%2C1 "Go to url")
+
+#### background-image 프로퍼티
+```html
+<style>
+    body {
+        background-image: url("https://www.w3schools.com/w3images/fjords.jpg");
+        height: 200px;
+        color: blue;
+    }
+</style>
+```
+
+#### background-repeat 프로퍼티
+|   속성    | 설명                                                                 |
+| :-------: | -------------------------------------------------------------------- |
+|  repeat   | 배경 이미지를 반복하여 채움(기본값)                                  |
+| **space** | 배경 이미지를 반복하여 채우되, 이미지 사이에 여백을 둠               |
+|   round   | 배경 이미지를 반복하여 채우되, 이미지 크기를 조정하여 여백 없이 채움 |
+| no-repeat | 배경 이미지를 반복하지 않음(한 번만 표시)                            |
+
+```html
+<style>
+    body {
+        background-image: url("https://www.w3schools.com/w3images/fjords.jpg");
+        background-repeat: no-repeat;
+        height: 200px;
+        color: blue;
+    }
+</style>
+```
+
+> 복수의 배경 이미지 설정 가능
+>   - 먼저 설정한 배경 이미지가 위에 표시됨
+```html
+<style>
+    body {
+        background-image: url("https://www.w3schools.com/w3images/fjords.jpg"),
+            url("https://www.w3schools.com/w3images/lights.jpg");
+        background-repeat: no-repeat, no-repeat;
+        height: 200px;
+        color: blue;
+    }
+</style>
+```
+
+#### background-size 프로퍼티
+[참고 사이트 https://cssreference.io/property/background-size/](https://cssreference.io/property/background-size/ "Go to url")
+|  속성   | 설명                                                               |
+| :-----: | ------------------------------------------------------------------ |
+|  auto   | 배경 이미지의 원래 크기를 유지함(기본값)                           |
+| length  | 배경 이미지의 크기를 지정된 길이로 조정함                          |
+|  cover  | 배경 이미지가 요소를 완전히 덮도록 크기를 조정함(비율 유지)        |
+| contain | 배경 이미지가 요소 안에 완전히 들어가도록 크기를 조정함(비율 유지) |
+
+#### background-attachment 프로퍼티
+- 배경 이미지의 스크롤 동작을 설정
+
+|  속성  | 설명                                                             |
+| :----: | ---------------------------------------------------------------- |
+| scroll | 배경 이미지를 스크롤에 따라 움직임(기본값)                       |
+| fixed  | 배경 이미지를 고정하여 스크롤 시에도 배경 이미지가 움직이지 않음 |
+
+#### background-position 프로퍼티
+- 배경 이미지의 위치를 설정
+> left top : 왼쪽 위, center center : 중앙, right bottom : 오른쪽 아래, ... 등으로 설정
+
+#### background-color 프로퍼티
+- CSS 색상 단위로 설정 가능
+> 예) red, #ff0000, rgb(255, 0, 0), rgba(255, 0, 0, 1.0) 등으로 설정 가능
+
+#### background 단축 프로퍼티 
+- 다음 순서대로 다양한 배경 속성을 설정 가능
+```css  
+background: color image repeat attachment position;
+```
+
+- 예시
+```css  
+body {
+    background: lightblue url("https://www...") no-repeat fixed center;
+}
+```
 
 
 [🔝 돌아가기](#table-of-contents)
