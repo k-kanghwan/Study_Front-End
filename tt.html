@@ -3,38 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <style>
-      .box1 {
-        position: absolute;
+      div {
+        display: inline-block;
         width: 100px;
         height: 100px;
         border: 2px solid #f2b441;
-        background: #f2d541;
         border-radius: 10px;
-        animation-name: ball, fadeout;
-        animation-duration: 5s;
-        animation-iteration-count: infinite;
       }
-      @keyframes ball {
-        0% {
-          /* keyframe */
-          top: 0;
-        }
-        100% {
-          /* keyframe */
-          top: 300px;
-        }
+      .box1 {
+        background: #f2d541;
+        position: relative;
+        /* top: 10px;
+        left: 10px; */
       }
-      @keyframes fadeout {
-        from {
-          opacity: 1;
-        }
-        to {
-          opacity: 0;
-        }
+      .box2 {
+        background: #5fb6d9;
+        position: relative;
+        /* top: 10px;
+        left: 120px; */
+      }
+      .box3 {
+        background: #d90404;
+        position: relative;
+        /* top: 10px;
+        left: 240px; */
+      }
+      .box4 {
+        position: relative;
+        /* top: 10px;
+        left: 360px; */
+
+        background: #3b9cd9;
       }
     </style>
   </head>
   <body>
-    <div class="box1">ball1</div>
+    <div class="box1" style="overflow: visible">
+      잔재미코딩이 가장 고퀄이고, 만족도도 높았으면 좋겠다. 모두를 만족시키기
+      보다 정말 많은 분들에게 효과가 있었으면
+    </div>
+    <div class="box2" style="overflow: hidden">
+      잔재미코딩이 가장 고퀄이고, 만족도도 높았으면 좋겠다. 모두를 만족시키기
+      보다 정말 많은 분들에게 효과가 있었으면
+    </div>
+    <div class="box3" style="overflow: scroll">
+      잔재미코딩이 가장 고퀄이고, 만족도도 높았으면 좋겠다. 모두를 만족시키기
+      보다 정말 많은 분들에게 효과가 있었으면
+    </div>
+    <div class="box4" style="overflow: auto">
+      잔재미코딩이 가장 고퀄이고, 만족도도 높았으면
+    </div>
   </body>
 </html>

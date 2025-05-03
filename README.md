@@ -134,14 +134,17 @@
       - [overflow 프로퍼티](#overflow-프로퍼티)
     - [CSS transition 이해](#css-transition-이해)
       - [정의](#정의)
+      - [주요 CSS transition 프로퍼티](#주요-css-transition-프로퍼티)
       - [활용 예](#활용-예)
       - [transition-timing-function](#transition-timing-function)
+        - [주요 transition-timing-function 프로퍼티 값](#주요-transition-timing-function-프로퍼티-값)
       - [transition-delay](#transition-delay)
       - [transition 단축 프로퍼티](#transition-단축-프로퍼티)
     - [CSS animation 이해](#css-animation-이해)
       - [정의](#정의-1)
-      - [keyframes 문법](#keyframes-문법)
       - [주요 CSS animation 프로퍼티](#주요-css-animation-프로퍼티)
+      - [keyframes 문법](#keyframes-문법)
+      - [주요 CSS animation 프로퍼티](#주요-css-animation-프로퍼티-1)
       - [animation-duration, animation-delay](#animation-duration-animation-delay)
       - [animation-iteration-count](#animation-iteration-count)
       - [animation-direction](#animation-direction)
@@ -1429,8 +1432,17 @@ font: font-style(옵션) font-variant(옵션) font-weight(옵션) font-size(필�
 - CSS 프로퍼티 값 변경 시, 값 변화가 일정 시간에 걸쳐 일어나도록 해서, 일종의 애니메이션 효과를 주는 기능
 - **호환성** : ie 10.0+, chrome 26.0+, firefox 16.0+, safari 6.1+, opera 12.1+ 
 
+#### 주요 CSS transition 프로퍼티
+|          프로퍼티          | 설명                                                                      |
+| :------------------------: | ------------------------------------------------------------------------- |
+|    transition-property     | 트랜지션 대상이 되는 CSS 프로퍼티 지정(디폴트:all)                        |
+|    transition-duration     | 트랜지션이 일어나는 일정 시간을 초(s) 또는 밀리 초(ms)로 지정(디폴트: 0s) |
+| transition-timing-function | 특별한 함수를 통해 시간별 트랜지션 속도 지정(디폴트: ease)                |
+|      transition-delay      | 언제 트랜지션을 시작할지를 초(s) 또는 밀리 초(ms)로 지정(디폴트: 0s)      |
+|         transition         | ㄷ모든 트랜지션 프로퍼티를 한번에 지정하는 단축 프로퍼티                  |
+
 #### 활용 예
-```html
+```css
 div {
     transition-property: opacity, width; /* 애니메이션 적용할 프로퍼티 */
     transition-duration: 2s; /* 애니메이션 지속 시간 */
@@ -1442,6 +1454,7 @@ div {
 > - 🧪실습파일
 >   - [x] [css_transition](https://codesandbox.io/p/sandbox/csstransition-2j8gq "Go to url")
 
+##### 주요 transition-timing-function 프로퍼티 값
 - default : ease
 - ease : 처음과 끝은 느리고 중간은 빠름
 - linear : 처음부터 끝까지 일정한 속도로 진행
@@ -1475,6 +1488,9 @@ transition: property duration timing-function delay;
 #### 정의
 - transition은 변경되어야할 스타일만 지정, animation은 중간에 변경되는 스타일을 세밀하게 지정 가능
 - 애니메이션은 애니메이션을 나타내는 CSS 스타일과 중간 상태를 나타내는 키프레임(**@keyframes**)으로 구성됨
+
+#### 주요 CSS animation 프로퍼티
+> pdf 참고 : [11_css_animation.pdf](https://drive.google.com/file/d/1Y5BeB7o0g9L4KCkxYzZQiBalYm2_Y730/view?usp=drive_link "11_css_animation.pdf")
 
 #### keyframes 문법
 - from 또는 0%에 설정한 스타일에서 시작 
