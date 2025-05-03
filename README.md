@@ -126,9 +126,28 @@
       - [text-overflow 프로퍼티](#text-overflow-프로퍼티)
   - [Section5. 모던 웹의 핵심 상세한 CSS 배치와 애니메이션](#section5-모던-웹의-핵심-상세한-css-배치와-애니메이션)
     - [CSS position 이해](#css-position-이해)
-    - [z-index, overflow 프로퍼티](#z-index-overflow-프로퍼티)
-      - [z-index 프로퍼티에 큰 숫자값을 지정할수록 화면 전면에 출력](#z-index-프로퍼티에-큰-숫자값을-지정할수록-화면-전면에-출력)
-      - [overflow 프로퍼티는 자식 요소가 부모 요소 영역을 벗어났을 때의 처리 방법을 정의](#overflow-프로퍼티는-자식-요소가-부모-요소-영역을-벗어났을-때의-처리-방법을-정의)
+      - [정적 위치 (Static Position)](#정적-위치-static-position)
+      - [상대 위치 (Relative Position)](#상대-위치-relative-position)
+      - [절대 위치 (Absolute Position)](#절대-위치-absolute-position)
+      - [고정 위치 (Fixed Position)](#고정-위치-fixed-position)
+      - [z-index, overflow 프로퍼티](#z-index-overflow-프로퍼티)
+      - [overflow 프로퍼티](#overflow-프로퍼티)
+    - [CSS transition 이해](#css-transition-이해)
+      - [정의](#정의)
+      - [활용 예](#활용-예)
+      - [transition-timing-function](#transition-timing-function)
+      - [transition-delay](#transition-delay)
+      - [transition 단축 프로퍼티](#transition-단축-프로퍼티)
+    - [CSS animation 이해](#css-animation-이해)
+      - [정의](#정의-1)
+      - [keyframes 문법](#keyframes-문법)
+      - [주요 CSS animation 프로퍼티](#주요-css-animation-프로퍼티)
+      - [animation-duration, animation-delay](#animation-duration-animation-delay)
+      - [animation-iteration-count](#animation-iteration-count)
+      - [animation-direction](#animation-direction)
+      - [animation-fill-mode](#animation-fill-mode)
+      - [animation-play-state](#animation-play-state)
+      - [animation 단축 프로퍼티](#animation-단축-프로퍼티)
     
 ---
 
@@ -1077,14 +1096,12 @@ margin-right: auto;
 >    - [x] [css_background](https://codesandbox.io/p/sandbox/cssbackgroundimage-v45e6?file=%2Fsrc%2Findex.js%3A1%2C1-2%2C1 "Go to url")
 
 #### background-image 프로퍼티
-```html
-<style>
-    body {
-        background-image: url("https://www.w3schools.com/w3images/fjords.jpg");
-        height: 200px;
-        color: blue;
-    }
-</style>
+```css
+body {
+    background-image: url("https://www.w3schools.com/w3images/fjords.jpg");
+    height: 200px;
+    color: blue;
+}
 ```
 
 #### background-repeat 프로퍼티
@@ -1095,29 +1112,25 @@ margin-right: auto;
 |   round   | 배경 이미지를 반복하여 채우되, 이미지 크기를 조정하여 여백 없이 채움 |
 | no-repeat | 배경 이미지를 반복하지 않음(한 번만 표시)                            |
 
-```html
-<style>
-    body {
-        background-image: url("https://www.w3schools.com/w3images/fjords.jpg");
-        background-repeat: no-repeat;
-        height: 200px;
-        color: blue;
-    }
-</style>
+```css
+body {
+    background-image: url("https://www.w3schools.com/w3images/fjords.jpg");
+    background-repeat: no-repeat;
+    height: 200px;
+    color: blue;
+}
 ```
 
 > 복수의 배경 이미지 설정 가능
 >   - 먼저 설정한 배경 이미지가 위에 표시됨
-```html
-<style>
-    body {
-        background-image: url("https://www.w3schools.com/w3images/fjords.jpg"),
-            url("https://www.w3schools.com/w3images/lights.jpg");
-        background-repeat: no-repeat, no-repeat;
-        height: 200px;
-        color: blue;
-    }
-</style>
+```css
+body {
+    background-image: url("https://www.w3schools.com/w3images/fjords.jpg"),
+        url("https://www.w3schools.com/w3images/lights.jpg");
+    background-repeat: no-repeat, no-repeat;
+    height: 200px;
+    color: blue;
+}
 ```
 
 #### background-size 프로퍼티
@@ -1152,7 +1165,7 @@ background: color image repeat attachment position;
 ```
 
 - 예시
-```css  
+```css
 body {
     background: lightblue url("https://www...") no-repeat fixed center;
 }
@@ -1246,7 +1259,7 @@ body {
 #### font-family 프로퍼티
 - 문자 폰트 설정
 > 일반적으로 font-family에 여러 폰트를 설정하는 경우가 많음
-```
+```css
 font-family: "first-font", "second-font", "third-font";
 ```
 - 디폴트로 설정한 폰트가 없을 경우, 다음 폰트를 사용함
@@ -1362,53 +1375,171 @@ font: font-style(옵션) font-variant(옵션) font-weight(옵션) font-size(필�
 >   - [x] [css_position](https://codesandbox.io/p/sandbox/cssposition-j3y46 "Go to url")
 
 
-1. 정적 위치 (Static Position)
-    - 디폴트로 모든 요소는 `static` 위치를 가짐
-    - `top`, `right`, `bottom`, `left` 프로퍼티는 적용되지 않음
-    - 요소는 문서 흐름에 따라 배치됨
+#### 정적 위치 (Static Position)
+- 디폴트로 모든 요소는 `static` 위치를 가짐
+- `top`, `right`, `bottom`, `left` 프로퍼티는 적용되지 않음
+- 요소는 문서 흐름에 따라 배치됨
 
-2. 상대 위치 (Relative Position)
-    - `position: relative` 설정
-    - 요소는 문서 흐름에 따라 배치되지만, `top`, `right`, `bottom`, `left` 프로퍼티를 사용하여 **원래 위치를 기준으로** 이동할 수 있음
-    - 이동해도 **원래 자리의 공간은 유지됨**
+#### 상대 위치 (Relative Position)
+- `position: relative` 설정
+- 요소는 문서 흐름에 따라 배치되지만, `top`, `right`, `bottom`, `left` 프로퍼티를 사용하여 **원래 위치를 기준으로** 이동할 수 있음
+- 이동해도 **원래 자리의 공간은 유지됨**
 
-3. 절대 위치 (Absolute Position)
-    - `position: absolute` 설정
-    - 요소는 문서 흐름에서 제거됨
-    - **가장 가까운 `position`이 `relative`, `absolute`, `fixed`, `sticky`인 부모 요소**를 기준으로 `top`, `right`, `bottom`, `left` 값을 사용해 위치를 조정함
-    - 만약 그런 부모 요소가 없으면, 문서 전체 (`<html>` 요소)를 기준으로 배치됨
-        
-4. 고정 위치 (Fixed Position)
-    - `position: fixed` 설정
-    - 요소는 문서 흐름에서 제거됨
-    - **뷰포트(브라우저 창)를 기준**으로 `top`, `right`, `bottom`, `left` 값을 사용해 위치를 조정함
-    - 스크롤 시에도 고정된 위치에 **남아 있음**
+#### 절대 위치 (Absolute Position)
+- `position: absolute` 설정
+- 요소는 문서 흐름에서 제거됨
+- **가장 가까운 `position`이 `relative`, `absolute`, `fixed`, `sticky`인 부모 요소**를 기준으로 `top`, `right`, `bottom`, `left` 값을 사용해 위치를 조정함
+- 만약 그런 부모 요소가 없으면, 문서 전체 (`<html>` 요소)를 기준으로 배치됨
 
-    <span style="text-align: left;">
-        <img width="" height="" src="MD_image/css-position-code.png">
-    </span><span style="text-align: right;">
-        <img width="50%" height="" src="MD_image/css-position.png">
-    </span>
+#### 고정 위치 (Fixed Position)
+- `position: fixed` 설정
+- 요소는 문서 흐름에서 제거됨
+- **뷰포트(브라우저 창)를 기준**으로 `top`, `right`, `bottom`, `left` 값을 사용해 위치를 조정함
+- 스크롤 시에도 고정된 위치에 **남아 있음**
 
-### z-index, overflow 프로퍼티
-> - 📕PDF
->    - [x] [09_css_position.pdf](https://drive.google.com/file/d/15KnKkC8gRvsHkHov99uZ6mjx0QPkEqdN/view?usp=drive_link "09_css_position.pdf")
+<span style="text-align: left;">
+    <img width="" height="" src="MD_image/css-position-code.png">
+</span><span style="text-align: right;">
+    <img width="50%" height="" src="MD_image/css-position.png">
+</span>
 
-#### z-index 프로퍼티에 큰 숫자값을 지정할수록 화면 전면에 출력
+#### z-index, overflow 프로퍼티
 > - 🧪실습파일
 >   - [x] [css_position](https://codesandbox.io/p/sandbox/cssposition-j3y46 "Go to url") index2.html
-- position 프로퍼티가 `absolute`, `relative`, `fixed`인 요소에만 적용됨
+-  z-index 프로퍼티에 큰 숫자값을 지정할수록 화면 전면에 출력
+    - position 프로퍼티가 `absolute`, `relative`, `fixed`인 요소에만 적용됨
 
-#### overflow 프로퍼티는 자식 요소가 부모 요소 영역을 벗어났을 때의 처리 방법을 정의
+#### overflow 프로퍼티
 > - 🧪실습파일
 >   - [x] [css_position](https://codesandbox.io/p/sandbox/cssposition-j3y46 "Go to url") index3.html
+- 요소의 내용이 부모 요소의 크기를 초과할 경우 처리 방법 설정
 
-|    속성    | 설명                                                                  |
-| :--------: | --------------------------------------------------------------------- |
-|  visible   | 자식 요소가 부모 요소 영역을 벗어나도 보임(디폴트)                    |
-| **hidden** | 자식 요소가 부모 요소 영역을 벗어나면 보이지 않음                     |
-|   scroll   | 자식 요소가 부모 요소 영역을 벗어나면 스크롤바가 생김                 |
-|  **auto**  | 자식 요소가 부모 요소 영역을 벗어나면 스크롤바가 생기거나 보이지 않음 |
+    |    속성    | 설명                                                                  |
+    | :--------: | --------------------------------------------------------------------- |
+    |  visible   | 자식 요소가 부모 요소 영역을 벗어나도 보임(디폴트)                    |
+    | **hidden** | 자식 요소가 부모 요소 영역을 벗어나면 보이지 않음                     |
+    |   scroll   | 자식 요소가 부모 요소 영역을 벗어나면 스크롤바가 생김                 |
+    |  **auto**  | 자식 요소가 부모 요소 영역을 벗어나면 스크롤바가 생기거나 보이지 않음 |
+
+### CSS transition 이해
+> - 📕PDF
+>    - [x] [10_css_transition.pdf](https://drive.google.com/file/d/1yAkwhuHgn9XNE9Ybb8teDPgYm5tttTcD/view?usp=drive_link "10_css_transition.pdf")
+
+#### 정의
+- CSS 프로퍼티 값 변경 시, 값 변화가 일정 시간에 걸쳐 일어나도록 해서, 일종의 애니메이션 효과를 주는 기능
+- **호환성** : ie 10.0+, chrome 26.0+, firefox 16.0+, safari 6.1+, opera 12.1+ 
+
+#### 활용 예
+```html
+div {
+    transition-property: opacity, width; /* 애니메이션 적용할 프로퍼티 */
+    transition-duration: 2s; /* 애니메이션 지속 시간 */
+
+}
+```
+
+#### transition-timing-function
+> - 🧪실습파일
+>   - [x] [css_transition](https://codesandbox.io/p/sandbox/csstransition-2j8gq "Go to url")
+
+- default : ease
+- ease : 처음과 끝은 느리고 중간은 빠름
+- linear : 처음부터 끝까지 일정한 속도로 진행
+- ease-in : 처음은 느리고 중간과 끝은 빠름
+- ease-out : 처음은 빠르고 중간과 끝은 느림
+- ease-in-out : 처음과 끝은 느리고 중간은 빠름
+- step-start : 시작하자마자 바로 끝
+- step-end : 일정 시간 후 바로 끝 
+- steps(n, start|end) : n개의 단계로 나누어 애니메이션 진행
+    - start : 시작 시점에 애니메이션 시작
+    - end : 끝 시점에 애니메이션 시작
+- cubic-bezier(x1, y1, x2, y2) : 베지어 곡선으로 애니메이션 속도 조절 
+[참고사이트 : https://dbaron.org/css/timing-function-graphs](https://dbaron.org/css/timing-function-graphs "Go to url")
+
+#### transition-delay
+> - 🧪실습파일
+>   - [x] [css_transition](https://codesandbox.io/p/sandbox/csstransition-2j8gq "Go to url")
+- 애니메이션 시작 전 대기 시간 설정
+
+#### transition 단축 프로퍼티
+```css
+transition: property duration timing-function delay;
+```
+
+### CSS animation 이해
+> - 📕PDF
+>   - [x] [11_css_animation.pdf](https://drive.google.com/file/d/1Y5BeB7o0g9L4KCkxYzZQiBalYm2_Y730/view?usp=drive_link "11_css_animation.pdf")
+> - 🧪실습파일
+>  - [x] [css_animation](https://codesandbox.io/p/sandbox/cssanimation-zgc3g "Go to url")
+  
+#### 정의
+- transition은 변경되어야할 스타일만 지정, animation은 중간에 변경되는 스타일을 세밀하게 지정 가능
+- 애니메이션은 애니메이션을 나타내는 CSS 스타일과 중간 상태를 나타내는 키프레임(**@keyframes**)으로 구성됨
+
+#### keyframes 문법
+- from 또는 0%에 설정한 스타일에서 시작 
+- to 또는 100%에 설정한 스타일에서 끝남
+- 중간 시점을 `%`로 표기
+
+```css
+@keyframes ball {
+    0% { /* keyframe */
+        top: 0;
+    }
+    50% {
+        top: 100px;
+    }
+    100% {
+        top: 300px;
+    }
+}
+```
+
+#### 주요 CSS animation 프로퍼티
+> transition-timing-function 과 동일
+
+#### animation-duration, animation-delay
+- 초(s) 또는 밀리초(ms) 단위로 설정 가능
+```css
+animation-duration: 2s; /* 애니메이션 지속 시간 */
+animation-delay: 1s; /* 애니메이션 시작 전 대기 시간 */
+```
+
+#### animation-iteration-count
+- 정수 또는 infinite로 설정 가능
+```css
+animation-iteration-count: 3; /* 3회 반복 */
+```
+
+#### animation-direction
+|    프로퍼티 값    | 설명                                           |
+| :---------------: | :--------------------------------------------- |
+|      normal       | 0%에서 100%까지 진행(디폴트)                   |
+|      reverse      | 100%에서 0%까지 진행                           |
+|     alternate     | 홀수번 째는 normal, 짝수번 째는 reverse로 진행 |
+| alternate-reverse | 홀수번 째는 reverse, 짝수번 째는 normal로 진행 |
+
+#### animation-fill-mode
+> - 🧪실습파일
+>  - [x] [css_animation](https://codesandbox.io/p/sandbox/css-animation-forked-249y7k?file=%2Findex3.html "Go to url")
+
+- none : 처음 스타일 → 0% → 100% → 처음 스타일 
+- forwards : 처음 스타일 → 0% → 100% → 100%
+- backwards : 0% → 0% → 100% → 처음 스타일
+- both : 0% → 0% → 100% → 100%
+
+#### animation-play-state
+- running : 애니메이션 진행 중(디폴트)
+- paused : 애니메이션 일시 정지
+
+
+#### animation 단축 프로퍼티
+```css
+animation: name duration timing-function delay iteration-count direction fill-mode play-state;
+```
+
+
+  
 
 
 
