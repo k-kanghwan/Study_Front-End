@@ -157,6 +157,7 @@
       - [정의](#정의-2)
       - [주요 transform 함수](#주요-transform-함수)
       - [transform-origin 프로퍼티](#transform-origin-프로퍼티)
+    - [CSS float 이해](#css-float-이해)
     
 ---
 
@@ -620,7 +621,7 @@
 
 4. RGBA로 표기하는 방법
     - rgba(0 ~ 255, 0 ~ 255, 0 ~ 255, 0.0 ~ 1.0) 형식으로 표기
-    - 예) rgba(255, 0, 0, 0.5)(빨강 반투명), rgba(0, 255, 0, 1.0)(초록 불투명), rgba(0, 0, 255, 0.2)(파랑 투명)
+    - 예) rgba(255, 0, 0, 0.5)(**빨강 반투명**), rgba(0, 255, 0, 1.0)(**초록 불투명**), rgba(0, 0, 255, 0.2)(**파랑 투명**)
 
 ### CSS Selector
 > - 📕PDF
@@ -1638,8 +1639,33 @@ animation: name duration timing-function delay iteration-count direction fill-mo
 transform-origin: x y z;
 ```
 
+### CSS float 이해
+> - 📕PDF
+>   - [x] [13_css_float.pdf](https://drive.google.com/file/d/19tSN_u2FYc21RNi29fyaGslWXeH48GRv/view?usp=sharing "13_css_float.pdf")
+> - 🧪실습파일
+>   - [x] [css_float](https://codesandbox.io/p/sandbox/cssfloat-1nrde "Go to url")
 
+- 수평 정렬을 위해 float, flexbox, grid 등 다양한 방법을 사용
+> 최근에는 **flexbox**와 **grid**를 많이 사용함
 
+```html
+  <body>
+    <img
+      style="float: left; width: 150px; height: 50px; margin: 10px;"
+      src="https://www.fun-coding.org/style/images/funcoding.png"
+      alt="funcoding"
+    />
+    <div>
+      잔재미코딩이라는 이름은 한번 들으면, 잊혀지지가 않습니다.
+    </div>
+    <div style="clear: left;">
+      재미있는 이름이죠. 프로그래밍은 할 때마다 힘이 듭니다. 하지만 해냈을 때의
+      기쁨은 정말 큽니다.
+    </div>
+  </body>
+```
+
+> **float 프로퍼티는 clear 프로퍼티와 함께 사용**하여 float 속성을 해제할 수 있음
 
 
 [🔝 돌아가기](#table-of-contents)

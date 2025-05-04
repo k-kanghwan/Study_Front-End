@@ -34,6 +34,7 @@
 - [Border styles](https://developer.mozilla.org/ko/docs/Web/CSS/border-style "Border styles")
 - [Border radius](https://developer.mozilla.org/ko/docs/Web/CSS/border-radius "Border radius")
 - [Background size](https://cssreference.io/property/background-size/ "Background size")
+- [transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin "transform-origin")
 
 
 ## 1.2 Table of Contents
@@ -151,6 +152,12 @@
       - [1.7.3.8 animation-fill-mode](#1738-animation-fill-mode)
       - [1.7.3.9 animation-play-state](#1739-animation-play-state)
       - [1.7.3.10 animation 단축 프로퍼티](#17310-animation-단축-프로퍼티)
+    - [1.7.4 transition과 animation 비교](#174-transition과-animation-비교)
+    - [1.7.5 CSS transform 이해](#175-css-transform-이해)
+      - [1.7.5.1 정의](#1751-정의)
+      - [1.7.5.2 주요 transform 함수](#1752-주요-transform-함수)
+      - [1.7.5.3 transform-origin 프로퍼티](#1753-transform-origin-프로퍼티)
+    - [1.7.6 CSS float 이해](#176-css-float-이해)
     
 ---
 
@@ -614,7 +621,7 @@
 
 4. RGBA로 표기하는 방법
     - rgba(0 ~ 255, 0 ~ 255, 0 ~ 255, 0.0 ~ 1.0) 형식으로 표기
-    - 예) rgba(255, 0, 0, 0.5)(빨강 반투명), rgba(0, 255, 0, 1.0)(초록 불투명), rgba(0, 0, 255, 0.2)(파랑 투명)
+    - 예) rgba(255, 0, 0, 0.5)(**빨강 반투명**), rgba(0, 255, 0, 1.0)(**초록 불투명**), rgba(0, 0, 255, 0.2)(**파랑 투명**)
 
 ### 1.5.3 CSS Selector
 > - 📕PDF
@@ -1433,13 +1440,13 @@ font: font-style(옵션) font-variant(옵션) font-weight(옵션) font-size(필�
 - **호환성** : ie 10.0+, chrome 26.0+, firefox 16.0+, safari 6.1+, opera 12.1+ 
 
 #### 1.7.2.2 주요 CSS transition 프로퍼티
-|          프로퍼티          | 설명                                                                      |
-| :------------------------: | ------------------------------------------------------------------------- |
-|    transition-property     | 트랜지션 대상이 되는 CSS 프로퍼티 지정(디폴트:all)                        |
-|    transition-duration     | 트랜지션이 일어나는 일정 시간을 초(s) 또는 밀리 초(ms)로 지정(디폴트: 0s) |
-| transition-timing-function | 특별한 함수를 통해 시간별 트랜지션 속도 지정(디폴트: ease)                |
-|      transition-delay      | 언제 트랜지션을 시작할지를 초(s) 또는 밀리 초(ms)로 지정(디폴트: 0s)      |
-|         transition         | ㄷ모든 트랜지션 프로퍼티를 한번에 지정하는 단축 프로퍼티                  |
+| 프로퍼티                   | 설명                                                                      |
+| -------------------------- | ------------------------------------------------------------------------- |
+| transition-property        | 트랜지션 대상이 되는 CSS 프로퍼티 지정(디폴트:all)                        |
+| transition-duration        | 트랜지션이 일어나는 일정 시간을 초(s) 또는 밀리 초(ms)로 지정(디폴트: 0s) |
+| transition-timing-function | **특별한 함수를 통해** 시간별 트랜지션 속도 지정(디폴트: ease)            |
+| transition-delay           | 언제 트랜지션을 시작할지를 초(s) 또는 밀리 초(ms)로 지정(디폴트: 0s)      |
+| transition                 | 모든 트랜지션 프로퍼티를 한번에 지정하는 단축 프로퍼티                    |
 
 #### 1.7.2.3 활용 예
 ```css
@@ -1492,6 +1499,17 @@ transition: property duration timing-function delay;
 #### 1.7.3.2 주요 CSS animation 프로퍼티
 > pdf 참고 : [11_css_animation.pdf](https://drive.google.com/file/d/1Y5BeB7o0g9L4KCkxYzZQiBalYm2_Y730/view?usp=drive_link "11_css_animation.pdf")
 
+| 프로퍼티                  | 설명                                                 |
+| ------------------------- | ---------------------------------------------------- |
+| animation-name            | @keyframes 애니메이션 이름 지정                      |
+| animation-duration        | 한 싸이클의 애니메이션에 소요되는 시간을 지정(s, ms) |
+| animation-timing-function | transition과 같음                                    |
+| animation-delay           | 애니메이션 시작 전 대기 시간                         |
+| animation-iteration-count | 애니메이션 반복 횟수                                 |
+| animation-direction       | 애니메이션 종료 후 반복된 때 진행 방향 지정          |
+| animation-fill-mode       | 애니메이션 종료 또는 대기시의 요소 스타일 지정       |
+| animation-play-state      | 애니메이션 재생 상태 지정(디폴트 : running)          |
+
 #### 1.7.3.3 keyframes 문법
 - from 또는 0%에 설정한 스타일에서 시작 
 - to 또는 100%에 설정한 스타일에서 끝남
@@ -1540,9 +1558,13 @@ animation-iteration-count: 3; /* 3회 반복 */
 >  - [x] [css_animation](https://codesandbox.io/p/sandbox/css-animation-forked-249y7k?file=%2Findex3.html "Go to url")
 
 - none : 처음 스타일 → 0% → 100% → 처음 스타일 
+        *처음 스타일로 돌아감*
 - forwards : 처음 스타일 → 0% → 100% → 100%
+        *애니메이션 종료 후 마지막 스타일 유지*
 - backwards : 0% → 0% → 100% → 처음 스타일
+        *설정 스타일에서 시작 후 처음스타일로 돌아감*
 - both : 0% → 0% → 100% → 100%
+        *설정 스타일에서 시작 후 마지막 스타일 유지*
 
 #### 1.7.3.9 animation-play-state
 - running : 애니메이션 진행 중(디폴트)
@@ -1555,8 +1577,75 @@ animation: name duration timing-function delay iteration-count direction fill-mo
 ```
 
 
-  
+### 1.7.4 transition과 animation 비교 
+| 구분        | transition                        | animation                              |
+| ----------- | --------------------------------- | -------------------------------------- |
+| 동작 방식   | 속성 변화 시 애니메이션 효과 부여 | 자체적으로 애니메이션 실행             |
+| 트리거 필요 | **필요 (예: hover, focus 등)**    | 필요 없음 (자동 시작 가능)             |
+| 단계 제어   | **시작과 끝 2단계**               | **여러 단계 (@keyframes로 지정 가능)** |
+| 반복 가능   | 기본은 불가능                     | infinite 등으로 반복 가능              |
+
+### 1.7.5 CSS transform 이해
+> - 📕PDF
+>   - [x] [12_css_transform.pdf](https://drive.google.com/file/d/1EUJVzVlWKrKr7yKNYNcy1b2-_moEZGHD/view?usp=sharing "12_css_transform.pdf")
+> - 🧪실습파일
+>   - [x] [css_transform](https://codesandbox.io/p/sandbox/csstransform-985ps "Go to url")
+
+#### 1.7.5.1 정의
+- 요소의 호전, 크기 조절, 기울이기, 이동 효과를 부여하는 함수 제공
+- x, y, z 축을 기준으로 2D 또는 3D 변형 가능
+
+<p style="text-align: left;">
+    <img width="500" height="" src="MD_image/css-transform.png">
+</p>
+
+#### 1.7.5.2 주요 transform 함수
+| transform 함수         | 설명                             |          함수 인자 값           |
+| :--------------------- | :------------------------------- | :-----------------------------: |
+| translate(x, y)        | 요소를 x, y 축으로 이동          |          px, em, % 등           |
+| translateX(n)          | 요소를 x 축으로 이동             |          px, em, % 등           |
+| translateY(n)          | 요소를 y 축으로 이동             |          px, em, % 등           |
+| scale(x, y)            | 가로로 x배, 세로로 y배 확대/축소 | 1보다 크면 확대, 0~1사이면 축소 |
+| skew(x-angle, y-angle) | x-각도, y-각도만큼 기울임        |        ± 각도(단위:deg)         |
+| rotate(angle)          | 요소를 각도만큼 회전             |        ± 각도(단위:deg)         |
+
+```css
+<style>
+    .translate:hover {
+        transition: transform 2s;
+        transform: translate(30px, 30px);
+    }
+    .scale:hover {
+        transition: transform 2s;
+        transform: scale(1.5, 1.5);
+    }
+    .skew:hover {
+        transition: transform 2s;
+        transform: skew(20deg, 30deg);
+    }
+    .rotate:hover {
+        transition: transform 2s;
+        transform: rotate(45deg);
+    }
+</style>
+```
+
+#### 1.7.5.3 transform-origin 프로퍼티
+> - 🧪실습파일
+> - [x] [transform_origin](https://codesandbox.io/p/sandbox/csstransform-985ps?file=%2Findex2.html%3A17%2C1-18%2C1 "Go to url")
+참고 [https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin "Go to url")
+- 변형의 기준점 설정
+```css
+transform-origin: x y z;
+```
+
+### 1.7.6 CSS float 이해
+> - 📕PDF
+>  - [x] [13_css_float.pdf](https://drive.google.com/file/d/19tSN_u2FYc21RNi29fyaGslWXeH48GRv/view?usp=sharing "13_css_float.pdf")
 
 
+<p style="text-align: center;">
+    <img width="300" height="" src="MD_movie/output.gif">
+</p>
 
 [🔝 돌아가기](#table-of-contents)
