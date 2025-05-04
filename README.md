@@ -35,6 +35,8 @@
 - [Border radius](https://developer.mozilla.org/ko/docs/Web/CSS/border-radius "Border radius")
 - [Background size](https://cssreference.io/property/background-size/ "Background size")
 - [transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin "transform-origin")
+- [CSS inheritance reference](https://www.w3.org/TR/CSS2/propidx.html "CSS inheritance reference")
+- [명시도 계산 (CSS Specificity)](https://specificity.keegan.st/ "명시도 계산 (CSS Specificity)")
 
 
 ## Table of Contents
@@ -158,6 +160,23 @@
       - [주요 transform 함수](#주요-transform-함수)
       - [transform-origin 프로퍼티](#transform-origin-프로퍼티)
     - [CSS float 이해](#css-float-이해)
+  - [Section6. 중급 CSS와 반응형 기능](#section6-중급-css와-반응형-기능)
+    - [CSS 상속 이해](#css-상속-이해)
+      - [주요 프로퍼티별 상속 여부 정리](#주요-프로퍼티별-상속-여부-정리)
+        - [상속 가능](#상속-가능)
+        - [상속 불가](#상속-불가)
+        - [강제 상속](#강제-상속)
+      - [CSS 우선순위와 Cascading](#css-우선순위와-cascading)
+        - [Cascading 기본규칙](#cascading-기본규칙)
+      - [CSS 우선순위 (명시도 계산) 기본 규칙](#css-우선순위-명시도-계산-기본-규칙)
+    - [CSS media query와 반응형(responsive) 레이아웃](#css-media-query와-반응형responsive-레이아웃)
+      - [반응형 웹](#반응형-웹)
+        - [적응형 웹 vs 반응형 웹](#적응형-웹-vs-반응형-웹)
+        - [pixel과 viewport](#pixel과-viewport)
+      - [레이아웃과 미디어 쿼리](#레이아웃과-미디어-쿼리)
+      - [미디어 쿼리 기본 문법](#미디어-쿼리-기본-문법)
+    - [참고해상도](#참고해상도)
+  - [Section7. CSS Flexbox](#section7-css-flexbox)
     
 ---
 
@@ -1666,6 +1685,110 @@ transform-origin: x y z;
 ```
 
 > **float 프로퍼티는 clear 프로퍼티와 함께 사용**하여 float 속성을 해제할 수 있음
+
+<hr>
+
+## Section6. 중급 CSS와 반응형 기능
+### CSS 상속 이해
+> - 📕PDF
+>  - [x] [14_css_inherit.pdf](https://drive.google.com/file/d/1d8u_6ZVcuVRm5qcSZLiMsye7S81xXVmq/view?usp=sharing "14_css_inherit.pdf")
+> - 🧪실습파일
+>  - [x] [css_inheritance](https://codesandbox.io/p/sandbox/cssinheritance-uhyym?file=%2Fsrc%2Findex.js%3A1%2C1-2%2C1 "Go to url")
+
+#### 주요 프로퍼티별 상속 여부 정리
+[참고사이트 : https://www.w3.org/TR/CSS2/propidx.html](https://www.w3.org/TR/CSS2/propidx.html "Go to url")
+
+##### 상속 가능
+- text-align, line-height, color, font, visibility, opacity
+
+##### 상속 불가
+- width, height, margin, padding, border, display, box-sizing, background, vertical-align, position(top, left, right, bottom), z-index, overflow, float
+
+##### 강제 상속
+- 상속이 불가능한 프로퍼티를 강제로 상속받게 하는 방법
+```css
+      .parent {
+        border: 1px solid black;
+        color: red; /* 자식 요소에 색상 상속 */
+      }
+      .child {
+        border: inherit;
+        color: inherit; /* 부모 요소의 색상 상속 */
+      }
+```
+
+#### CSS 우선순위와 Cascading
+
+##### Cascading 기본규칙
+- **중요도** : CSS를 어디에 선언했는지에 따라 우선순위가 달라짐
+    1. head 태그 안에 선언한 style
+    2. head 태그 안의 style 태그 안의 @import 문
+    3. `<link>` 로 연결된 CSS 파일
+    4. `<link>` 로 연결된 CSS 파일안의 @import 문
+- **명시도** : 대상을 명확하게 지정할 수록 우선수위가 높음
+- **선언순서** : HTML 문서에서 뒤에 나오는 CSS가 높음
+
+#### CSS 우선순위 (명시도 계산) 기본 규칙
+> 중요도, 선언 순서보다 **명시도가 주로 우선순위에 많이 영향**을 미치며, 계산 방식을 가볍게는 알고 있어야 함
+
+<div class='alert alert-info' style='color: lightcoral; border: 1px solid #455A64;background-color:#ECEFF1; font-size: 20px;'>
+!important > Inline Style > ID > Class, Pseudo-class > Tag
+</div>
+
+### CSS media query와 반응형(responsive) 레이아웃
+> - 📕PDF
+>  - [x] [15_css_media.pdf](https://drive.google.com/file/d/1OeUZ01j4erEVOLJ-AecLHayvqbzUtDoR/view?usp=sharing "15_css_media_query.pdf")
+> - 🧪실습파일
+>  - [x] [css_media_query](https://codesandbox.io/p/sandbox/cssmedia-v7qd3 "Go to url")
+
+#### 반응형 웹
+##### 적응형 웹 vs 반응형 웹
+1. 적응형 웹 
+    - 다양한 화면 크기에 맞춰 미리 디자인된 여러 개의 레이아웃을 제공
+    - 예시 : m.naver.com vs www.naver.com
+
+2. 반응형 웹
+    - 다양한 화면 크기에 맞춰 **유동적**으로 디자인이 변경되는 웹
+
+##### pixel과 viewport
+- picxel의 제한 요소를 해결하기 위해 viewport 개념을 사용
+- meta viewport 설정
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+#### 레이아웃과 미디어 쿼리
+
+<p style="text-align: center;">
+    <img width="500" height="" src="MD_image/css-media-query.png">
+</p>
+
+#### 미디어 쿼리 기본 문법
+```css
+@media media-type and (media-feature) {
+    /* CSS rules */
+}
+```
+
+- media type (미디어 유형) : app 또는 screen을 일반적으로 사용
+- media-feature-rule : media(미디어) 조건
+- 논리 연산자 : and, not only 를 사용하여 조건을 조합할 수 있음
+
+### 참고해상도
+|     해상도      |          기기           |
+| :-------------: | :---------------------: |
+|  320px ~ 480px  |        스마트폰         |
+|  481px ~ 768px  |         태블릿          |
+| 769px ~ 1024px  |     저해상도 노트북     |
+| 1025px ~ 1280px |        데스크탑         |
+|    1281px ~     | 고해상도 데스크탑 및 TV |
+
+<hr>
+
+## Section7. CSS Flexbox
+
+
+
 
 
 [🔝 돌아가기](#table-of-contents)
