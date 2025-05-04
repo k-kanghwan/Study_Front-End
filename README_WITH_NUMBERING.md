@@ -20,8 +20,8 @@
 ★☆☆ : Importance
 -->
 
-# Front-End
-## References
+# 1 Front-End
+## 1.1 References
 - [HTML tag reference - https://www.w3schools.com/tags/default.asp](https://www.w3schools.com/tags/default.asp "HTML tag reference")
 - [HTML Input Types - https://www.w3schools.com/tags/tag_input.asp](https://www.w3schools.com/tags/tag_input.asp "HTML Input Types")
 - [HTML validation - https://validator.w3.org/#validate_by_uri](https://validator.w3.org/#validate_by_uri "HTML validation")
@@ -36,133 +36,133 @@
 - [Background size](https://cssreference.io/property/background-size/ "Background size")
 
 
-## Table of Contents
-- [Front-End](#front-end)
-  - [References](#references)
-  - [Table of Contents](#table-of-contents)
-  - [Section1. 강의 준비](#section1-강의-준비)
-    - [설치](#설치)
-  - [Section2. 모던 웹 기본 기술 이해](#section2-모던-웹-기본-기술-이해)
-    - [웹 기본 기술 이해와 정리](#웹-기본-기술-이해와-정리)
-    - [HTML](#html)
-      - [⭐️ 주요 META NAME(가장 일반적으로 많이 사용)](#️-주요-meta-name가장-일반적으로-많이-사용)
-      - [호환성 관련 태그](#호환성-관련-태그)
-      - [반응형 웹 관련 태그](#반응형-웹-관련-태그)
-      - [LINK](#link)
-      - [STYLE](#style)
-      - [주요 body 내의 태그](#주요-body-내의-태그)
-      - [Semantic Web](#semantic-web)
-      - [알아둘 사항](#알아둘-사항)
-      - [이미지](#이미지)
-  - [Section3. 모던 웹의 핵심 상세한 CSS 기본](#section3-모던-웹의-핵심-상세한-css-기본)
-    - [CSS 기본 정리](#css-기본-정리)
-      - [CSS란?](#css란)
-      - [Selector(CSS Selector 라고도 함)](#selectorcss-selector-라고도-함)
-      - [HTML CSS 연동 방법](#html-css-연동-방법)
-        - [적용할 태그에 style 속성으로 넣기(해당 태그에만 적용)](#적용할-태그에-style-속성으로-넣기해당-태그에만-적용)
-        - [HTML 문서 `<head>`에 `<style>...</style>` 태그로 넣기(전체 문서에 적용)](#html-문서-head에-stylestyle-태그로-넣기전체-문서에-적용)
-        - [HTML 문서 `<head>`안에 CSS 파일로 링크하기(전체 문서에 적용)](#html-문서-head안에-css-파일로-링크하기전체-문서에-적용)
-      - [Reset CSS](#reset-css)
-    - [CSS 단위](#css-단위)
-      - [CSS 크기 단위](#css-크기-단위)
-      - [반응형 Viewport 단위](#반응형-viewport-단위)
-        - [Viewport 단위](#viewport-단위)
-      - [색상 표현 단위](#색상-표현-단위)
-    - [CSS Selector](#css-selector)
-      - [속성 Selector](#속성-selector)
-        - [`[속성~="값"]` - 속성값이 "값"을 (공백으로 분리된) 포함하는 경우](#속성값---속성값이-값을-공백으로-분리된-포함하는-경우)
-        - [`[속성|="값"]` - 속성값이 "값"이거나 "값-"으로 시작하는 모든 태그(요소)(ex: "en-US")](#속성값---속성값이-값이거나-값-으로-시작하는-모든-태그요소ex-en-us)
-        - [`[속성^="값"]` - 속성값이 "값"으로 시작하는 경우](#속성값---속성값이-값으로-시작하는-경우)
-        - [`[속성$="값"]` - 속성값이 "값"으로 끝나는 경우](#속성값---속성값이-값으로-끝나는-경우)
-        - [`[속성*="값"]` - 속성값이 "값"을 포함하는 경우](#속성값---속성값이-값을-포함하는-경우)
-      - [복합 Selector(Combinator)](#복합-selectorcombinator)
-        - [후손 셀렉터(Descendant Selector)](#후손-셀렉터descendant-selector)
-        - [자식 셀렉터(Child Selector)](#자식-셀렉터child-selector)
-        - [인접 형제 셀렉터(Adjacent Sibling Selector)](#인접-형제-셀렉터adjacent-sibling-selector)
-        - [일반 형제 셀렉터(General Sibling Selector)](#일반-형제-셀렉터general-sibling-selector)
-      - [가상 클래스 셀렉터(Pseudo-class Selector)](#가상-클래스-셀렉터pseudo-class-selector)
-        - [가상클래스 종류](#가상클래스-종류)
-        - [UI 요소 상태 셀렉터(UI Element State Pseudo-Class)](#ui-요소-상태-셀렉터ui-element-state-pseudo-class)
-        - [구조 가상 클래스 셀렉터(Structural Pseudo-Class Selector)](#구조-가상-클래스-셀렉터structural-pseudo-class-selector)
-        - [부정 셀렉터(Negation Pseudo-Class Selector)](#부정-셀렉터negation-pseudo-class-selector)
-        - [정합성 체크 셀렉터(Validity Pseudo-Class Selector)](#정합성-체크-셀렉터validity-pseudo-class-selector)
-        - [가상 요소 셀렉터(Pseudo-element Selector)](#가상-요소-셀렉터pseudo-element-selector)
-  - [Section4. 모던 웹의 핵심 상세한 CSS 기본 프로퍼티](#section4-모던-웹의-핵심-상세한-css-기본-프로퍼티)
-    - [CSS BOX MODEL(박스 모델) 이해](#css-box-model박스-모델-이해)
-      - [BOX Model property](#box-model-property)
-      - [주요 프로퍼티property](#주요-프로퍼티property)
-        - [width, height](#width-height)
-        - [margin / padding](#margin--padding)
-        - [참고](#참고)
-        - [border](#border)
-        - [box-sizing](#box-sizing)
-    - [CSS background 이해](#css-background-이해)
-      - [background-image 프로퍼티](#background-image-프로퍼티)
-      - [background-repeat 프로퍼티](#background-repeat-프로퍼티)
-      - [background-size 프로퍼티](#background-size-프로퍼티)
-      - [background-attachment 프로퍼티](#background-attachment-프로퍼티)
-      - [background-position 프로퍼티](#background-position-프로퍼티)
-      - [background-color 프로퍼티](#background-color-프로퍼티)
-      - [background 단축 프로퍼티](#background-단축-프로퍼티)
-    - [CSS block과 inline 이해](#css-block과-inline-이해)
-      - [block 특성](#block-특성)
-      - [inline 특성](#inline-특성)
-      - [CSS display 프로퍼티](#css-display-프로퍼티)
-      - [CSS visibility 프로퍼티](#css-visibility-프로퍼티)
-      - [inline-block 특성](#inline-block-특성)
-    - [CSS font 이해](#css-font-이해)
-      - [font-size 프로퍼티](#font-size-프로퍼티)
-      - [font-family 프로퍼티](#font-family-프로퍼티)
-      - [웹폰트 사용법](#웹폰트-사용법)
-      - [font-style 프로퍼티](#font-style-프로퍼티)
-      - [font-weight 프로퍼티](#font-weight-프로퍼티)
-      - [font-variant 프로퍼티](#font-variant-프로퍼티)
-      - [line-height 프로퍼티](#line-height-프로퍼티)
-      - [font 단축 프로퍼티](#font-단축-프로퍼티)
-      - [letter-spacing, word-spacing 프로퍼티](#letter-spacing-word-spacing-프로퍼티)
-      - [text-align 프로퍼티](#text-align-프로퍼티)
-      - [text-decoration 프로퍼티](#text-decoration-프로퍼티)
-      - [white-space 프로퍼티](#white-space-프로퍼티)
-      - [text-overflow 프로퍼티](#text-overflow-프로퍼티)
-  - [Section5. 모던 웹의 핵심 상세한 CSS 배치와 애니메이션](#section5-모던-웹의-핵심-상세한-css-배치와-애니메이션)
-    - [CSS position 이해](#css-position-이해)
-      - [정적 위치 (Static Position)](#정적-위치-static-position)
-      - [상대 위치 (Relative Position)](#상대-위치-relative-position)
-      - [절대 위치 (Absolute Position)](#절대-위치-absolute-position)
-      - [고정 위치 (Fixed Position)](#고정-위치-fixed-position)
-      - [z-index, overflow 프로퍼티](#z-index-overflow-프로퍼티)
-      - [overflow 프로퍼티](#overflow-프로퍼티)
-    - [CSS transition 이해](#css-transition-이해)
-      - [정의](#정의)
-      - [주요 CSS transition 프로퍼티](#주요-css-transition-프로퍼티)
-      - [활용 예](#활용-예)
-      - [transition-timing-function](#transition-timing-function)
-        - [주요 transition-timing-function 프로퍼티 값](#주요-transition-timing-function-프로퍼티-값)
-      - [transition-delay](#transition-delay)
-      - [transition 단축 프로퍼티](#transition-단축-프로퍼티)
-    - [CSS animation 이해](#css-animation-이해)
-      - [정의](#정의-1)
-      - [주요 CSS animation 프로퍼티](#주요-css-animation-프로퍼티)
-      - [keyframes 문법](#keyframes-문법)
-      - [주요 CSS animation 프로퍼티](#주요-css-animation-프로퍼티-1)
-      - [animation-duration, animation-delay](#animation-duration-animation-delay)
-      - [animation-iteration-count](#animation-iteration-count)
-      - [animation-direction](#animation-direction)
-      - [animation-fill-mode](#animation-fill-mode)
-      - [animation-play-state](#animation-play-state)
-      - [animation 단축 프로퍼티](#animation-단축-프로퍼티)
+## 1.2 Table of Contents
+- [1 Front-End](#1-front-end)
+  - [1.1 References](#11-references)
+  - [1.2 Table of Contents](#12-table-of-contents)
+  - [1.3 Section1. 강의 준비](#13-section1-강의-준비)
+    - [1.3.1 설치](#131-설치)
+  - [1.4 Section2. 모던 웹 기본 기술 이해](#14-section2-모던-웹-기본-기술-이해)
+    - [1.4.1 웹 기본 기술 이해와 정리](#141-웹-기본-기술-이해와-정리)
+    - [1.4.2 HTML](#142-html)
+      - [1.4.2.1 ⭐️ 주요 META NAME(가장 일반적으로 많이 사용)](#1421-️-주요-meta-name가장-일반적으로-많이-사용)
+      - [1.4.2.2 호환성 관련 태그](#1422-호환성-관련-태그)
+      - [1.4.2.3 반응형 웹 관련 태그](#1423-반응형-웹-관련-태그)
+      - [1.4.2.4 LINK](#1424-link)
+      - [1.4.2.5 STYLE](#1425-style)
+      - [1.4.2.6 주요 body 내의 태그](#1426-주요-body-내의-태그)
+      - [1.4.2.7 Semantic Web](#1427-semantic-web)
+      - [1.4.2.8 알아둘 사항](#1428-알아둘-사항)
+      - [1.4.2.9 이미지](#1429-이미지)
+  - [1.5 Section3. 모던 웹의 핵심 상세한 CSS 기본](#15-section3-모던-웹의-핵심-상세한-css-기본)
+    - [1.5.1 CSS 기본 정리](#151-css-기본-정리)
+      - [1.5.1.1 CSS란?](#1511-css란)
+      - [1.5.1.2 Selector(CSS Selector 라고도 함)](#1512-selectorcss-selector-라고도-함)
+      - [1.5.1.3 HTML CSS 연동 방법](#1513-html-css-연동-방법)
+        - [1.5.1.3.1 적용할 태그에 style 속성으로 넣기(해당 태그에만 적용)](#15131-적용할-태그에-style-속성으로-넣기해당-태그에만-적용)
+        - [1.5.1.3.2 HTML 문서 `<head>`에 `<style>...</style>` 태그로 넣기(전체 문서에 적용)](#15132-html-문서-head에-stylestyle-태그로-넣기전체-문서에-적용)
+        - [1.5.1.3.3 HTML 문서 `<head>`안에 CSS 파일로 링크하기(전체 문서에 적용)](#15133-html-문서-head안에-css-파일로-링크하기전체-문서에-적용)
+      - [1.5.1.4 Reset CSS](#1514-reset-css)
+    - [1.5.2 CSS 단위](#152-css-단위)
+      - [1.5.2.1 CSS 크기 단위](#1521-css-크기-단위)
+      - [1.5.2.2 반응형 Viewport 단위](#1522-반응형-viewport-단위)
+        - [1.5.2.2.1 Viewport 단위](#15221-viewport-단위)
+      - [1.5.2.3 색상 표현 단위](#1523-색상-표현-단위)
+    - [1.5.3 CSS Selector](#153-css-selector)
+      - [1.5.3.1 속성 Selector](#1531-속성-selector)
+        - [1.5.3.1.1 `[속성~="값"]` - 속성값이 "값"을 (공백으로 분리된) 포함하는 경우](#15311-속성값---속성값이-값을-공백으로-분리된-포함하는-경우)
+        - [1.5.3.1.2 `[속성|="값"]` - 속성값이 "값"이거나 "값-"으로 시작하는 모든 태그(요소)(ex: "en-US")](#15312-속성값---속성값이-값이거나-값-으로-시작하는-모든-태그요소ex-en-us)
+        - [1.5.3.1.3 `[속성^="값"]` - 속성값이 "값"으로 시작하는 경우](#15313-속성값---속성값이-값으로-시작하는-경우)
+        - [1.5.3.1.4 `[속성$="값"]` - 속성값이 "값"으로 끝나는 경우](#15314-속성값---속성값이-값으로-끝나는-경우)
+        - [1.5.3.1.5 `[속성*="값"]` - 속성값이 "값"을 포함하는 경우](#15315-속성값---속성값이-값을-포함하는-경우)
+      - [1.5.3.2 복합 Selector(Combinator)](#1532-복합-selectorcombinator)
+        - [1.5.3.2.1 후손 셀렉터(Descendant Selector)](#15321-후손-셀렉터descendant-selector)
+        - [1.5.3.2.2 자식 셀렉터(Child Selector)](#15322-자식-셀렉터child-selector)
+        - [1.5.3.2.3 인접 형제 셀렉터(Adjacent Sibling Selector)](#15323-인접-형제-셀렉터adjacent-sibling-selector)
+        - [1.5.3.2.4 일반 형제 셀렉터(General Sibling Selector)](#15324-일반-형제-셀렉터general-sibling-selector)
+      - [1.5.3.3 가상 클래스 셀렉터(Pseudo-class Selector)](#1533-가상-클래스-셀렉터pseudo-class-selector)
+        - [1.5.3.3.1 가상클래스 종류](#15331-가상클래스-종류)
+        - [1.5.3.3.2 UI 요소 상태 셀렉터(UI Element State Pseudo-Class)](#15332-ui-요소-상태-셀렉터ui-element-state-pseudo-class)
+        - [1.5.3.3.3 구조 가상 클래스 셀렉터(Structural Pseudo-Class Selector)](#15333-구조-가상-클래스-셀렉터structural-pseudo-class-selector)
+        - [1.5.3.3.4 부정 셀렉터(Negation Pseudo-Class Selector)](#15334-부정-셀렉터negation-pseudo-class-selector)
+        - [1.5.3.3.5 정합성 체크 셀렉터(Validity Pseudo-Class Selector)](#15335-정합성-체크-셀렉터validity-pseudo-class-selector)
+        - [1.5.3.3.6 가상 요소 셀렉터(Pseudo-element Selector)](#15336-가상-요소-셀렉터pseudo-element-selector)
+  - [1.6 Section4. 모던 웹의 핵심 상세한 CSS 기본 프로퍼티](#16-section4-모던-웹의-핵심-상세한-css-기본-프로퍼티)
+    - [1.6.1 CSS BOX MODEL(박스 모델) 이해](#161-css-box-model박스-모델-이해)
+      - [1.6.1.1 BOX Model property](#1611-box-model-property)
+      - [1.6.1.2 주요 프로퍼티property](#1612-주요-프로퍼티property)
+        - [1.6.1.2.1 width, height](#16121-width-height)
+        - [1.6.1.2.2 margin / padding](#16122-margin--padding)
+        - [1.6.1.2.3 참고](#16123-참고)
+        - [1.6.1.2.4 border](#16124-border)
+        - [1.6.1.2.5 box-sizing](#16125-box-sizing)
+    - [1.6.2 CSS background 이해](#162-css-background-이해)
+      - [1.6.2.1 background-image 프로퍼티](#1621-background-image-프로퍼티)
+      - [1.6.2.2 background-repeat 프로퍼티](#1622-background-repeat-프로퍼티)
+      - [1.6.2.3 background-size 프로퍼티](#1623-background-size-프로퍼티)
+      - [1.6.2.4 background-attachment 프로퍼티](#1624-background-attachment-프로퍼티)
+      - [1.6.2.5 background-position 프로퍼티](#1625-background-position-프로퍼티)
+      - [1.6.2.6 background-color 프로퍼티](#1626-background-color-프로퍼티)
+      - [1.6.2.7 background 단축 프로퍼티](#1627-background-단축-프로퍼티)
+    - [1.6.3 CSS block과 inline 이해](#163-css-block과-inline-이해)
+      - [1.6.3.1 block 특성](#1631-block-특성)
+      - [1.6.3.2 inline 특성](#1632-inline-특성)
+      - [1.6.3.3 CSS display 프로퍼티](#1633-css-display-프로퍼티)
+      - [1.6.3.4 CSS visibility 프로퍼티](#1634-css-visibility-프로퍼티)
+      - [1.6.3.5 inline-block 특성](#1635-inline-block-특성)
+    - [1.6.4 CSS font 이해](#164-css-font-이해)
+      - [1.6.4.1 font-size 프로퍼티](#1641-font-size-프로퍼티)
+      - [1.6.4.2 font-family 프로퍼티](#1642-font-family-프로퍼티)
+      - [1.6.4.3 웹폰트 사용법](#1643-웹폰트-사용법)
+      - [1.6.4.4 font-style 프로퍼티](#1644-font-style-프로퍼티)
+      - [1.6.4.5 font-weight 프로퍼티](#1645-font-weight-프로퍼티)
+      - [1.6.4.6 font-variant 프로퍼티](#1646-font-variant-프로퍼티)
+      - [1.6.4.7 line-height 프로퍼티](#1647-line-height-프로퍼티)
+      - [1.6.4.8 font 단축 프로퍼티](#1648-font-단축-프로퍼티)
+      - [1.6.4.9 letter-spacing, word-spacing 프로퍼티](#1649-letter-spacing-word-spacing-프로퍼티)
+      - [1.6.4.10 text-align 프로퍼티](#16410-text-align-프로퍼티)
+      - [1.6.4.11 text-decoration 프로퍼티](#16411-text-decoration-프로퍼티)
+      - [1.6.4.12 white-space 프로퍼티](#16412-white-space-프로퍼티)
+      - [1.6.4.13 text-overflow 프로퍼티](#16413-text-overflow-프로퍼티)
+  - [1.7 Section5. 모던 웹의 핵심 상세한 CSS 배치와 애니메이션](#17-section5-모던-웹의-핵심-상세한-css-배치와-애니메이션)
+    - [1.7.1 CSS position 이해](#171-css-position-이해)
+      - [1.7.1.1 정적 위치 (Static Position)](#1711-정적-위치-static-position)
+      - [1.7.1.2 상대 위치 (Relative Position)](#1712-상대-위치-relative-position)
+      - [1.7.1.3 절대 위치 (Absolute Position)](#1713-절대-위치-absolute-position)
+      - [1.7.1.4 고정 위치 (Fixed Position)](#1714-고정-위치-fixed-position)
+      - [1.7.1.5 z-index, overflow 프로퍼티](#1715-z-index-overflow-프로퍼티)
+      - [1.7.1.6 overflow 프로퍼티](#1716-overflow-프로퍼티)
+    - [1.7.2 CSS transition 이해](#172-css-transition-이해)
+      - [1.7.2.1 정의](#1721-정의)
+      - [1.7.2.2 주요 CSS transition 프로퍼티](#1722-주요-css-transition-프로퍼티)
+      - [1.7.2.3 활용 예](#1723-활용-예)
+      - [1.7.2.4 transition-timing-function](#1724-transition-timing-function)
+        - [1.7.2.4.1 주요 transition-timing-function 프로퍼티 값](#17241-주요-transition-timing-function-프로퍼티-값)
+      - [1.7.2.5 transition-delay](#1725-transition-delay)
+      - [1.7.2.6 transition 단축 프로퍼티](#1726-transition-단축-프로퍼티)
+    - [1.7.3 CSS animation 이해](#173-css-animation-이해)
+      - [1.7.3.1 정의](#1731-정의)
+      - [1.7.3.2 주요 CSS animation 프로퍼티](#1732-주요-css-animation-프로퍼티)
+      - [1.7.3.3 keyframes 문법](#1733-keyframes-문법)
+      - [1.7.3.4 주요 CSS animation 프로퍼티](#1734-주요-css-animation-프로퍼티)
+      - [1.7.3.5 animation-duration, animation-delay](#1735-animation-duration-animation-delay)
+      - [1.7.3.6 animation-iteration-count](#1736-animation-iteration-count)
+      - [1.7.3.7 animation-direction](#1737-animation-direction)
+      - [1.7.3.8 animation-fill-mode](#1738-animation-fill-mode)
+      - [1.7.3.9 animation-play-state](#1739-animation-play-state)
+      - [1.7.3.10 animation 단축 프로퍼티](#17310-animation-단축-프로퍼티)
     
 ---
 
 
-## Section1. 강의 준비
-### 설치
+## 1.3 Section1. 강의 준비
+### 1.3.1 설치
 > - 📕PDF
 >     - [x] [00_Preparation.pdf](https://drive.google.com/file/d/1TJ0KkEzyqJiwDax4bvAxFS34ar49OVJQ/view?usp=drive_link "00_Preparation.pdf")
 
 <hr>
 
-## Section2. 모던 웹 기본 기술 이해
+## 1.4 Section2. 모던 웹 기본 기술 이해
 
 > - 📁Folder
 >     - [x] [01_head](Materials/01_head "01_head")
@@ -170,7 +170,7 @@
 >     - [x] [01_html정리.pdf](https://drive.google.com/file/d/1lXknhzfqBIp-l_rE3z46yaC3dlEURHw8/view?usp=drive_link "01_html정리.pdf")
 
 
-### 웹 기본 기술 이해와 정리
+### 1.4.1 웹 기본 기술 이해와 정리
 1. HTML : Hyper Text Markup Language의 약자로 웹사이트를 만들기 위한 **기본적인 언어**
     <p style="text-align:;">
         <img width="400" height="" src="https://velog.velcdn.com/images/cow2533/post/991619f2-3d10-4d50-bf53-5b2d21186dfd/image.png">
@@ -203,7 +203,7 @@
 3. javascript - ES6
     - 웹사이트에 **동적인 기능을 추가**하는 언어
 
-### HTML
+### 1.4.2 HTML
 > - 📕PDF
 >     - [x] [01_html정리.pdf](https://drive.google.com/file/d/1lXknhzfqBIp-l_rE3z46yaC3dlEURHw8/view?usp=drive_link "01_html정리.pdf")
 > - 🧪실습파일
@@ -211,7 +211,7 @@
 >     - [x] [html_tag](https://codesandbox.io/p/sandbox/htmltag-ueveh?file=%2Fsrc%2Findex.js%3A1%2C1-2%2C1 "Go to url")
 
 
-#### ⭐️ 주요 META NAME(가장 일반적으로 많이 사용)
+#### 1.4.2.1 ⭐️ 주요 META NAME(가장 일반적으로 많이 사용)
 
 
 ```html
@@ -224,13 +224,13 @@
 - `keywords`: 해당 페이지가 어떤 키워드로 검색되는지
 - `author`: 웹사이트 작성자
 
-#### 호환성 관련 태그 
+#### 1.4.2.2 호환성 관련 태그 
 ```html
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 ```
 - 인터넷 익스플로러(ID)에서 최신 표준 모드로 렌더링 되도록 하는 설정
 
-#### 반응형 웹 관련 태그
+#### 1.4.2.3 반응형 웹 관련 태그
 ```html
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" >
 ```
@@ -244,7 +244,7 @@
 | maximum-scale | 최대 확대/축소 비율 설정                     | 0.0과 10.0사이 수(주로 1.0을 많이 사용함)                     |
 | minimum-scale | 최소 확대/축소 비율 설정                     | 0.0과 10.0사이 수(주로 1.0을 많이 사용함)                     |
 
-#### LINK
+#### 1.4.2.4 LINK
 ```html
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="favicon.ico">
@@ -255,7 +255,7 @@
 |  rel  | html 문서와 외부 데이터와의 관계 표시 | **stylesheet**(스타일시트), **icon**(아이콘) |
 | href  | 외부 데이터의 경로                    | 파일 경로(상대 경로 또는 절대 경로로 설정)   |
 
-#### STYLE
+#### 1.4.2.5 STYLE
 ```html
 <style>
     body {
@@ -265,7 +265,7 @@
     }
 ```
 
-#### 주요 body 내의 태그
+#### 1.4.2.6 주요 body 내의 태그
 
 1. `<h1> ~ <h6>`: 제목 태그로, `<h1>`이 가장 큰 제목
     > 현업에서는 웹브라우저 호환성을 위해, 태그에 표현 서식이 들어 있는 경우 모두 삭제하고 CSS style을 별도로 적용
@@ -388,7 +388,7 @@
     |   required   | 필수 입력 여부 | **required**(필수 입력)                                                                  |
     |   disabled   | 비활성화 여부  | **disabled**(비활성화)                                                                   |
 
-#### Semantic Web
+#### 1.4.2.7 Semantic Web
 - html5에서 추가된 태그로, 웹사이트의 구조를 명확하게 정의하는 태그
 - **구조화**하여 검색 엔진이 이해할 수 있도록 하는 기술
 
@@ -405,12 +405,12 @@
         <img width="400" height="" src="https://wikidocs.net/images/page/214478/111.png">
     </p>
 
-#### 알아둘 사항
+#### 1.4.2.8 알아둘 사항
 1. 웹 표준 
 2. 웹 접근성
 3. 크로스 브라우징 : 웹사이트가 다양한 브라우저에서 동일하게 보이도록 하는 것
 
-#### 이미지
+#### 1.4.2.9 이미지
 - 이미지는 비트맵과 벡터 이미지로 구분
     - 비트맵: 픽셀로 구성된 이미지
         - 정교하고 다양한 색상을 표현할 수 있지만, **확대하면 픽셀이 깨짐**
@@ -439,14 +439,14 @@
         
 <hr>
 
-## Section3. 모던 웹의 핵심 상세한 CSS 기본
-### CSS 기본 정리
+## 1.5 Section3. 모던 웹의 핵심 상세한 CSS 기본
+### 1.5.1 CSS 기본 정리
 > - 📕PDF
 >     - [x] [02_css_기본정리](https://drive.google.com/file/d/1DxiRLXVQvC4DAX8rjNiyn7-c5PDbnjm6/view?usp=drive_link "02_css_기본정리")
 > - 🧪실습파일
 >     - <blank>
 
-#### CSS란?
+#### 1.5.1.1 CSS란?
 - Cascading Style Sheets의 약자로 HTML 문서의 **스타일을 지정**하는 언어
 - HTML로 구조화된 문서를 어떻게 브라우저 상에 렌더링할지 표현 방법을 정의하기 위한 언어
 - 현재 사용하는 CSS는 CSS3로, CSS2의 모든 기능을 포함하고 있으며, CSS2.1에서 추가된 기능도 포함
@@ -454,15 +454,15 @@
         <img width="600" height="" src="MD_image/html-css-javascript.png">
     </p>
 
-#### Selector(CSS Selector 라고도 함)
+#### 1.5.1.2 Selector(CSS Selector 라고도 함)
 - CSS에서 스타일을 적용할 HTML 요소를 선택하는 방법
     <p style="text-align: ;">
         <img width="600" height="" src="MD_image/css-selector.png">
     </p>
 
 
-#### HTML CSS 연동 방법
-##### 적용할 태그에 style 속성으로 넣기(해당 태그에만 적용)
+#### 1.5.1.3 HTML CSS 연동 방법
+##### 1.5.1.3.1 적용할 태그에 style 속성으로 넣기(해당 태그에만 적용)
 > 가급적 지양할 것
 ```html
 <!DOCTYPE html>
@@ -474,7 +474,7 @@
 </html>
 ```
 
-##### HTML 문서 `<head>`에 `<style>...</style>` 태그로 넣기(전체 문서에 적용)
+##### 1.5.1.3.2 HTML 문서 `<head>`에 `<style>...</style>` 태그로 넣기(전체 문서에 적용)
 ```html
 <!DOCTYPE html>
 <html>
@@ -496,7 +496,7 @@
 ```
 
 
-##### HTML 문서 `<head>`안에 CSS 파일로 링크하기(전체 문서에 적용)
+##### 1.5.1.3.3 HTML 문서 `<head>`안에 CSS 파일로 링크하기(전체 문서에 적용)
 - home.html
     ```html
     <!DOCTYPE html>
@@ -521,7 +521,7 @@
     }
     ```
 
-#### Reset CSS
+#### 1.5.1.4 Reset CSS
 - 웹 브라우저마다 기본 스타일이 다르기 때문에, 모든 브라우저에서 동일한 스타일을 적용하기 위해 사용
     > 실무에서 필요에 의해 임의로 만든 설정
 - 최근에는 normalize.css를 많이 사용
@@ -535,8 +535,8 @@
         - css: 일반 css 파일
         - min.css: 압축된 css 파일 
 
-### CSS 단위
-#### CSS 크기 단위
+### 1.5.2 CSS 단위
+#### 1.5.2.1 CSS 크기 단위
 > - 📕PDF
 >     - [x] [03_css_단위정리.pdf](https://drive.google.com/file/d/1E2ugWfrnQuxI0oogCk9tPnRUJlLEJzds/view?usp=sharing "03_css_단위정리.pdf")
 > - 🧪실습파일
@@ -563,10 +563,10 @@
     - em과 달리 rem은 root em으로, 최상위 요소(html) 사이즈를 기준으로 함
 
 
-#### 반응형 Viewport 단위
+#### 1.5.2.2 반응형 Viewport 단위
 - viewport 단위는 <u>화면 크기에 따라 상대적인 크기를 가짐</u>
 
-##### Viewport 단위
+##### 1.5.2.2.1 Viewport 단위
 | 단위  | 설명                                                                 |
 | :---: | -------------------------------------------------------------------- |
 |  vw   | viewport width의 약자로, 뷰포트 너비의 1%를 의미                     |
@@ -592,7 +592,7 @@
 </html>
 ```
 
-#### 색상 표현 단위
+#### 1.5.2.3 색상 표현 단위
 
 - [Google Material Color Palette - https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors "Google Material Color Palette")
 - [Adobe Color - https://color.adobe.com/ko/explore](https://color.adobe.com/ko/explore "Adobe Color")
@@ -616,7 +616,7 @@
     - rgba(0 ~ 255, 0 ~ 255, 0 ~ 255, 0.0 ~ 1.0) 형식으로 표기
     - 예) rgba(255, 0, 0, 0.5)(빨강 반투명), rgba(0, 255, 0, 1.0)(초록 불투명), rgba(0, 0, 255, 0.2)(파랑 투명)
 
-### CSS Selector
+### 1.5.3 CSS Selector
 > - 📕PDF
 >     - [x] [04_css_selector.pdf](https://drive.google.com/file/d/1ZRi4JNYhdTVvQcYU3xyiaoGCeRd1LFy3/view?usp=sharing "04_css_selector.pdf")
 > - 🧪실습파일
@@ -624,7 +624,7 @@
 
 > PDF 참조
 
-#### 속성 Selector
+#### 1.5.3.1 속성 Selector
 - 속성 셀렉터는 HTML 태그의 속성을 기준으로 선택하는 방법
 
 - CSS 속성 선택자 요약표
@@ -638,7 +638,7 @@
     | `[attr*="값"]` | 속성값 어디에든 "값"이 포함되어 있을 때                  | `[kk*="test"]`   | `kk="latest-version"` → 매칭 |
 
 
-##### `[속성~="값"]` - 속성값이 "값"을 (공백으로 분리된) 포함하는 경우
+##### 1.5.3.1.1 `[속성~="값"]` - 속성값이 "값"을 (공백으로 분리된) 포함하는 경우
 
 ```html
 <style>
@@ -650,7 +650,7 @@
 <p kk="test3">테스트</p> <!-- 적용안됨 -->
 ```
 
-##### `[속성|="값"]` - 속성값이 "값"이거나 "값-"으로 시작하는 모든 태그(요소)(ex: "en-US")
+##### 1.5.3.1.2 `[속성|="값"]` - 속성값이 "값"이거나 "값-"으로 시작하는 모든 태그(요소)(ex: "en-US")
 
 ```html
 <style>
@@ -663,7 +663,7 @@
 <p kk="test2">테스트</p> <!-- 적용안됨 -->
 ```
 
-##### `[속성^="값"]` - 속성값이 "값"으로 시작하는 경우
+##### 1.5.3.1.3 `[속성^="값"]` - 속성값이 "값"으로 시작하는 경우
 
 ```html
 <style>
@@ -676,7 +676,7 @@
 <p kk="not-test">테스트</p> <!-- 적용안됨 -->
 ```
 
-##### `[속성$="값"]` - 속성값이 "값"으로 끝나는 경우
+##### 1.5.3.1.4 `[속성$="값"]` - 속성값이 "값"으로 끝나는 경우
 
 ```html
 <style>
@@ -689,7 +689,7 @@
 <p kk="test2">테스트</p> <!-- 적용안됨 -->
 ```
 
-##### `[속성*="값"]` - 속성값이 "값"을 포함하는 경우
+##### 1.5.3.1.5 `[속성*="값"]` - 속성값이 "값"을 포함하는 경우
 
 ```html
 <style>
@@ -702,13 +702,13 @@
 <p kk="not">테스트</p> <!-- 적용안됨 -->
 ```
 
-#### 복합 Selector(Combinator)
+#### 1.5.3.2 복합 Selector(Combinator)
 - 후손 셀렉터(Descendant Selector) : `스페이스`로 표시 
 - 자식 셀렉터(Child Selector) : `>`로 표시
 - 인접 형제 셀렉터(Adjacent Sibling Selector) : `+`로 표시
 - 일반 형제 셀렉터(General Sibling Selector) : `~`로 표시
 
-##### 후손 셀렉터(Descendant Selector)
+##### 1.5.3.2.1 후손 셀렉터(Descendant Selector)
 - 부모 태그 안에 있는 모든 하위 태그를 하위 요소, 후손 요소라고 부름
 ```css
 div p {
@@ -716,7 +716,7 @@ div p {
 }
 ```
 
-##### 자식 셀렉터(Child Selector)
+##### 1.5.3.2.2 자식 셀렉터(Child Selector)
 - 부모 태그 안에 있는 **바로 다음 레벨**의 태그 선택
 ```css
 div > p {
@@ -725,7 +725,7 @@ div > p {
 ```
 - `div` 태그 안에 있는 p 태그 중에서 div 태그의 **직계 자식**인 p 태그만 선택
 
-##### 인접 형제 셀렉터(Adjacent Sibling Selector)
+##### 1.5.3.2.3 인접 형제 셀렉터(Adjacent Sibling Selector)
 - 특정 태그 바로 다음에 오는 형제 태그를 선택
     - *사이에 다른 태그가 없어야 함*
 ``` html
@@ -746,7 +746,7 @@ div > p {
 </html>
 ```
 
-##### 일반 형제 셀렉터(General Sibling Selector)
+##### 1.5.3.2.4 일반 형제 셀렉터(General Sibling Selector)
 - 특정 태그 다음에 오는 형제 태그를 선택
     - *사이에 다른 태그가 있어도 상관 없음*
 ``` css
@@ -755,12 +755,12 @@ h1 ~ p {
 }
 ```
 
-#### 가상 클래스 셀렉터(Pseudo-class Selector)
+#### 1.5.3.3 가상 클래스 셀렉터(Pseudo-class Selector)
 > - 🧪실습파일
 >     - [x] [Pseudo-class Selector](https://codesandbox.io/p/sandbox/css-pseudo-class-selector-1z7sm "Go to url")
 >     - [x] [UI Element State Pseudo-Class](https://codesandbox.io/p/sandbox/css-ui-element-pseudo-class-selector-mecrs "Go to url")
 
-##### 가상클래스 종류
+##### 1.5.3.3.1 가상클래스 종류
 - `:link` : 링크가 클릭되지 않은 상태
 - `:visited` : 링크가 클릭된 상태
 - `:hover` : 마우스가 링크 위에 올라간 상태
@@ -787,7 +787,7 @@ h1 ~ p {
     </style>
 ```
 
-##### UI 요소 상태 셀렉터(UI Element State Pseudo-Class)
+##### 1.5.3.3.2 UI 요소 상태 셀렉터(UI Element State Pseudo-Class)
 - `:enabled` : Ui 셀렉터가 사용 가능한 상태
 - `:disabled` : Ui 셀렉터가 사용 불가능한 상태
 - `:checked` : Ui 셀렉터가 체크된 상태
@@ -835,7 +835,7 @@ h1 ~ p {
 </html>
 ```
 
-##### 구조 가상 클래스 셀렉터(Structural Pseudo-Class Selector)
+##### 1.5.3.3.3 구조 가상 클래스 셀렉터(Structural Pseudo-Class Selector)
 > - 🧪실습파일
 >     - [x] [css structured pseudo class selector 2](https://codesandbox.io/p/sandbox/css-structured-pseudo-class-selector-b3r9x "Go to url")
 >     - [x] [css structured pseudo class selector 3](https://codesandbox.io/p/sandbox/css-structured-pseudo-class-selector3-c7nrv?file=%2Fsrc%2Findex.js%3A1%2C1-4%2C1 "Go to url")
@@ -896,7 +896,7 @@ h1 ~ p {
     </style>
     ``` 
 
-##### 부정 셀렉터(Negation Pseudo-Class Selector)
+##### 1.5.3.3.4 부정 셀렉터(Negation Pseudo-Class Selector)
 
 - :not(selector) : selector를 제외한 나머지 태그 선택
 
@@ -906,7 +906,7 @@ p:not(.red) {
 }
 ```
 
-##### 정합성 체크 셀렉터(Validity Pseudo-Class Selector)
+##### 1.5.3.3.5 정합성 체크 셀렉터(Validity Pseudo-Class Selector)
 > - 🧪실습파일
 >    - [x] [css required selector](https://codesandbox.io/p/sandbox/css-required-selector-l7wzb "Go to url")
 >    - [x] [css pattern selector](https://codesandbox.io/p/sandbox/css-pattern-selector-187zm "Go to url")
@@ -925,7 +925,7 @@ p:not(.red) {
     <input type="text" id="data2" name="data2" pattern="[0-9]{3}" /><br />
     ```
 
-##### 가상 요소 셀렉터(Pseudo-element Selector)
+##### 1.5.3.3.6 가상 요소 셀렉터(Pseudo-element Selector)
 > - 🧪실습파일
 >     - [x] [css Pseudo-Element Selector](https://codesandbox.io/p/sandbox/css-pseudo-element-selector-forked-w794fg?file=%2Findex.html%3A20%2C21 "Go to url")
 
@@ -957,11 +957,11 @@ h1::before {
 
 <hr>
 
-## Section4. 모던 웹의 핵심 상세한 CSS 기본 프로퍼티
+## 1.6 Section4. 모던 웹의 핵심 상세한 CSS 기본 프로퍼티
 > - 📕PDF
 >     - [x] [05_css_boxmodel.pdf](https://drive.google.com/file/d/12Wd_nHCZSUmrKYSCpwzgfHjlhYUHYH4x/view?usp=drive_link "05_css_boxmodel.pdf")
 
-### CSS BOX MODEL(박스 모델) 이해
+### 1.6.1 CSS BOX MODEL(박스 모델) 이해
 > - 🧪실습파일
 >     - [x] [css_boxmodel_basic](https://codesandbox.io/p/sandbox/cssboxmodelbasic-vsm17 "Go to url")
 
@@ -971,7 +971,7 @@ h1::before {
     <img width="400" height="" src="MD_image/css-box-model.png">
 </p>
 
-#### BOX Model property
+#### 1.6.1.1 BOX Model property
 
 |  속성   | 설명                                                           |
 | :-----: | -------------------------------------------------------------- |
@@ -998,8 +998,8 @@ h1::before {
 </style>
 ```
 
-#### 주요 프로퍼티<sup>property</sup>
-##### width, height
+#### 1.6.1.2 주요 프로퍼티<sup>property</sup>
+##### 1.6.1.2.1 width, height
 > - 🧪실습파일
 >     - [x] [css_boxmodel_width](https://codesandbox.io/p/sandbox/cssboxmodelwidth-ge954?file=%2Findex.html%3A8%2C1-9%2C1 "Go to url")
 >     - [x] [css_boxmodel_maxwidth](https://codesandbox.io/p/sandbox/cssboxmodelmaxwidth-wot82 "Go to url")
@@ -1007,7 +1007,7 @@ h1::before {
 - width / height 포함, 모든 box model 관련 프로퍼티(margin, padding, border, box-sizing)는 **상속되지 않음**
 > 컨텐츠가 지정된 width, height를 초과할 경우 overflow 속성에 따라 처리됨
 
-##### margin / padding
+##### 1.6.1.2.2 margin / padding
 > - 🧪실습파일
 >     - [x] [css_boxmodel_padding](https://codesandbox.io/p/sandbox/cssboxmodelpadding-hrzf3 "Go to url")
 
@@ -1044,7 +1044,7 @@ h1::before {
     padding-right: 10px; padding-left: 10px;
     ```
 
-##### 참고
+##### 1.6.1.2.3 참고
 - block 특성을 가지 요소에 대한 **중앙 정렬**(margin 활용)
 ```css
 width: 100px; /* 명시적으로 지정해야 함 */
@@ -1052,7 +1052,7 @@ margin-left: auto;
 margin-right: auto;
 ```
 
-##### border
+##### 1.6.1.2.4 border
 > - 🧪실습파일
 >     - [x] [css_boxmodel_border](https://codesandbox.io/p/sandbox/cssboxmodelborder-rmhys "Go to url")
 
@@ -1063,7 +1063,7 @@ margin-right: auto;
     - border-radius: 10px; /* 모든 모서리 둥글게 설정 */
     - Border radius 참고  [https://developer.mozilla.org/ko/docs/Web/CSS/border-radius](https://developer.mozilla.org/ko/docs/Web/CSS/border-radius "Border radius")
 
-##### box-sizing
+##### 1.6.1.2.5 box-sizing
 > - 🧪실습파일
 >     - [x] [css_boxmodel_box-sizing](https://codesandbox.io/p/sandbox/cssboxmodelboxsizing-12n9i "Go to url")
 
@@ -1092,13 +1092,13 @@ margin-right: auto;
     }
     ```
 
-### CSS background 이해
+### 1.6.2 CSS background 이해
 > - 📕PDF
 >     - [x] [06_css_background.pdf](https://drive.google.com/file/d/10Iu1LKasuq46dvU7QBiPHNbUlTUFL_Qw/view?usp=sharing "06_css_background.pdf")
 > - 🧪실습파일
 >    - [x] [css_background](https://codesandbox.io/p/sandbox/cssbackgroundimage-v45e6?file=%2Fsrc%2Findex.js%3A1%2C1-2%2C1 "Go to url")
 
-#### background-image 프로퍼티
+#### 1.6.2.1 background-image 프로퍼티
 ```css
 body {
     background-image: url("https://www.w3schools.com/w3images/fjords.jpg");
@@ -1107,7 +1107,7 @@ body {
 }
 ```
 
-#### background-repeat 프로퍼티
+#### 1.6.2.2 background-repeat 프로퍼티
 |   속성    | 설명                                                                 |
 | :-------: | -------------------------------------------------------------------- |
 |  repeat   | 배경 이미지를 반복하여 채움(기본값)                                  |
@@ -1136,7 +1136,7 @@ body {
 }
 ```
 
-#### background-size 프로퍼티
+#### 1.6.2.3 background-size 프로퍼티
 [참고 사이트 https://cssreference.io/property/background-size/](https://cssreference.io/property/background-size/ "Go to url")
 |  속성   | 설명                                                               |
 | :-----: | ------------------------------------------------------------------ |
@@ -1145,7 +1145,7 @@ body {
 |  cover  | 배경 이미지가 요소를 완전히 덮도록 크기를 조정함(비율 유지)        |
 | contain | 배경 이미지가 요소 안에 완전히 들어가도록 크기를 조정함(비율 유지) |
 
-#### background-attachment 프로퍼티
+#### 1.6.2.4 background-attachment 프로퍼티
 - 배경 이미지의 스크롤 동작을 설정
 
 |  속성  | 설명                                                             |
@@ -1153,15 +1153,15 @@ body {
 | scroll | 배경 이미지를 스크롤에 따라 움직임(기본값)                       |
 | fixed  | 배경 이미지를 고정하여 스크롤 시에도 배경 이미지가 움직이지 않음 |
 
-#### background-position 프로퍼티
+#### 1.6.2.5 background-position 프로퍼티
 - 배경 이미지의 위치를 설정
 > left top : 왼쪽 위, center center : 중앙, right bottom : 오른쪽 아래, ... 등으로 설정
 
-#### background-color 프로퍼티
+#### 1.6.2.6 background-color 프로퍼티
 - CSS 색상 단위로 설정 가능
 > 예) red, #ff0000, rgb(255, 0, 0), rgba(255, 0, 0, 1.0) 등으로 설정 가능
 
-#### background 단축 프로퍼티 
+#### 1.6.2.7 background 단축 프로퍼티 
 - 다음 순서대로 다양한 배경 속성을 설정 가능
 ```css  
 background: color image repeat attachment position;
@@ -1174,13 +1174,13 @@ body {
 }
 ```
 
-### CSS block과 inline 이해
+### 1.6.3 CSS block과 inline 이해
 > - 📕PDF
 >    - [x] [07_css_block_inline.pdf](https://drive.google.com/file/d/1_8_lstI2U00oyGipuU2WYge4gSFbGSI8/view?usp=sharing "07_css_block_inline.pdf")
 > - 🧪실습파일
 >   - [x] [css_block_inline](https://codesandbox.io/p/sandbox/cssblock-7w97o "Go to url")
 
-#### block 특성
+#### 1.6.3.1 block 특성
 - block 특성을 가지는 요소는 다음과 같은 특성을 가짐
     - 항상 **새로운 줄에서 시작**
     - width, height, margin, padding 를 지정할 수 있음
@@ -1191,7 +1191,7 @@ body {
         - `p`, `ul`, `ol`, `li`
         - `hr`, `table`, `form` 등
 
-#### inline 특성
+#### 1.6.3.2 inline 특성
 - inline 특성을 가지는 요소는 다음과 같은 특성을 가짐
     - 새로운 줄에서 시작하지 않음
     - content 영역의 크기만큼만 차지함
@@ -1201,7 +1201,7 @@ body {
     - 디폴트로 inline 특성을 가지는 주요 html 태그
         - `span`, `a`, `img`, `strong`, `em`, `br`, `input` 등
 
-#### CSS display 프로퍼티
+#### 1.6.3.3 CSS display 프로퍼티
 - 모든 html 태그는 디폴트로 block 또는 inline 특성을 가지지만, display **프로퍼티를 사용하여 특성을 변경할 수 있음**
 
     | 디폴트 display 속성 | 설명                                                       |
@@ -1233,25 +1233,25 @@ body {
 </div>
 ```
 
-#### CSS visibility 프로퍼티
+#### 1.6.3.4 CSS visibility 프로퍼티
 - display 프로퍼티와 비슷하지만, 요소를 화면에 표시하지 않더라도 공간을 차지함
     - **visible**: 요소를 화면에 표시함(기본값)
     - hidden: 요소를 화면에 표시하지 않음(공간 차지함)
     - collapse: 테이블에서만 사용 가능, 테이블 행 또는 열을 숨김
 
-#### inline-block 특성
+#### 1.6.3.5 inline-block 특성
 - inline-block 특성을 가지는 요소는 다음과 같은 특성을 가짐
     - block과 inline 특성을 모두 가짐
     - width, height, margin, padding을 지정할 수 있음
 
-### CSS font 이해
+### 1.6.4 CSS font 이해
 > - 📕PDF
 >    - [x] [08_css_font.pdf](https://drive.google.com/file/d/1eORR0mLuzT7X6ZKkRXOXpjV8TjLkD66g/view?usp=sharing "08_css_font.pdf")
 > - 🧪실습파일
 >   - [x] [css_font](https://codesandbox.io/p/sandbox/cssfont-1bi3m "Go to url")
 
 
-#### font-size 프로퍼티
+#### 1.6.4.1 font-size 프로퍼티
 - 문자 크기 설정
 - 주요값
     - medium : 웹브라우저에서 정한 기본 글자 크기(디폴트)
@@ -1259,7 +1259,7 @@ body {
     - smaller, larger : 부모 요소의그자 크기에 대한 상대적인 크기
     - length : px, em, <u>**rem**</u>, % 등으로 절대적인 크기
 
-#### font-family 프로퍼티
+#### 1.6.4.2 font-family 프로퍼티
 - 문자 폰트 설정
 > 일반적으로 font-family에 여러 폰트를 설정하는 경우가 많음
 ```css
@@ -1274,7 +1274,7 @@ font-family: "first-font", "second-font", "third-font";
     - cursive : 필기체 계열 폰트(예: Comic Sans MS)
     - fantasy : 장식체 계열 폰트(예: Papyrus)
 
-#### 웹폰트 사용법
+#### 1.6.4.3 웹폰트 사용법
 - 사용자 PC에 설치된 폰트가 아닌 웹에서 제공하는 폰트를 사용하고 싶을 때 사용
 - 구글 웹폰트 사용법
     1. [구글 웹폰트](https://fonts.google.com/)에 접속하여 원하는 폰트를 선택
@@ -1296,13 +1296,13 @@ font-family: "first-font", "second-font", "third-font";
   </head>
 ```
 
-#### font-style 프로퍼티
+#### 1.6.4.4 font-style 프로퍼티
 - 글자 스타일 설정
     - normal : 일반 글자(디폴트)
     - italic : 기울임꼴
     - oblique : 비스듬한 글자
 
-#### font-weight 프로퍼티
+#### 1.6.4.5 font-weight 프로퍼티
 - 글자 두께 설정
     - number : 100, 200, 300, **400**, 500, 600, **700**, 800, 900(폰트에서 지원해야 미세조정 가능)
     - normal : 400과 동일
@@ -1310,41 +1310,41 @@ font-family: "first-font", "second-font", "third-font";
     - bolder : 부모 요소보다 두꺼운 글자
     - lighter : 부모 요소보다 얇은 글자
 
-#### font-variant 프로퍼티
+#### 1.6.4.6 font-variant 프로퍼티
 - **소문자 크기의 대문자로 바꾸는 설정**
     - normal : 일반 글자(디폴트)
     - small-caps : 소문자를 소문자 크기의 대문자로 바꿈
 
-#### line-height 프로퍼티
+#### 1.6.4.7 line-height 프로퍼티
 - 라인 높이 설정 
     - normal : 일반 높이(디폴트)
     - length : px, em, % 등으로 절대적인 높이
     - number : 1.5, 2 등으로 상대적인 높이(디폴트 글자 크기의 배수)
 
-#### font 단축 프로퍼티 
+#### 1.6.4.8 font 단축 프로퍼티 
 ```css
 font: font-style(옵션) font-variant(옵션) font-weight(옵션) font-size(필수) line-height(옵션) font-family(필수);
 ```
 
-#### letter-spacing, word-spacing 프로퍼티
+#### 1.6.4.9 letter-spacing, word-spacing 프로퍼티
 - 글자 사이 간격은 letter-spacing, 단어 사이 간격은 word-spacing으로 설정 가능
 - 보통 px 단위로 설정함
 
-#### text-align 프로퍼티
+#### 1.6.4.10 text-align 프로퍼티
 - 텍스트 정렬 설정
     - left : 왼쪽 정렬(디폴트)
     - right : 오른쪽 정렬
     - center : 중앙 정렬
     - justify : 양쪽 정렬
 
-#### text-decoration 프로퍼티
+#### 1.6.4.11 text-decoration 프로퍼티
 - 텍스트 장식 설정
     - none : 장식 없음(디폴트)
     - underline : 밑줄
     - overline : 윗줄
     - line-through : 취소선
 
-#### white-space 프로퍼티
+#### 1.6.4.12 white-space 프로퍼티
 - 공백 처리 설정
 
     | 프로퍼티 값 | 스페이스와 탭 | 줄바꿈 | 자동 줄바꿈 |
@@ -1355,7 +1355,7 @@ font: font-style(옵션) font-variant(옵션) font-weight(옵션) font-size(필�
     | pre-wrap    |     보존      |  보존  |      O      |
     | pre-line    |     병합      |  보존  |      O      |
 
-#### text-overflow 프로퍼티
+#### 1.6.4.13 text-overflow 프로퍼티
 - 텍스트가 요소의 크기를 초과할 경우 처리 방법 설정
     - 다음 조건이 설정되어야 함
         1. width 프로퍼티 설정
@@ -1370,31 +1370,31 @@ font: font-style(옵션) font-variant(옵션) font-weight(옵션) font-size(필�
 
 <hr>
 
-## Section5. 모던 웹의 핵심 상세한 CSS 배치와 애니메이션
-### CSS position 이해
+## 1.7 Section5. 모던 웹의 핵심 상세한 CSS 배치와 애니메이션
+### 1.7.1 CSS position 이해
 > - 📕PDF
 >    - [x] [09_css_position.pdf](https://drive.google.com/file/d/15KnKkC8gRvsHkHov99uZ6mjx0QPkEqdN/view?usp=drive_link "09_css_position.pdf")
 > - 🧪실습파일
 >   - [x] [css_position](https://codesandbox.io/p/sandbox/cssposition-j3y46 "Go to url")
 
 
-#### 정적 위치 (Static Position)
+#### 1.7.1.1 정적 위치 (Static Position)
 - 디폴트로 모든 요소는 `static` 위치를 가짐
 - `top`, `right`, `bottom`, `left` 프로퍼티는 적용되지 않음
 - 요소는 문서 흐름에 따라 배치됨
 
-#### 상대 위치 (Relative Position)
+#### 1.7.1.2 상대 위치 (Relative Position)
 - `position: relative` 설정
 - 요소는 문서 흐름에 따라 배치되지만, `top`, `right`, `bottom`, `left` 프로퍼티를 사용하여 **원래 위치를 기준으로** 이동할 수 있음
 - 이동해도 **원래 자리의 공간은 유지됨**
 
-#### 절대 위치 (Absolute Position)
+#### 1.7.1.3 절대 위치 (Absolute Position)
 - `position: absolute` 설정
 - 요소는 문서 흐름에서 제거됨
 - **가장 가까운 `position`이 `relative`, `absolute`, `fixed`, `sticky`인 부모 요소**를 기준으로 `top`, `right`, `bottom`, `left` 값을 사용해 위치를 조정함
 - 만약 그런 부모 요소가 없으면, 문서 전체 (`<html>` 요소)를 기준으로 배치됨
 
-#### 고정 위치 (Fixed Position)
+#### 1.7.1.4 고정 위치 (Fixed Position)
 - `position: fixed` 설정
 - 요소는 문서 흐름에서 제거됨
 - **뷰포트(브라우저 창)를 기준**으로 `top`, `right`, `bottom`, `left` 값을 사용해 위치를 조정함
@@ -1406,13 +1406,13 @@ font: font-style(옵션) font-variant(옵션) font-weight(옵션) font-size(필�
     <img width="50%" height="" src="MD_image/css-position.png">
 </span>
 
-#### z-index, overflow 프로퍼티
+#### 1.7.1.5 z-index, overflow 프로퍼티
 > - 🧪실습파일
 >   - [x] [css_position](https://codesandbox.io/p/sandbox/cssposition-j3y46 "Go to url") index2.html
 -  z-index 프로퍼티에 큰 숫자값을 지정할수록 화면 전면에 출력
     - position 프로퍼티가 `absolute`, `relative`, `fixed`인 요소에만 적용됨
 
-#### overflow 프로퍼티
+#### 1.7.1.6 overflow 프로퍼티
 > - 🧪실습파일
 >   - [x] [css_position](https://codesandbox.io/p/sandbox/cssposition-j3y46 "Go to url") index3.html
 - 요소의 내용이 부모 요소의 크기를 초과할 경우 처리 방법 설정
@@ -1424,15 +1424,15 @@ font: font-style(옵션) font-variant(옵션) font-weight(옵션) font-size(필�
     |   scroll   | 자식 요소가 부모 요소 영역을 벗어나면 스크롤바가 생김                 |
     |  **auto**  | 자식 요소가 부모 요소 영역을 벗어나면 스크롤바가 생기거나 보이지 않음 |
 
-### CSS transition 이해
+### 1.7.2 CSS transition 이해
 > - 📕PDF
 >    - [x] [10_css_transition.pdf](https://drive.google.com/file/d/1yAkwhuHgn9XNE9Ybb8teDPgYm5tttTcD/view?usp=drive_link "10_css_transition.pdf")
 
-#### 정의
+#### 1.7.2.1 정의
 - CSS 프로퍼티 값 변경 시, 값 변화가 일정 시간에 걸쳐 일어나도록 해서, 일종의 애니메이션 효과를 주는 기능
 - **호환성** : ie 10.0+, chrome 26.0+, firefox 16.0+, safari 6.1+, opera 12.1+ 
 
-#### 주요 CSS transition 프로퍼티
+#### 1.7.2.2 주요 CSS transition 프로퍼티
 |          프로퍼티          | 설명                                                                      |
 | :------------------------: | ------------------------------------------------------------------------- |
 |    transition-property     | 트랜지션 대상이 되는 CSS 프로퍼티 지정(디폴트:all)                        |
@@ -1441,7 +1441,7 @@ font: font-style(옵션) font-variant(옵션) font-weight(옵션) font-size(필�
 |      transition-delay      | 언제 트랜지션을 시작할지를 초(s) 또는 밀리 초(ms)로 지정(디폴트: 0s)      |
 |         transition         | ㄷ모든 트랜지션 프로퍼티를 한번에 지정하는 단축 프로퍼티                  |
 
-#### 활용 예
+#### 1.7.2.3 활용 예
 ```css
 div {
     transition-property: opacity, width; /* 애니메이션 적용할 프로퍼티 */
@@ -1450,11 +1450,11 @@ div {
 }
 ```
 
-#### transition-timing-function
+#### 1.7.2.4 transition-timing-function
 > - 🧪실습파일
 >   - [x] [css_transition](https://codesandbox.io/p/sandbox/csstransition-2j8gq "Go to url")
 
-##### 주요 transition-timing-function 프로퍼티 값
+##### 1.7.2.4.1 주요 transition-timing-function 프로퍼티 값
 - default : ease
 - ease : 처음과 끝은 느리고 중간은 빠름
 - linear : 처음부터 끝까지 일정한 속도로 진행
@@ -1469,30 +1469,30 @@ div {
 - cubic-bezier(x1, y1, x2, y2) : 베지어 곡선으로 애니메이션 속도 조절 
 [참고사이트 : https://dbaron.org/css/timing-function-graphs](https://dbaron.org/css/timing-function-graphs "Go to url")
 
-#### transition-delay
+#### 1.7.2.5 transition-delay
 > - 🧪실습파일
 >   - [x] [css_transition](https://codesandbox.io/p/sandbox/csstransition-2j8gq "Go to url")
 - 애니메이션 시작 전 대기 시간 설정
 
-#### transition 단축 프로퍼티
+#### 1.7.2.6 transition 단축 프로퍼티
 ```css
 transition: property duration timing-function delay;
 ```
 
-### CSS animation 이해
+### 1.7.3 CSS animation 이해
 > - 📕PDF
 >   - [x] [11_css_animation.pdf](https://drive.google.com/file/d/1Y5BeB7o0g9L4KCkxYzZQiBalYm2_Y730/view?usp=drive_link "11_css_animation.pdf")
 > - 🧪실습파일
 >  - [x] [css_animation](https://codesandbox.io/p/sandbox/cssanimation-zgc3g "Go to url")
   
-#### 정의
+#### 1.7.3.1 정의
 - transition은 변경되어야할 스타일만 지정, animation은 중간에 변경되는 스타일을 세밀하게 지정 가능
 - 애니메이션은 애니메이션을 나타내는 CSS 스타일과 중간 상태를 나타내는 키프레임(**@keyframes**)으로 구성됨
 
-#### 주요 CSS animation 프로퍼티
+#### 1.7.3.2 주요 CSS animation 프로퍼티
 > pdf 참고 : [11_css_animation.pdf](https://drive.google.com/file/d/1Y5BeB7o0g9L4KCkxYzZQiBalYm2_Y730/view?usp=drive_link "11_css_animation.pdf")
 
-#### keyframes 문법
+#### 1.7.3.3 keyframes 문법
 - from 또는 0%에 설정한 스타일에서 시작 
 - to 또는 100%에 설정한 스타일에서 끝남
 - 중간 시점을 `%`로 표기
@@ -1511,23 +1511,23 @@ transition: property duration timing-function delay;
 }
 ```
 
-#### 주요 CSS animation 프로퍼티
+#### 1.7.3.4 주요 CSS animation 프로퍼티
 > transition-timing-function 과 동일
 
-#### animation-duration, animation-delay
+#### 1.7.3.5 animation-duration, animation-delay
 - 초(s) 또는 밀리초(ms) 단위로 설정 가능
 ```css
 animation-duration: 2s; /* 애니메이션 지속 시간 */
 animation-delay: 1s; /* 애니메이션 시작 전 대기 시간 */
 ```
 
-#### animation-iteration-count
+#### 1.7.3.6 animation-iteration-count
 - 정수 또는 infinite로 설정 가능
 ```css
 animation-iteration-count: 3; /* 3회 반복 */
 ```
 
-#### animation-direction
+#### 1.7.3.7 animation-direction
 |    프로퍼티 값    | 설명                                           |
 | :---------------: | :--------------------------------------------- |
 |      normal       | 0%에서 100%까지 진행(디폴트)                   |
@@ -1535,7 +1535,7 @@ animation-iteration-count: 3; /* 3회 반복 */
 |     alternate     | 홀수번 째는 normal, 짝수번 째는 reverse로 진행 |
 | alternate-reverse | 홀수번 째는 reverse, 짝수번 째는 normal로 진행 |
 
-#### animation-fill-mode
+#### 1.7.3.8 animation-fill-mode
 > - 🧪실습파일
 >  - [x] [css_animation](https://codesandbox.io/p/sandbox/css-animation-forked-249y7k?file=%2Findex3.html "Go to url")
 
@@ -1544,12 +1544,12 @@ animation-iteration-count: 3; /* 3회 반복 */
 - backwards : 0% → 0% → 100% → 처음 스타일
 - both : 0% → 0% → 100% → 100%
 
-#### animation-play-state
+#### 1.7.3.9 animation-play-state
 - running : 애니메이션 진행 중(디폴트)
 - paused : 애니메이션 일시 정지
 
 
-#### animation 단축 프로퍼티
+#### 1.7.3.10 animation 단축 프로퍼티
 ```css
 animation: name duration timing-function delay iteration-count direction fill-mode play-state;
 ```
