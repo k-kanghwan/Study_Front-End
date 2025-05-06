@@ -37,6 +37,9 @@
 - [transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin "transform-origin")
 - [CSS inheritance reference](https://www.w3.org/TR/CSS2/propidx.html "CSS inheritance reference")
 - [명시도 계산 (CSS Specificity)](https://specificity.keegan.st/ "명시도 계산 (CSS Specificity)")
+- [Explore flexbox - https://flexbox.tech/]("https://flexbox.tech/" "Explore flexbox")
+- [Flexbox Froggy - https://flexboxfroggy.com/#ko](https://flexboxfroggy.com/#ko "Flexbox Froggy")
+- [CSS Diner(CSS Selector 연습)](https://flukeout.github.io/ "CSS diner(CSS Selector 연습)")
 
 
 ## Table of Contents
@@ -176,7 +179,28 @@
       - [레이아웃과 미디어 쿼리](#레이아웃과-미디어-쿼리)
       - [미디어 쿼리 기본 문법](#미디어-쿼리-기본-문법)
     - [참고해상도](#참고해상도)
-  - [Section7. CSS Flexbox](#section7-css-flexbox)
+  - [Section7. CSS Flexbox(레이아웃 핵심)](#section7-css-flexbox레이아웃-핵심)
+    - [CSS flexbox](#css-flexbox)
+      - [정의](#정의-3)
+      - [수평 정렬 방법과 flexbox(Flexible box)](#수평-정렬-방법과-flexboxflexible-box)
+    - [flexbox의 이해](#flexbox의-이해)
+      - [flexbox 사용 방법](#flexbox-사용-방법)
+      - [flexbox conainer 관련 프로퍼티](#flexbox-conainer-관련-프로퍼티)
+    - [flex container 프로퍼티](#flex-container-프로퍼티)
+      - [팁 : div 박스 내의 텍스트의 가운데 정렬](#팁--div-박스-내의-텍스트의-가운데-정렬)
+      - [flex-direction](#flex-direction)
+      - [flex-wrap](#flex-wrap)
+      - [flex-flow](#flex-flow)
+      - [justify-content](#justify-content)
+      - [align-items 와 align-content](#align-items-와-align-content)
+    - [flexbox item 관련 프로퍼티](#flexbox-item-관련-프로퍼티)
+      - [flex item 관련 프로퍼티 요약](#flex-item-관련-프로퍼티-요약)
+      - [order](#order)
+      - [flex-grow](#flex-grow)
+      - [flex-shrink](#flex-shrink)
+      - [flex-basis](#flex-basis)
+      - [flex](#flex)
+      - [align-self](#align-self)
     
 ---
 
@@ -1785,7 +1809,165 @@ transform-origin: x y z;
 
 <hr>
 
-## Section7. CSS Flexbox
+## Section7. CSS Flexbox(레이아웃 핵심)
+> - 📕PDF
+>   - [x] [16_css_layout.pdf](https://drive.google.com/file/d/1v83HVWh7trgS3BTTdbrKh8DSWuAvxgs_/view?usp=sharing "16_css_layout.pdf")
+
+### CSS flexbox
+#### 정의
+- flexbox는 CSS3에서 제공하는 레이아웃 모델로, 요소를 유연하게 배치하고 정렬할 수 있는 방법을 제공
+
+#### 수평 정렬 방법과 flexbox(Flexible box)
+- 뷰포트나 요소 사이즈가 불명확하거나, 동적으로 변할 때에도 요소를 적절히 배치할 수 있는 기능을 제공
+
+### flexbox의 이해 
+
+#### flexbox 사용 방법
+```css
+.container {
+    display: flex; /* flexbox 사용 */
+    /* flex-direction: row; /* 기본값 : row */
+    /* justify-content: center; 수평 정렬 */
+    /* align-items: center; 수직 정렬 */
+}
+```
+
+#### flexbox conainer 관련 프로퍼티
+- 상위 부모 요소인 flex container와
+- 하위 자식 요소인 flex item으로 구성됨
+> 부모 요소가 flex 이면 자식 요소는 flex item으로 자동 설정됨
+
+### flex container 프로퍼티
+> - 🧪실습파일
+>   - [x] [css_flex_containers](https://codesandbox.io/p/sandbox/cssflex-e7vc5 "Go to url")
+
+| 프로퍼티        | 설명                                                                                   |
+| --------------- | -------------------------------------------------------------------------------------- |
+| display         | flex 또는 inline-flex로 설정하여 flexbox 사용                                          |
+| flex-direction  | flex item의 배치 방향 설정 (row, row-reverse, column, column-reverse)                  |
+| flex-wrap       | flex item의 줄바꿈 설정 (nowrap, wrap, wrap-reverse)                                   |
+| flex-flow       | flex-direction과 flex-wrap을 합친 단축 프로퍼티                                        |
+| justify-content | flex item의 수평 정렬 설정 (flex-start, flex-end, center, space-between, space-around) |
+| align-content   | flex item의 수직 정렬 설정 (flex-start, flex-end, center, space-between, space-around) |
+| align-items     | flex item의 수직 정렬 설정 (flex-start, flex-end, center, baseline, stretch)           |
+
+#### 팁 : div 박스 내의 텍스트의 가운데 정렬
+- 수평 가운데 정렬 : `text-align: center;`
+- 수직 가운데 정렬 : `line-height: height;`
+```css
+div {
+    height: 100px; /* div 박스 높이 */
+    line-height: 100px; /* 수직 가운데 정렬 */
+    text-align: center; /* 수평 가운데 정렬 */
+}
+```
+
+#### flex-direction
+<p style="text-align:left;">
+    <img width="500" height="" src="MD_image/css-flex-direction.png">
+</p>
+
+#### flex-wrap
+- flex item들을 1행 또는 복수의 행으로 배치하는 설정
+
+```css
+.container {
+    display: flex; /* flexbox 사용 */
+    flex-wrap: wrap; /* 줄바꿈 설정 */
+}
+```
+
+#### flex-flow
+- flex-direction과 flex-wrap을 합친 단축 프로퍼티
+```css
+.container {
+    display: flex; /* flexbox 사용 */
+    flex-flow: flex-direction flex-wrap; /* flex-direction과 flex-wrap 설정 */
+}
+```
+
+#### justify-content
+- 주 축(main axis) 기반 수평 정렬 방법 설정
+
+#### align-items 와 align-content
+- align-items : 교차 축(cross axis) 기반 정렬 방법 설정(각 행마다 적용)
+- align-content : 교차 축(cross axis) 기반 정렬 방법 설정(복수의 행을 하나의 그룹처럼 적용)
+
+<p style="text-align:left;">
+    <img width="500" height="" src="MD_image/css-main-axis-cross-axis.png">
+</p>
+
+### flexbox item 관련 프로퍼티 
+> - 🧪실습파일
+>   - [x] [css_flex_items](https://codesandbox.io/p/sandbox/cssflexitems-jm0gn?file=%2Findex.html%3A17%2C1-18%2C1 "Go to url")
+
+#### flex item 관련 프로퍼티 요약
+| 프로퍼티    | 설명                                                                                         |
+| ----------- | -------------------------------------------------------------------------------------------- |
+| order       | flex item의 순서 설정                                                                        |
+| flex-grow   | flex item의 너비 증가 비율 설정                                                              |
+| flex-shrink | flex item의 너비 감소 비율 설정                                                              |
+| flex-basis  | flex item의 기본 너비 설정  (공간 분배 전)                                                   |
+| flex        | flex-grow, flex-shrink, flex-basis를 합친 단축 프로퍼티                                      |
+| align-self  | flex container의 align-items/align-content 보다 우선해서, 개별 flex item 수직 정렬 방법 설정 |
+
+
+#### order
+- flex item의 순서 설정
+```css
+.item1 {
+    order: 2; /* 기본값 : 0 */
+}
+.item1 {
+    order: 1; /* 기본값 : 0 */
+}
+```
+
+#### flex-grow
+- flex item의 너비 증가 비율 설정
+```css
+.item1 {
+    flex-grow: 1;
+}
+.item2 {
+    flex-grow: 1;
+}
+.item3 {
+    flex-grow: 2;
+}
+```
+
+#### flex-shrink
+- flex item의 너비 감소 비율 설정(flex-grow와 반대)
+
+#### flex-basis
+- flex item의 기본 너비 설정 (공간 분배 전)
+
+```css
+.item1 {
+    flex-basis: 300px;
+}
+.item2 {
+    flex-basis: 100px;
+}
+```
+
+#### flex
+- flex-grow, flex-shrink, flex-basis를 합친 단축 프로퍼티
+```css
+.item1 {
+    flex: 1 1 300px; /* flex-grow, flex-shrink, flex-basis */
+}
+```
+> IE 호환성 이슈로 인해 사용하지 않는 편이 좋음
+
+#### align-self
+```css
+align-self : flex-start | flex-end | center | baseline | stretch;
+```
+
+<a href="https://flexbox.tech/" target="_blank">Flexbox playground</a> : explore flexbox properties
+<a href="https://flexboxfroggy.com/#ko" target="_blank">Flexbox Froggy</a> : flexbox 게임
 
 
 
