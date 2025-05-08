@@ -41,6 +41,9 @@
 - [Flexbox Froggy - https://flexboxfroggy.com/#ko](https://flexboxfroggy.com/#ko "Flexbox Froggy")
 - [CSS Diner(CSS Selector 연습)](https://flukeout.github.io/ "CSS diner(CSS Selector 연습)")
 
+- [CSS Reset](https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css "CSS Reset")
+- [fontawesome](https://fontawesome.com/kits/new "fontawesome")
+
 
 ## Table of Contents
 - [Front-End](#front-end)
@@ -201,6 +204,8 @@
       - [flex-basis](#flex-basis)
       - [flex](#flex)
       - [align-self](#align-self)
+  - [Section8. 모던 웹페이지 제작](#section8-모던-웹페이지-제작)
+    - [Header 설정](#header-설정)
     
 ---
 
@@ -1969,6 +1974,12 @@ align-self : flex-start | flex-end | center | baseline | stretch;
 <a href="https://flexbox.tech/" target="_blank">Flexbox playground</a> : explore flexbox properties
 <a href="https://flexboxfroggy.com/#ko" target="_blank">Flexbox Froggy</a> : flexbox 게임
 
+<hr>
+
+## Section8. 모던 웹페이지 제작
+### Header 설정
+- [헤더 설정 파일 Materials/01_head/index.html](Materials/01_head/index.html "Go to url")
+- [css 기초 설정 Materials/01_head/css/style.css](Materials/01_head/css/style.css "Go to url")
 
 
 
