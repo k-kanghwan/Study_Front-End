@@ -206,6 +206,19 @@
       - [align-self](#align-self)
   - [Section8. 모던 웹페이지 제작](#section8-모던-웹페이지-제작)
     - [Header 설정](#header-설정)
+      - [meta 태그 설정](#meta-태그-설정)
+      - [open graph 설정](#open-graph-설정)
+      - [twitter card 설정](#twitter-card-설정)
+      - [favicon 설정](#favicon-설정)
+      - [CSS Reset](#css-reset)
+      - [font 설정](#font-설정)
+    - [CSS 기본 설정](#css-기본-설정)
+      - [a 태그 초기화](#a-태그-초기화)
+      - [CSS 작명 규칙(BEM: Block Element Modifier)](#css-작명-규칙bem-block-element-modifier)
+      - [background 설정](#background-설정)
+    - [section 작성](#section-작성)
+      - [fontawesome 사용](#fontawesome-사용)
+      - [box-shadow 설정](#box-shadow-설정)
     
 ---
 
@@ -1980,6 +1993,86 @@ align-self : flex-start | flex-end | center | baseline | stretch;
 ### Header 설정
 - [헤더 설정 파일 Materials/01_head/index.html](Materials/01_head/index.html "Go to url")
 - [css 기초 설정 Materials/01_head/css/style.css](Materials/01_head/css/style.css "Go to url")
+
+#### meta 태그 설정
+1. charset : 문자 인코딩 설정
+2. description : 페이지 설명
+3. keywords : 페이지 키워드
+4. author : 페이지 작성자
+5. viewport : 반응형 웹을 위한 뷰포트 설정
+
+#### open graph 설정
+#### twitter card 설정
+#### favicon 설정
+1. 일반적인 설정 
+2. 애플 터치 아이콘 설정
+3. 인터넷 익스플로러 설정
+
+#### CSS Reset
+
+#### font 설정
+
+### CSS 기본 설정
+#### a 태그 초기화
+```css
+/* a 태그 초기화 */
+a {
+  all: unset;
+}
+a:link {
+  text-decoration: none;
+  color: #cca94c;
+}
+a:visited {
+  text-decoration: none;
+  color: #cca94c;
+}
+a:active {
+  text-decoration: none;
+  color: #cca94c;
+}
+a:hover {
+  text-decoration: none;
+  color: #cca94c;
+}
+```
+
+#### CSS 작명 규칙(BEM: Block Element Modifier)
+- 단어와 단어는 `-`로 연결 
+- 하위요소는 `__`로 연결
+- modifier는 `--`로 연결
+- 소문자로 작성
+- ex : head-container-blue
+
+#### background 설정
+
+```css
+.main {
+  background-size: cover;
+  background-position: center 10%;
+  background-repeat: no-repeat;
+  }
+```
+
+### section 작성
+#### fontawesome 사용
+```html
+<script
+    src="https://kit.fontawesome.com/{YOUR_KIT_ID}.js"
+    crossorigin="anonymous"
+></script>
+```
+
+#### box-shadow 설정
+[box-shadow https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow "Go to url")
+```css
+.box-shadow {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+```
+
+
+
 
 
 

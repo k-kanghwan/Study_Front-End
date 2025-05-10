@@ -3,3 +3,204 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  margin: 0 auto;
+  color: #cca94c;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+}
+
+/* a 태그 초기화 */
+a {
+  all: unset;
+}
+a:link {
+  text-decoration: none;
+  color: #cca94c;
+}
+a:visited {
+  text-decoration: none;
+  color: #cca94c;
+}
+a:active {
+  text-decoration: none;
+  color: #cca94c;
+}
+a:hover {
+  text-decoration: none;
+  color: #cca94c;
+}
+
+.inner {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+header {
+  width: 100%;
+  height: 60px;
+  background-color: #fff3b9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.head-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.head-container .head-brand {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.head-container .head-brand a:hover {
+  color: #b84ccc !important;
+  cursor: pointer;
+}
+
+.head-container .head-email {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.head-container .head-email a:hover {
+  color: #b84ccc;
+  cursor: pointer;
+}
+
+section {
+  width: 100%;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.main {
+  height: 360px;
+  background-image: url("../img/colorful-background.jpg");
+  background-size: cover;
+  background-position: center 10%;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.main-container {
+  width: 100%;
+  height: 100%;
+  /* background-color: #fff3b9; */
+  opacity: 0.8;
+  z-index: 2;
+  margin-top: 60px;
+}
+
+.title-container {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #b84ccc;
+  padding-bottom: 0.8rem;
+}
+
+.message {
+  font-size: 1.4rem;
+  color: #b84ccc;
+  line-height: 2rem;
+}
+
+.skill-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.skill {
+  width: 25%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 9px;
+  padding: 0.5rem 1rem;
+  margin: 0 1rem;
+  color: #0a1a73;
+  box-shadow: 10px 10px 20px rgba(25, 42, 70, 0.2);
+}
+
+.skill-icon {
+  font-size: 2.5rem;
+  margin: 0 7px;
+}
+
+.skill-title {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.skill-name {
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.skill-usage {
+  font-size: 0.9rem;
+  color: #968699;
+  margin-bottom: 0.2rem;
+}
+
+.python-style {
+  color: #0433bf;
+}
+
+.database-style {
+  color: #f2cb05;
+}
+
+.globe-style {
+  color: #590202;
+}
+
+@media only screen and (min-width: 1200px) {
+  .inner {
+    max-width: 1200px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  /* .skill-title {
+    display: none;
+  } */
+  .skill {
+    display: none;
+  }
+}
+
+/* =========================== */
+/* Color Theme Swatches in Hex */
+.MC201---Web-Page-1-hex {
+  color: #b84ccc;
+}
+.MC201---Web-Page-2-hex {
+  color: #968699;
+}
+.MC201---Web-Page-3-hex {
+  color: #a179ff;
+}
+.MC201---Web-Page-4-hex {
+  color: #fff3b9;
+}
+.MC201---Web-Page-5-hex {
+  color: #cca94c;
+}
