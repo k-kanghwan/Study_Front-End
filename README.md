@@ -22,27 +22,36 @@
 
 # Front-End
 ## References
-- [HTML tag reference - https://www.w3schools.com/tags/default.asp](https://www.w3schools.com/tags/default.asp "HTML tag reference")
-- [HTML Input Types - https://www.w3schools.com/tags/tag_input.asp](https://www.w3schools.com/tags/tag_input.asp "HTML Input Types")
-- [HTML validation - https://validator.w3.org/#validate_by_uri](https://validator.w3.org/#validate_by_uri "HTML validation")
-- [웹 접근성 진단 서비스 - https://accessibility.kr/](https://accessibility.kr/ "웹 접근성 진단 서비스")
-- [WEBP 지원 브라우저 확인 - https://caniuse.com/webp](https://caniuse.com/webp "WEBP 지원 브라우저 확인")
-- [Google Material Color Palette - https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors "Google Material Color Palette")
-- [Adobe Color - https://color.adobe.com/ko/explore](https://color.adobe.com/ko/explore "Adobe Color")
-- [CSS Diner](https://flukeout.github.io/ "CSS Diner")
-- [liveweave - css 연습 사이트](https://liveweave.com/# "liveweave - css 연습 사이트")
-- [Border styles](https://developer.mozilla.org/ko/docs/Web/CSS/border-style "Border styles")
-- [Border radius](https://developer.mozilla.org/ko/docs/Web/CSS/border-radius "Border radius")
-- [Background size](https://cssreference.io/property/background-size/ "Background size")
-- [transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin "transform-origin")
-- [CSS inheritance reference](https://www.w3.org/TR/CSS2/propidx.html "CSS inheritance reference")
-- [명시도 계산 (CSS Specificity)](https://specificity.keegan.st/ "명시도 계산 (CSS Specificity)")
-- [Explore flexbox - https://flexbox.tech/]("https://flexbox.tech/" "Explore flexbox")
-- [Flexbox Froggy - https://flexboxfroggy.com/#ko](https://flexboxfroggy.com/#ko "Flexbox Froggy")
-- [CSS Diner(CSS Selector 연습)](https://flukeout.github.io/ "CSS diner(CSS Selector 연습)")
+- HTML 관련
+    - [HTML tag reference - https://www.w3schools.com/tags/default.asp](https://www.w3schools.com/tags/default.asp "HTML tag reference")
+    - [HTML Input Types - https://www.w3schools.com/tags/tag_input.asp](https://www.w3schools.com/tags/tag_input.asp "HTML Input Types")
+    - [HTML validation - https://validator.w3.org/#validate_by_uri](https://validator.w3.org/#validate_by_uri "HTML validation")
 
-- [CSS Reset](https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css "CSS Reset")
-- [fontawesome](https://fontawesome.com/kits/new "fontawesome")
+- WEB 관련
+    - [웹 접근성 진단 서비스 - https://accessibility.kr/](https://accessibility.kr/ "웹 접근성 진단 서비스")
+    - [WEBP 지원 브라우저 확인 - https://caniuse.com/webp](https://caniuse.com/webp "WEBP 지원 브라우저 확인")
+
+- Color 관련
+    - [Google Material Color Palette - https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors "Google Material Color Palette")
+    - [Adobe Color - https://color.adobe.com/ko/explore](https://color.adobe.com/ko/explore "Adobe Color")
+
+- CSS 관련
+    - [Border styles](https://developer.mozilla.org/en-US/docs/Web/CSS/border-style "Border styles")
+    - [Border radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius "Border radius")
+    - [Background size](https://cssreference.io/property/background-size/ "Background size")
+    - [transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin "transform-origin")
+    - [CSS inheritance reference](https://www.w3.org/TR/CSS2/propidx.html "CSS inheritance reference")
+    - [명시도 계산 (CSS Specificity)](https://specificity.keegan.st/ "명시도 계산 (CSS Specificity)")
+    - [CSS Reset](https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css "CSS Reset")
+
+- CSS 연습 관련
+    - [Flexbox Playground - https://flexbox.tech/]("https://flexbox.tech/" "Flexbox Playground")
+    - [Flexbox Froggy - https://flexboxfroggy.com/#ko](https://flexboxfroggy.com/#ko "Flexbox Froggy")
+    - [CSS Diner(CSS Selector 연습)](https://flukeout.github.io/ "CSS diner(CSS Selector 연습)")
+    - [liveweave - css 연습 사이트](https://liveweave.com/# "liveweave - css 연습 사이트")
+
+- ETC
+    - [fontawesome - html icon](https://fontawesome.com/kits/new "fontawesome")
 
 
 ## Table of Contents
@@ -213,12 +222,16 @@
       - [CSS Reset](#css-reset)
       - [font 설정](#font-설정)
     - [CSS 기본 설정](#css-기본-설정)
-      - [a 태그 초기화](#a-태그-초기화)
+      - [`a` 태그 초기화](#a-태그-초기화)
       - [CSS 작명 규칙(BEM: Block Element Modifier)](#css-작명-규칙bem-block-element-modifier)
       - [background 설정](#background-설정)
     - [section 작성](#section-작성)
       - [fontawesome 사용](#fontawesome-사용)
       - [box-shadow 설정](#box-shadow-설정)
+      - [list-style 글머리표시 제거](#list-style-글머리표시-제거)
+      - [text-overflow 사용방법](#text-overflow-사용방법)
+    - [transition 효과 설정](#transition-효과-설정)
+  - [Section9. Javascript(Vanilla JS) 기본 지식과 변수/조건문](#section9-javascriptvanilla-js-기본-지식과-변수조건문)
     
 ---
 
@@ -2013,7 +2026,7 @@ align-self : flex-start | flex-end | center | baseline | stretch;
 #### font 설정
 
 ### CSS 기본 설정
-#### a 태그 초기화
+#### `a` 태그 초기화
 ```css
 /* a 태그 초기화 */
 a {
@@ -2071,10 +2084,45 @@ a:hover {
 }
 ```
 
+#### list-style 글머리표시 제거
+```css
+ul {
+  list-style: none;
+  padding: 0;  /* 리스트 태그 머리말에 붙는 여백 삭제 */
+  margin: 0;
+}
+```
 
+#### text-overflow 사용방법
 
+```css
+.some-class {
+  /* text-overflow를 사용하기 위해 필요한 프로퍼티 */
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  /* ====================================== */
 
+  text-overflow: ellipsis;  /* 텍스트가 넘칠 때 생기는 ... */
+}
+```
 
+### transition 효과 설정
+
+```css
+.skill {
+  ...
+  transition: 0.4s;
+}
+
+.skill:hover {
+  transform: translate(0, -5px);
+  box-shadow: 10px 10px 20px rgba(25, 42, 70, 0.5);
+  cursor: pointer;
+}
+```
+
+## Section9. Javascript(Vanilla JS) 기본 지식과 변수/조건문
 
 
 [🔝 돌아가기](#table-of-contents)

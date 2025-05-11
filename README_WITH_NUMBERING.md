@@ -22,19 +22,36 @@
 
 # 1 Front-End
 ## 1.1 References
-- [HTML tag reference - https://www.w3schools.com/tags/default.asp](https://www.w3schools.com/tags/default.asp "HTML tag reference")
-- [HTML Input Types - https://www.w3schools.com/tags/tag_input.asp](https://www.w3schools.com/tags/tag_input.asp "HTML Input Types")
-- [HTML validation - https://validator.w3.org/#validate_by_uri](https://validator.w3.org/#validate_by_uri "HTML validation")
-- [웹 접근성 진단 서비스 - https://accessibility.kr/](https://accessibility.kr/ "웹 접근성 진단 서비스")
-- [WEBP 지원 브라우저 확인 - https://caniuse.com/webp](https://caniuse.com/webp "WEBP 지원 브라우저 확인")
-- [Google Material Color Palette - https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors "Google Material Color Palette")
-- [Adobe Color - https://color.adobe.com/ko/explore](https://color.adobe.com/ko/explore "Adobe Color")
-- [CSS Diner](https://flukeout.github.io/ "CSS Diner")
-- [liveweave - css 연습 사이트](https://liveweave.com/# "liveweave - css 연습 사이트")
-- [Border styles](https://developer.mozilla.org/ko/docs/Web/CSS/border-style "Border styles")
-- [Border radius](https://developer.mozilla.org/ko/docs/Web/CSS/border-radius "Border radius")
-- [Background size](https://cssreference.io/property/background-size/ "Background size")
-- [transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin "transform-origin")
+- HTML 관련
+    - [HTML tag reference - https://www.w3schools.com/tags/default.asp](https://www.w3schools.com/tags/default.asp "HTML tag reference")
+    - [HTML Input Types - https://www.w3schools.com/tags/tag_input.asp](https://www.w3schools.com/tags/tag_input.asp "HTML Input Types")
+    - [HTML validation - https://validator.w3.org/#validate_by_uri](https://validator.w3.org/#validate_by_uri "HTML validation")
+
+- WEB 관련
+    - [웹 접근성 진단 서비스 - https://accessibility.kr/](https://accessibility.kr/ "웹 접근성 진단 서비스")
+    - [WEBP 지원 브라우저 확인 - https://caniuse.com/webp](https://caniuse.com/webp "WEBP 지원 브라우저 확인")
+
+- Color 관련
+    - [Google Material Color Palette - https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors](https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors "Google Material Color Palette")
+    - [Adobe Color - https://color.adobe.com/ko/explore](https://color.adobe.com/ko/explore "Adobe Color")
+
+- CSS 관련
+    - [Border styles](https://developer.mozilla.org/en-US/docs/Web/CSS/border-style "Border styles")
+    - [Border radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius "Border radius")
+    - [Background size](https://cssreference.io/property/background-size/ "Background size")
+    - [transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin "transform-origin")
+    - [CSS inheritance reference](https://www.w3.org/TR/CSS2/propidx.html "CSS inheritance reference")
+    - [명시도 계산 (CSS Specificity)](https://specificity.keegan.st/ "명시도 계산 (CSS Specificity)")
+    - [CSS Reset](https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css "CSS Reset")
+
+- CSS 연습 관련
+    - [Flexbox Playground - https://flexbox.tech/]("https://flexbox.tech/" "Flexbox Playground")
+    - [Flexbox Froggy - https://flexboxfroggy.com/#ko](https://flexboxfroggy.com/#ko "Flexbox Froggy")
+    - [CSS Diner(CSS Selector 연습)](https://flukeout.github.io/ "CSS diner(CSS Selector 연습)")
+    - [liveweave - css 연습 사이트](https://liveweave.com/# "liveweave - css 연습 사이트")
+
+- ETC
+    - [fontawesome - html icon](https://fontawesome.com/kits/new "fontawesome")
 
 
 ## 1.2 Table of Contents
@@ -158,6 +175,63 @@
       - [1.7.5.2 주요 transform 함수](#1752-주요-transform-함수)
       - [1.7.5.3 transform-origin 프로퍼티](#1753-transform-origin-프로퍼티)
     - [1.7.6 CSS float 이해](#176-css-float-이해)
+  - [1.8 Section6. 중급 CSS와 반응형 기능](#18-section6-중급-css와-반응형-기능)
+    - [1.8.1 CSS 상속 이해](#181-css-상속-이해)
+      - [1.8.1.1 주요 프로퍼티별 상속 여부 정리](#1811-주요-프로퍼티별-상속-여부-정리)
+        - [1.8.1.1.1 상속 가능](#18111-상속-가능)
+        - [1.8.1.1.2 상속 불가](#18112-상속-불가)
+        - [1.8.1.1.3 강제 상속](#18113-강제-상속)
+      - [1.8.1.2 CSS 우선순위와 Cascading](#1812-css-우선순위와-cascading)
+        - [1.8.1.2.1 Cascading 기본규칙](#18121-cascading-기본규칙)
+      - [1.8.1.3 CSS 우선순위 (명시도 계산) 기본 규칙](#1813-css-우선순위-명시도-계산-기본-규칙)
+    - [1.8.2 CSS media query와 반응형(responsive) 레이아웃](#182-css-media-query와-반응형responsive-레이아웃)
+      - [1.8.2.1 반응형 웹](#1821-반응형-웹)
+        - [1.8.2.1.1 적응형 웹 vs 반응형 웹](#18211-적응형-웹-vs-반응형-웹)
+        - [1.8.2.1.2 pixel과 viewport](#18212-pixel과-viewport)
+      - [1.8.2.2 레이아웃과 미디어 쿼리](#1822-레이아웃과-미디어-쿼리)
+      - [1.8.2.3 미디어 쿼리 기본 문법](#1823-미디어-쿼리-기본-문법)
+    - [1.8.3 참고해상도](#183-참고해상도)
+  - [1.9 Section7. CSS Flexbox(레이아웃 핵심)](#19-section7-css-flexbox레이아웃-핵심)
+    - [1.9.1 CSS flexbox](#191-css-flexbox)
+      - [1.9.1.1 정의](#1911-정의)
+      - [1.9.1.2 수평 정렬 방법과 flexbox(Flexible box)](#1912-수평-정렬-방법과-flexboxflexible-box)
+    - [1.9.2 flexbox의 이해](#192-flexbox의-이해)
+      - [1.9.2.1 flexbox 사용 방법](#1921-flexbox-사용-방법)
+      - [1.9.2.2 flexbox conainer 관련 프로퍼티](#1922-flexbox-conainer-관련-프로퍼티)
+    - [1.9.3 flex container 프로퍼티](#193-flex-container-프로퍼티)
+      - [1.9.3.1 팁 : div 박스 내의 텍스트의 가운데 정렬](#1931-팁--div-박스-내의-텍스트의-가운데-정렬)
+      - [1.9.3.2 flex-direction](#1932-flex-direction)
+      - [1.9.3.3 flex-wrap](#1933-flex-wrap)
+      - [1.9.3.4 flex-flow](#1934-flex-flow)
+      - [1.9.3.5 justify-content](#1935-justify-content)
+      - [1.9.3.6 align-items 와 align-content](#1936-align-items-와-align-content)
+    - [1.9.4 flexbox item 관련 프로퍼티](#194-flexbox-item-관련-프로퍼티)
+      - [1.9.4.1 flex item 관련 프로퍼티 요약](#1941-flex-item-관련-프로퍼티-요약)
+      - [1.9.4.2 order](#1942-order)
+      - [1.9.4.3 flex-grow](#1943-flex-grow)
+      - [1.9.4.4 flex-shrink](#1944-flex-shrink)
+      - [1.9.4.5 flex-basis](#1945-flex-basis)
+      - [1.9.4.6 flex](#1946-flex)
+      - [1.9.4.7 align-self](#1947-align-self)
+  - [1.10 Section8. 모던 웹페이지 제작](#110-section8-모던-웹페이지-제작)
+    - [1.10.1 Header 설정](#1101-header-설정)
+      - [1.10.1.1 meta 태그 설정](#11011-meta-태그-설정)
+      - [1.10.1.2 open graph 설정](#11012-open-graph-설정)
+      - [1.10.1.3 twitter card 설정](#11013-twitter-card-설정)
+      - [1.10.1.4 favicon 설정](#11014-favicon-설정)
+      - [1.10.1.5 CSS Reset](#11015-css-reset)
+      - [1.10.1.6 font 설정](#11016-font-설정)
+    - [1.10.2 CSS 기본 설정](#1102-css-기본-설정)
+      - [1.10.2.1 `a` 태그 초기화](#11021-a-태그-초기화)
+      - [1.10.2.2 CSS 작명 규칙(BEM: Block Element Modifier)](#11022-css-작명-규칙bem-block-element-modifier)
+      - [1.10.2.3 background 설정](#11023-background-설정)
+    - [1.10.3 section 작성](#1103-section-작성)
+      - [1.10.3.1 fontawesome 사용](#11031-fontawesome-사용)
+      - [1.10.3.2 box-shadow 설정](#11032-box-shadow-설정)
+      - [1.10.3.3 list-style 글머리표시 제거](#11033-list-style-글머리표시-제거)
+      - [1.10.3.4 text-overflow 사용방법](#11034-text-overflow-사용방법)
+    - [1.10.4 transition 효과 설정](#1104-transition-효과-설정)
+  - [1.11 Section9. Javascript(Vanilla JS) 기본 지식과 변수/조건문](#111-section9-javascriptvanilla-js-기본-지식과-변수조건문)
     
 ---
 
@@ -1641,11 +1715,414 @@ transform-origin: x y z;
 
 ### 1.7.6 CSS float 이해
 > - 📕PDF
->  - [x] [13_css_float.pdf](https://drive.google.com/file/d/19tSN_u2FYc21RNi29fyaGslWXeH48GRv/view?usp=sharing "13_css_float.pdf")
+>   - [x] [13_css_float.pdf](https://drive.google.com/file/d/19tSN_u2FYc21RNi29fyaGslWXeH48GRv/view?usp=sharing "13_css_float.pdf")
+> - 🧪실습파일
+>   - [x] [css_float](https://codesandbox.io/p/sandbox/cssfloat-1nrde "Go to url")
 
+- 수평 정렬을 위해 float, flexbox, grid 등 다양한 방법을 사용
+> 최근에는 **flexbox**와 **grid**를 많이 사용함
+
+```html
+  <body>
+    <img
+      style="float: left; width: 150px; height: 50px; margin: 10px;"
+      src="https://www.fun-coding.org/style/images/funcoding.png"
+      alt="funcoding"
+    />
+    <div>
+      잔재미코딩이라는 이름은 한번 들으면, 잊혀지지가 않습니다.
+    </div>
+    <div style="clear: left;">
+      재미있는 이름이죠. 프로그래밍은 할 때마다 힘이 듭니다. 하지만 해냈을 때의
+      기쁨은 정말 큽니다.
+    </div>
+  </body>
+```
+
+> **float 프로퍼티는 clear 프로퍼티와 함께 사용**하여 float 속성을 해제할 수 있음
+
+<hr>
+
+## 1.8 Section6. 중급 CSS와 반응형 기능
+### 1.8.1 CSS 상속 이해
+> - 📕PDF
+>  - [x] [14_css_inherit.pdf](https://drive.google.com/file/d/1d8u_6ZVcuVRm5qcSZLiMsye7S81xXVmq/view?usp=sharing "14_css_inherit.pdf")
+> - 🧪실습파일
+>  - [x] [css_inheritance](https://codesandbox.io/p/sandbox/cssinheritance-uhyym?file=%2Fsrc%2Findex.js%3A1%2C1-2%2C1 "Go to url")
+
+#### 1.8.1.1 주요 프로퍼티별 상속 여부 정리
+[참고사이트 : https://www.w3.org/TR/CSS2/propidx.html](https://www.w3.org/TR/CSS2/propidx.html "Go to url")
+
+##### 1.8.1.1.1 상속 가능
+- text-align, line-height, color, font, visibility, opacity
+
+##### 1.8.1.1.2 상속 불가
+- width, height, margin, padding, border, display, box-sizing, background, vertical-align, position(top, left, right, bottom), z-index, overflow, float
+
+##### 1.8.1.1.3 강제 상속
+- 상속이 불가능한 프로퍼티를 강제로 상속받게 하는 방법
+```css
+      .parent {
+        border: 1px solid black;
+        color: red; /* 자식 요소에 색상 상속 */
+      }
+      .child {
+        border: inherit;
+        color: inherit; /* 부모 요소의 색상 상속 */
+      }
+```
+
+#### 1.8.1.2 CSS 우선순위와 Cascading
+
+##### 1.8.1.2.1 Cascading 기본규칙
+- **중요도** : CSS를 어디에 선언했는지에 따라 우선순위가 달라짐
+    1. head 태그 안에 선언한 style
+    2. head 태그 안의 style 태그 안의 @import 문
+    3. `<link>` 로 연결된 CSS 파일
+    4. `<link>` 로 연결된 CSS 파일안의 @import 문
+- **명시도** : 대상을 명확하게 지정할 수록 우선수위가 높음
+- **선언순서** : HTML 문서에서 뒤에 나오는 CSS가 높음
+
+#### 1.8.1.3 CSS 우선순위 (명시도 계산) 기본 규칙
+> 중요도, 선언 순서보다 **명시도가 주로 우선순위에 많이 영향**을 미치며, 계산 방식을 가볍게는 알고 있어야 함
+
+<div class='alert alert-info' style='color: lightcoral; border: 1px solid #455A64;background-color:#ECEFF1; font-size: 20px;'>
+!important > Inline Style > ID > Class, Pseudo-class > Tag
+</div>
+
+### 1.8.2 CSS media query와 반응형(responsive) 레이아웃
+> - 📕PDF
+>  - [x] [15_css_media.pdf](https://drive.google.com/file/d/1OeUZ01j4erEVOLJ-AecLHayvqbzUtDoR/view?usp=sharing "15_css_media_query.pdf")
+> - 🧪실습파일
+>  - [x] [css_media_query](https://codesandbox.io/p/sandbox/cssmedia-v7qd3 "Go to url")
+
+#### 1.8.2.1 반응형 웹
+##### 1.8.2.1.1 적응형 웹 vs 반응형 웹
+1. 적응형 웹 
+    - 다양한 화면 크기에 맞춰 미리 디자인된 여러 개의 레이아웃을 제공
+    - 예시 : m.naver.com vs www.naver.com
+
+2. 반응형 웹
+    - 다양한 화면 크기에 맞춰 **유동적**으로 디자인이 변경되는 웹
+
+##### 1.8.2.1.2 pixel과 viewport
+- picxel의 제한 요소를 해결하기 위해 viewport 개념을 사용
+- meta viewport 설정
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+#### 1.8.2.2 레이아웃과 미디어 쿼리
 
 <p style="text-align: center;">
-    <img width="300" height="" src="MD_movie/output.gif">
+    <img width="500" height="" src="MD_image/css-media-query.png">
 </p>
+
+#### 1.8.2.3 미디어 쿼리 기본 문법
+```css
+@media media-type and (media-feature) {
+    /* CSS rules */
+}
+```
+
+- media type (미디어 유형) : app 또는 screen을 일반적으로 사용
+- media-feature-rule : media(미디어) 조건
+- 논리 연산자 : and, not only 를 사용하여 조건을 조합할 수 있음
+
+### 1.8.3 참고해상도
+|     해상도      |          기기           |
+| :-------------: | :---------------------: |
+|  320px ~ 480px  |        스마트폰         |
+|  481px ~ 768px  |         태블릿          |
+| 769px ~ 1024px  |     저해상도 노트북     |
+| 1025px ~ 1280px |        데스크탑         |
+|    1281px ~     | 고해상도 데스크탑 및 TV |
+
+<hr>
+
+## 1.9 Section7. CSS Flexbox(레이아웃 핵심)
+> - 📕PDF
+>   - [x] [16_css_layout.pdf](https://drive.google.com/file/d/1v83HVWh7trgS3BTTdbrKh8DSWuAvxgs_/view?usp=sharing "16_css_layout.pdf")
+
+### 1.9.1 CSS flexbox
+#### 1.9.1.1 정의
+- flexbox는 CSS3에서 제공하는 레이아웃 모델로, 요소를 유연하게 배치하고 정렬할 수 있는 방법을 제공
+
+#### 1.9.1.2 수평 정렬 방법과 flexbox(Flexible box)
+- 뷰포트나 요소 사이즈가 불명확하거나, 동적으로 변할 때에도 요소를 적절히 배치할 수 있는 기능을 제공
+
+### 1.9.2 flexbox의 이해 
+
+#### 1.9.2.1 flexbox 사용 방법
+```css
+.container {
+    display: flex; /* flexbox 사용 */
+    /* flex-direction: row; /* 기본값 : row */
+    /* justify-content: center; 수평 정렬 */
+    /* align-items: center; 수직 정렬 */
+}
+```
+
+#### 1.9.2.2 flexbox conainer 관련 프로퍼티
+- 상위 부모 요소인 flex container와
+- 하위 자식 요소인 flex item으로 구성됨
+> 부모 요소가 flex 이면 자식 요소는 flex item으로 자동 설정됨
+
+### 1.9.3 flex container 프로퍼티
+> - 🧪실습파일
+>   - [x] [css_flex_containers](https://codesandbox.io/p/sandbox/cssflex-e7vc5 "Go to url")
+
+| 프로퍼티        | 설명                                                                                   |
+| --------------- | -------------------------------------------------------------------------------------- |
+| display         | flex 또는 inline-flex로 설정하여 flexbox 사용                                          |
+| flex-direction  | flex item의 배치 방향 설정 (row, row-reverse, column, column-reverse)                  |
+| flex-wrap       | flex item의 줄바꿈 설정 (nowrap, wrap, wrap-reverse)                                   |
+| flex-flow       | flex-direction과 flex-wrap을 합친 단축 프로퍼티                                        |
+| justify-content | flex item의 수평 정렬 설정 (flex-start, flex-end, center, space-between, space-around) |
+| align-content   | flex item의 수직 정렬 설정 (flex-start, flex-end, center, space-between, space-around) |
+| align-items     | flex item의 수직 정렬 설정 (flex-start, flex-end, center, baseline, stretch)           |
+
+#### 1.9.3.1 팁 : div 박스 내의 텍스트의 가운데 정렬
+- 수평 가운데 정렬 : `text-align: center;`
+- 수직 가운데 정렬 : `line-height: height;`
+```css
+div {
+    height: 100px; /* div 박스 높이 */
+    line-height: 100px; /* 수직 가운데 정렬 */
+    text-align: center; /* 수평 가운데 정렬 */
+}
+```
+
+#### 1.9.3.2 flex-direction
+<p style="text-align:left;">
+    <img width="500" height="" src="MD_image/css-flex-direction.png">
+</p>
+
+#### 1.9.3.3 flex-wrap
+- flex item들을 1행 또는 복수의 행으로 배치하는 설정
+
+```css
+.container {
+    display: flex; /* flexbox 사용 */
+    flex-wrap: wrap; /* 줄바꿈 설정 */
+}
+```
+
+#### 1.9.3.4 flex-flow
+- flex-direction과 flex-wrap을 합친 단축 프로퍼티
+```css
+.container {
+    display: flex; /* flexbox 사용 */
+    flex-flow: flex-direction flex-wrap; /* flex-direction과 flex-wrap 설정 */
+}
+```
+
+#### 1.9.3.5 justify-content
+- 주 축(main axis) 기반 수평 정렬 방법 설정
+
+#### 1.9.3.6 align-items 와 align-content
+- align-items : 교차 축(cross axis) 기반 정렬 방법 설정(각 행마다 적용)
+- align-content : 교차 축(cross axis) 기반 정렬 방법 설정(복수의 행을 하나의 그룹처럼 적용)
+
+<p style="text-align:left;">
+    <img width="500" height="" src="MD_image/css-main-axis-cross-axis.png">
+</p>
+
+### 1.9.4 flexbox item 관련 프로퍼티 
+> - 🧪실습파일
+>   - [x] [css_flex_items](https://codesandbox.io/p/sandbox/cssflexitems-jm0gn?file=%2Findex.html%3A17%2C1-18%2C1 "Go to url")
+
+#### 1.9.4.1 flex item 관련 프로퍼티 요약
+| 프로퍼티    | 설명                                                                                         |
+| ----------- | -------------------------------------------------------------------------------------------- |
+| order       | flex item의 순서 설정                                                                        |
+| flex-grow   | flex item의 너비 증가 비율 설정                                                              |
+| flex-shrink | flex item의 너비 감소 비율 설정                                                              |
+| flex-basis  | flex item의 기본 너비 설정  (공간 분배 전)                                                   |
+| flex        | flex-grow, flex-shrink, flex-basis를 합친 단축 프로퍼티                                      |
+| align-self  | flex container의 align-items/align-content 보다 우선해서, 개별 flex item 수직 정렬 방법 설정 |
+
+
+#### 1.9.4.2 order
+- flex item의 순서 설정
+```css
+.item1 {
+    order: 2; /* 기본값 : 0 */
+}
+.item1 {
+    order: 1; /* 기본값 : 0 */
+}
+```
+
+#### 1.9.4.3 flex-grow
+- flex item의 너비 증가 비율 설정
+```css
+.item1 {
+    flex-grow: 1;
+}
+.item2 {
+    flex-grow: 1;
+}
+.item3 {
+    flex-grow: 2;
+}
+```
+
+#### 1.9.4.4 flex-shrink
+- flex item의 너비 감소 비율 설정(flex-grow와 반대)
+
+#### 1.9.4.5 flex-basis
+- flex item의 기본 너비 설정 (공간 분배 전)
+
+```css
+.item1 {
+    flex-basis: 300px;
+}
+.item2 {
+    flex-basis: 100px;
+}
+```
+
+#### 1.9.4.6 flex
+- flex-grow, flex-shrink, flex-basis를 합친 단축 프로퍼티
+```css
+.item1 {
+    flex: 1 1 300px; /* flex-grow, flex-shrink, flex-basis */
+}
+```
+> IE 호환성 이슈로 인해 사용하지 않는 편이 좋음
+
+#### 1.9.4.7 align-self
+```css
+align-self : flex-start | flex-end | center | baseline | stretch;
+```
+
+<a href="https://flexbox.tech/" target="_blank">Flexbox playground</a> : explore flexbox properties
+<a href="https://flexboxfroggy.com/#ko" target="_blank">Flexbox Froggy</a> : flexbox 게임
+
+<hr>
+
+## 1.10 Section8. 모던 웹페이지 제작
+### 1.10.1 Header 설정
+- [헤더 설정 파일 Materials/01_head/index.html](Materials/01_head/index.html "Go to url")
+- [css 기초 설정 Materials/01_head/css/style.css](Materials/01_head/css/style.css "Go to url")
+
+#### 1.10.1.1 meta 태그 설정
+1. charset : 문자 인코딩 설정
+2. description : 페이지 설명
+3. keywords : 페이지 키워드
+4. author : 페이지 작성자
+5. viewport : 반응형 웹을 위한 뷰포트 설정
+
+#### 1.10.1.2 open graph 설정
+#### 1.10.1.3 twitter card 설정
+#### 1.10.1.4 favicon 설정
+1. 일반적인 설정 
+2. 애플 터치 아이콘 설정
+3. 인터넷 익스플로러 설정
+
+#### 1.10.1.5 CSS Reset
+
+#### 1.10.1.6 font 설정
+
+### 1.10.2 CSS 기본 설정
+#### 1.10.2.1 `a` 태그 초기화
+```css
+/* a 태그 초기화 */
+a {
+  all: unset;
+}
+a:link {
+  text-decoration: none;
+  color: #cca94c;
+}
+a:visited {
+  text-decoration: none;
+  color: #cca94c;
+}
+a:active {
+  text-decoration: none;
+  color: #cca94c;
+}
+a:hover {
+  text-decoration: none;
+  color: #cca94c;
+}
+```
+
+#### 1.10.2.2 CSS 작명 규칙(BEM: Block Element Modifier)
+- 단어와 단어는 `-`로 연결 
+- 하위요소는 `__`로 연결
+- modifier는 `--`로 연결
+- 소문자로 작성
+- ex : head-container-blue
+
+#### 1.10.2.3 background 설정
+
+```css
+.main {
+  background-size: cover;
+  background-position: center 10%;
+  background-repeat: no-repeat;
+  }
+```
+
+### 1.10.3 section 작성
+#### 1.10.3.1 fontawesome 사용
+```html
+<script
+    src="https://kit.fontawesome.com/{YOUR_KIT_ID}.js"
+    crossorigin="anonymous"
+></script>
+```
+
+#### 1.10.3.2 box-shadow 설정
+[box-shadow https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow "Go to url")
+```css
+.box-shadow {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+```
+
+#### 1.10.3.3 list-style 글머리표시 제거
+```css
+ul {
+  list-style: none;
+  padding: 0;  /* 리스트 태그 머리말에 붙는 여백 삭제 */
+  margin: 0;
+}
+```
+
+#### 1.10.3.4 text-overflow 사용방법
+
+```css
+.some-class {
+  /* text-overflow를 사용하기 위해 필요한 프로퍼티 */
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  /* ====================================== */
+
+  text-overflow: ellipsis;  /* 텍스트가 넘칠 때 생기는 ... */
+}
+```
+
+### 1.10.4 transition 효과 설정
+
+```css
+.skill {
+  ...
+  transition: 0.4s;
+}
+
+.skill:hover {
+  transform: translate(0, -5px);
+  box-shadow: 10px 10px 20px rgba(25, 42, 70, 0.5);
+  cursor: pointer;
+}
+```
+
+## 1.11 Section9. Javascript(Vanilla JS) 기본 지식과 변수/조건문
+
 
 [🔝 돌아가기](#table-of-contents)
