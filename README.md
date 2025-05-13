@@ -190,7 +190,8 @@
         - [pixel과 viewport](#pixel과-viewport)
       - [레이아웃과 미디어 쿼리](#레이아웃과-미디어-쿼리)
       - [미디어 쿼리 기본 문법](#미디어-쿼리-기본-문법)
-    - [참고해상도](#참고해상도)
+      - [참고해상도](#참고해상도)
+      - [미디어 쿼리 예시](#미디어-쿼리-예시)
   - [Section7. CSS Flexbox(레이아웃 핵심)](#section7-css-flexbox레이아웃-핵심)
     - [CSS flexbox](#css-flexbox)
       - [정의](#정의-3)
@@ -232,6 +233,19 @@
       - [text-overflow 사용방법](#text-overflow-사용방법)
     - [transition 효과 설정](#transition-효과-설정)
   - [Section9. Javascript(Vanilla JS) 기본 지식과 변수/조건문](#section9-javascriptvanilla-js-기본-지식과-변수조건문)
+    - [Javascript 기본](#javascript-기본)
+      - [변수](#변수)
+      - [데이터 타입](#데이터-타입)
+        - [Number](#number)
+        - [Boolean](#boolean)
+        - [null과 undefined](#null과-undefined)
+        - [object](#object)
+        - [Symbol](#symbol)
+        - [데이터 타입 변환](#데이터-타입-변환)
+        - [주요 연산자](#주요-연산자)
+      - [조건문](#조건문)
+        - [if문](#if문)
+        - [switch/case 문](#switchcase-문)
     
 ---
 
@@ -328,7 +342,7 @@
 #### LINK
 ```html
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="favicon.ico">
+<link rel="icon" href="favicon.ico">
 ```
 
 | 속성  | 설명                                  | 주요값                                       |
@@ -1533,7 +1547,7 @@ div {
 
 #### transition-timing-function
 > - 🧪실습파일
->   - [x] [css_transition](https://codesandbox.io/p/sandbox/csstransition-2j8gq "Go to url")
+>   - [x] [css_transition](https://codesandbox.io/p/sandbox/csstransition-r6bpq "Go to url")
 
 ##### 주요 transition-timing-function 프로퍼티 값
 - default : ease
@@ -1829,7 +1843,7 @@ transform-origin: x y z;
 - media-feature-rule : media(미디어) 조건
 - 논리 연산자 : and, not only 를 사용하여 조건을 조합할 수 있음
 
-### 참고해상도
+#### 참고해상도
 |     해상도      |          기기           |
 | :-------------: | :---------------------: |
 |  320px ~ 480px  |        스마트폰         |
@@ -1837,6 +1851,24 @@ transform-origin: x y z;
 | 769px ~ 1024px  |     저해상도 노트북     |
 | 1025px ~ 1280px |        데스크탑         |
 |    1281px ~     | 고해상도 데스크탑 및 TV |
+
+#### 미디어 쿼리 예시
+```css
+/* 화면 너비가 1200PX 이하인 경우 CSS 적용 */
+@media (max-width: 1200px) { ... }
+
+/* 화면 너비가 1200px 이하이고, 브라우저 화면일 때만 CSS 적용 */
+@media only screen and (max-width: 1200px) { ... }
+
+/* 화면 너비가 1200px 이상이고, 브라우저 화면이고, 디바이스가 가로 방향일 때만 CSS 적용 */
+@media only screen and (min-width: 1200px) and (orientation: landscape) { ... }
+
+/* (조건1: 화면 너비가 680px 이상이거나), (조건2: 브라우저 화면이고, 디바이스가 세로 방향일 때) */
+@media min-width: (680px), screen and (orientation: portrait) { ... }
+
+/* 모든 화면에서 디바이스가 세로 방향이 아닐 때 CSS 적용 */
+@media not all and (orientation: portrait) { ... }
+```
 
 <hr>
 
@@ -1997,8 +2029,9 @@ div {
 align-self : flex-start | flex-end | center | baseline | stretch;
 ```
 
-<a href="https://flexbox.tech/" target="_blank">Flexbox playground</a> : explore flexbox properties
-<a href="https://flexboxfroggy.com/#ko" target="_blank">Flexbox Froggy</a> : flexbox 게임
+
+> - <a href="https://flexbox.tech/" target="_blank">Flexbox playground</a> : explore flexbox properties
+> - <a href="https://flexboxfroggy.com/#ko" target="_blank">Flexbox Froggy</a> : flexbox 게임
 
 <hr>
 
@@ -2123,6 +2156,155 @@ ul {
 ```
 
 ## Section9. Javascript(Vanilla JS) 기본 지식과 변수/조건문
+> - 📕PDF
+>  - [x] [17_js_start](https://drive.google.com/file/d/1jGURRlNtfe6Cl_WjrvUsClppfyKtggpW/view?usp=sharing "17_js_start.pdf")
+>  - [x] [18_js_basic](https://drive.google.com/file/d/18aN1dtpsAF6EohbSIL0wABJDd2urWIU3/view?usp=sharing "18_js_basic.pdf")
+<!-- > - 🧪실습파일
+>  - [x] [css_inheritance](https://codesandbox.io/p/sandbox/cssinheritance-uhyym?file=%2Fsrc%2Findex.js%3A1%2C1-2%2C1 "Go to url") -->
+
+### Javascript 기본
+#### 변수
+```javascript
+// 변수 선언
+let a = 1; // 변수 선언
+const b = 2; // 상수 선언
+var c = 3; // 전역 스코프
+```
+> - `let` : 두번 이상 선언 불가능, 재할당 가능
+
+#### 데이터 타입
+##### Number
+- 정수/부동소숫점을 통째로 `Number` 데이터 타입으로 처리
+
+
+##### Boolean
+- `true` 또는 `false`로 표현
+
+```javascript
+let isTrue = true;
+let isFalse = false;
+```
+
+##### null과 undefined
+- `null` : 의도적으로 비어있음을 표현
+- `undefined` : 변수가 선언되었지만 값이 할당되지 않음
+- <u>null과 undefined</u> 는 **다른 데이터 타입으로 취급**됨
+
+```javascript
+let a = null; // 의도적으로 비어있음
+let b; // 값이 할당되지 않음
+
+console.log(typeof a, a); // object null
+console.log(typeof b); // undefined
+```
+
+##### object
+- 객체 타입을 나타내는 데이터 타입
+
+##### Symbol
+- ES6에서 추가된 데이터 타입으로, 고유한 식별자를 생성하는데 사용
+- 주로 객체의 프로퍼티 키로 사용됨
+
+```javascript
+let sym1 = Symbol('description');
+let sym2 = Symbol('description');
+console.log(sym1 === sym2); // false
+```
+
+> == : 값만 비교
+> === : 값과 타입 모두 비교
+
+##### 데이터 타입 변환
+1. `Number()` : 숫자형으로 변환
+2. `parseInt()` : 정수형으로 변환
+3. `parseFloat()` : 부동소수점형으로 변환
+4. `String()` : 문자열로 변환
+5. `Boolean()` : 불리언형으로 변환
+
+##### 주요 연산자
+1. 동등 연산자(==) vs 일치 연산자(===)
+- `==, !=` : 관대한 연산자, 기본적으로 값만 같은지 확인
+- `===, !==` : 엄격한 연산자, 값과 타입 모두 같은지 확인
+```javascript
+console.log(1 == '1'); // true
+console.log(1 === '1'); // false
+```
+
+2. ++ 연산자
+- `변수++` : 변수에서ㅂ먼저 값을 꺼내고, 그 다음에 1을 더함
+- `++변수` : 변수 값에 1을 더한 값을 꺼냄
+```javascript
+let a = 1;
+let b = 1;
+console.log(a++); // 1
+console.log(++b); // 2
+```
+
+3. 대입 연산자
+- `=` : 변수에 값을 대입
+- `+=` : 변수에 값을 더한 후 대입
+```javascript
+let a = 1;
+let b = 2;
+a += b;
+console.log(a); // 3
+```
+
+4. 논리 연산자
+- `&&` : AND 연산자, 둘 다 true일 때 true
+- `||` : OR 연산자, 둘 중 하나라도 true일 때 true
+- `!` : NOT 연산자, true를 false로, false를 true로 변환
+```javascript
+let a = true;
+let b = false;
+console.log(a && b); // false
+console.log(a || b); // true
+console.log(!a); // false
+```
+
+5. 문자열 연산자
+- `+` : 문자열을 연결
+- `+=` : 문자열을 연결한 후 대입
+```javascript
+let a = 'Hello';
+let b = 'World';
+console.log(a + ' ' + b); // Hello World
+a += ' ' + b;
+console.log(a); // Hello World
+```
+
+#### 조건문
+##### if문
+```javascript
+if (조건) {
+    // 조건이 true일 때 실행할 코드
+} else if (조건) {
+    // 조건이 true일 때 실행할 코드
+} else {
+    // 모든 조건이 false일 때 실행할 코드
+}
+```
+
+##### switch/case 문
+```javascript
+switch (변수) {
+    case 값1:
+        // 변수와 값1이 같을 때 실행할 코드
+        break;
+    case 값2:
+        // 변수와 값2가 같을 때 실행할 코드
+        break;
+    default:
+        // 모든 case가 false일 때 실행할 코드
+}
+```
+> **case 문에서 break를 사용하지 않으면, 다음 case 문 및 default 문이 실행됨**
+
+
+
+
+
+
 
 
 [🔝 돌아가기](#table-of-contents)
