@@ -69,6 +69,13 @@
       - [문자열 분리해서 각각의 변수에 대입](#문자열-분리해서-각각의-변수에-대입)
     - [Rest 파라미터](#rest-파라미터)
     - [Spread 연산자](#spread-연산자)
+    - [호이스팅(Hoisting) 이슈와 해결방법](#호이스팅hoisting-이슈와-해결방법)
+      - [var 키워드](#var-키워드)
+      - [해결방안](#해결방안)
+    - [scope](#scope)
+      - [`let`과 `const`의 블록 스코프](#let과-const의-블록-스코프)
+      - [var 키워드와 함수 스코프](#var-키워드와-함수-스코프)
+      - [전역변수와 지역변수](#전역변수와-지역변수)
   
 <hr>
 
@@ -617,7 +624,8 @@ let even = arr.filter((item) => item % 2 === 0); // [2, 4]
 
 ## Section11. Javascript(Vanilla JS) 중급
 > - 📕PDF
->  - [x] [21_js_plus.pdf](https://drive.google.com/file/d/13TjITewVzKFLAPAtr0UwmPHF8uuW46bg/view?usp=drive_link "21_js_plus.pdf")
+>  - [x] [22_js_plus.pdf](https://drive.google.com/file/d/13TjITewVzKFLAPAtr0UwmPHF8uuW46bg/view?usp=drive_link "22_js_plus.pdf")
+>  - [x] [23_js_process.pdf](https://drive.google.com/file/d/15xJyjI0b3blxga6Ccy4xHu-mPaNgpfC1/view?usp=drive_link "23_js_process.pdf")
 
 ### 삼항 연산자
 - 문법 : `condition ? true : false`
@@ -711,6 +719,72 @@ const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
 const arr3 = [0, ...arr1, 7, ...arr2]; // [0, 1, 2, 3, 7, 4, 5, 6]
 ```
+
+### 호이스팅(Hoisting) 이슈와 해결방법
+> - 📕PDF
+>  - [x] [23_js_process.pdf](https://drive.google.com/file/d/15xJyjI0b3blxga6Ccy4xHu-mPaNgpfC1/view?usp=drive_link "23_js_process.pdf")
+
+- 호이스팅(hoisting)은 자바스크립트의 실행 컨텍스트에서 변수와 함수의 선언이 해당 스코프의 최상단으로 끌어올려지는 현상
+    > **즉, 변수 선언전에 변수를 사용해도 에러가 발생하지 않음**
+
+#### var 키워드
+- `var` 키워드로 선언된 변수는 호이스팅이 발생함 
+    - `let`과는 다르게, 변수를 선언하기 전에 사용할 수 있음
+    - **코드 오류가 발생**할 수 있기 때문에, `let`과 `const`를 사용하는 것이 좋음
+
+- 내부적으로 **javascript**는 **함수와 변수 선언 부분만 분리**해서 최상단으로 끌어올림
+
+    ```javascript
+    console.log(a); // undefined
+    var a = 1;
+    ```
+
+#### 해결방안
+1. `let`과 `const` 사용(`var` 사용 지양)
+
+2. 함수 선언의 경우 *함수 선언문*이 아닌, **함수 표현식**으로 사용할 것
+```javascript   
+// 함수 선언문 🚫
+function func() {
+    console.log("Hello");
+}
+```
+```javascript
+// 함수 표현식 🟢
+const func = function() {
+    console.log("Hello");
+}
+```
+
+### scope
+- 변수 또는 함수가 유효한 범위
+    1. Global scope : 전역 범위
+    2. Function scope : 함수 범위
+    3. Block scope : 블록 범위
+
+#### `let`과 `const`의 블록 스코프
+- `let`과 `const`로 선언된 변수는 블록 스코프를 가짐
+- 즉, 해당 변수가 선언된 블록({}) 내에서만 유효함
+
+```javascript
+{
+  let a = 1;
+  {
+    console.log(a); // 블록 안의 블록에서는 유효함
+  }
+}
+
+console.log(a);  // ReferenceError: a is not defined
+```
+
+#### var 키워드와 함수 스코프
+- 함수 안은 `var` 로 선언된 변수는 함수 스코프를 가짐
+- **블록 안의 `var`로 선언된 변수는 함수 밖에서도 사용 가능함**
+
+#### 전역변수와 지역변수 
+- 동일한 이름을 가진 변수를 전역과 지역에서 선언할 경우, **지역변수가 우선시** 됨
+
+
 
 
 
