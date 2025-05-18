@@ -78,8 +78,8 @@
       - [Selector(CSS Selector 라고도 함)](#selectorcss-selector-라고도-함)
       - [HTML CSS 연동 방법](#html-css-연동-방법)
         - [적용할 태그에 style 속성으로 넣기(해당 태그에만 적용)](#적용할-태그에-style-속성으로-넣기해당-태그에만-적용)
-        - [HTML 문서 `<head>`에 `<style>...</style>` 태그로 넣기(전체 문서에 적용)](#html-문서-head에-stylestyle-태그로-넣기전체-문서에-적용)
-        - [HTML 문서 `<head>`안에 CSS 파일로 링크하기(전체 문서에 적용)](#html-문서-head안에-css-파일로-링크하기전체-문서에-적용)
+        - [HTML 문서 `<head>`에 `<style>...</style>` 태그로 넣기(현재 html에 적용 가능)](#html-문서-head에-stylestyle-태그로-넣기현재-html에-적용-가능)
+        - [HTML 문서 `<head>`안에 CSS 파일로 링크하기](#html-문서-head안에-css-파일로-링크하기)
       - [Reset CSS](#reset-css)
     - [CSS 단위](#css-단위)
       - [CSS 크기 단위](#css-크기-단위)
@@ -255,7 +255,7 @@
         - [객체 생성 방법](#객체-생성-방법)
         - [객체 리터럴 사용시 주의사항](#객체-리터럴-사용시-주의사항)
         - [getter / setter](#getter--setter)
-      - [ES6 클래스](#es6-클래스)
+      - [⭐️ES6 클래스](#️es6-클래스)
         - [정의](#정의-4)
         - [상속](#상속)
         - [`hasOwnProperty()` 사용법](#hasownproperty-사용법)
@@ -263,8 +263,8 @@
     - [for문](#for문)
       - [배열과 for문](#배열과-for문)
       - [객체와 for문](#객체와-for문)
-        - [`for ..in` 객체의 키를 반복](#for-in-객체의-키를-반복)
-        - [객체의 키와 값을 반복](#객체의-키와-값을-반복)
+        - [`for ..in` : 객체의 키를 반복](#for-in--객체의-키를-반복)
+        - [객체(딕셔너리)의 키와 값을 반복](#객체딕셔너리의-키와-값을-반복)
     - [while문](#while문)
     - [break와 continue](#break와-continue)
     - [javascript 배열](#javascript-배열)
@@ -289,7 +289,7 @@
         - [`filter()` - 배열에서 특정 조건을 만족하는 요소들로 새로운 배열 생성](#filter---배열에서-특정-조건을-만족하는-요소들로-새로운-배열-생성)
   - [Section11. Javascript(Vanilla JS) 중급](#section11-javascriptvanilla-js-중급)
     - [삼항 연산자](#삼항-연산자)
-    - [함수의 기본 인자(파라미터) 값 설정](#함수의-기본-인자파라미터-값-설정)
+    - [함수의 기본 인자(파라미터) 값 설정 - 디폴트값 설정](#함수의-기본-인자파라미터-값-설정---디폴트값-설정)
     - [구조 분해 할당(비구조화 할당) 문법](#구조-분해-할당비구조화-할당-문법)
     - [배열 분해 할당](#배열-분해-할당)
     - [유용한 구조 분해 할당 문법 활용 팁](#유용한-구조-분해-할당-문법-활용-팁)
@@ -621,7 +621,7 @@
 </html>
 ```
 
-##### HTML 문서 `<head>`에 `<style>...</style>` 태그로 넣기(전체 문서에 적용)
+##### HTML 문서 `<head>`에 `<style>...</style>` 태그로 넣기(현재 html에 적용 가능)
 ```html
 <!DOCTYPE html>
 <html>
@@ -643,7 +643,9 @@
 ```
 
 
-##### HTML 문서 `<head>`안에 CSS 파일로 링크하기(전체 문서에 적용)
+##### HTML 문서 `<head>`안에 CSS 파일로 링크하기
+- 별도의 css 파일을 만들어서 링크하여 여러 html 문서에 일관된 스타일을 적용 가능
+
 - home.html
     ```html
     <!DOCTYPE html>
@@ -707,7 +709,7 @@
         </p>
 
 4. rem 
-    - em과 달리 rem은 root em으로, 최상위 요소(html) 사이즈를 기준으로 함
+    - em과 달리 rem은 root em으로, **최상위 요소(html) 사이즈를 기준으로 함**
 
 
 #### 반응형 Viewport 단위
@@ -1512,7 +1514,7 @@ font: font-style(옵션) font-variant(옵션) font-weight(옵션) font-size(필�
     - **text-overflow** 프로퍼티 값
         - clip : 잘림(디폴트)
         - ellipsis : ...으로 표시
-        - <del><span style='color: red;'>string : 지정한 문자열로 표시</span></del> *호환성이 떨어지므로 사용하지 않음*
+        - string : 지정한 문자열로 표시 <span style='color: red;'><i>호환성이 떨어지므로 사용하지 않는 것을 권장</i></span>
 
 
 <hr>
@@ -2209,8 +2211,8 @@ ul {
 
 ## Section9. Javascript(Vanilla JS) 기본 지식과 변수/조건문
 > - 📕PDF
->  - [x] [17_js_start](https://drive.google.com/file/d/1jGURRlNtfe6Cl_WjrvUsClppfyKtggpW/view?usp=sharing "17_js_start.pdf")
->  - [x] [18_js_basic](https://drive.google.com/file/d/18aN1dtpsAF6EohbSIL0wABJDd2urWIU3/view?usp=sharing "18_js_basic.pdf")
+>     - [x] [17_js_start](https://drive.google.com/file/d/1jGURRlNtfe6Cl_WjrvUsClppfyKtggpW/view?usp=sharing "17_js_start.pdf")
+>     - [x] [18_js_basic](https://drive.google.com/file/d/18aN1dtpsAF6EohbSIL0wABJDd2urWIU3/view?usp=sharing "18_js_basic.pdf")
 <!-- > - 🧪실습파일
 >  - [x] [css_inheritance](https://codesandbox.io/p/sandbox/cssinheritance-uhyym?file=%2Fsrc%2Findex.js%3A1%2C1-2%2C1 "Go to url") -->
 
@@ -2447,9 +2449,10 @@ let func = (매개변수) => expression;
     };
     ```
 
-#### ES6 클래스
+#### ⭐️ES6 클래스
 
 ##### 정의
+- `constructor` 에 속성값 추가(python의 `__init__`과 유사)
 
 ```javascript
 class ClassName {
@@ -2553,7 +2556,7 @@ for (let i = 0; i < 10; i++) {
     ```
 
 #### 객체와 for문
-##### `for ..in` 객체의 키를 반복
+##### `for ..in` : 객체의 키를 반복
 ```javascript
 const obj = {
     key1: 'value1',
@@ -2565,7 +2568,7 @@ for (const key in obj) {
 }  // => key1 value1 key2 value2 key3 value3
 ```
 
-##### 객체의 키와 값을 반복
+##### 객체(딕셔너리)의 키와 값을 반복
 - `Object.entries()` : 객체의 키와 값을 배열로 반환
 - `Object.keys()` : 객체의 키를 배열로 반환
 - `Object.values()` : 객체의 값을 배열로 반환
@@ -2622,7 +2625,7 @@ const arr = [1, 2, 'string', true, null];
 // 배열의 길이  
 arr.length; 
 
-// 아래와 같이 배열을 생성할 수 있음
+// 아래와 같이 배열을 생성할 수 있음 - 배열 안의 각 인덱스에 직접 할당
 const arr2 = new Array();
 arr2[1] = 1;
 arr2[2] = 2;
@@ -2757,7 +2760,7 @@ let result = a > b ? "a가 b보다 큽니다." : "b가 a보다 큽니다.";
 console.log(result); // b가 a보다 큽니다.
 ```
 
-### 함수의 기본 인자(파라미터) 값 설정
+### 함수의 기본 인자(파라미터) 값 설정 - 디폴트값 설정
 - ES6에서 추가된 기능으로, 함수의 인자에 기본값을 설정할 수 있음
 
 ```javascript
