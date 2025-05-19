@@ -19,7 +19,7 @@ if __name__ == "__main__":
     MAX_LEVEL = 5
     counters = [0] * MAX_LEVEL
 
-    summary_files = Path("./Summary").rglob("Summary*.md")
+    summary_files = sorted(list(Path("./Summary").rglob("Summary*.md")))
 
     for summary_file in summary_files:
         output_file_name = "NUMBERED_" + summary_file.name

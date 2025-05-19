@@ -58,7 +58,7 @@
         - [`findIndex()` - 배열에서 특정 요소의 인덱스 찾기](#findindex---배열에서-특정-요소의-인덱스-찾기)
         - [`find()` - 배열에서 특정 요소 찾기](#find---배열에서-특정-요소-찾기)
         - [`filter()` - 배열에서 특정 조건을 만족하는 요소들로 새로운 배열 생성](#filter---배열에서-특정-조건을-만족하는-요소들로-새로운-배열-생성)
-  - [Section11. Javascript(Vanilla JS) 중급](#section11-javascriptvanilla-js-중급)
+  - [Section12. Javascript(Vanilla JS) 중급](#section12-javascriptvanilla-js-중급)
     - [삼항 연산자](#삼항-연산자)
     - [함수의 기본 인자(파라미터) 값 설정 - 디폴트값 설정](#함수의-기본-인자파라미터-값-설정---디폴트값-설정)
     - [구조 분해 할당(비구조화 할당) 문법](#구조-분해-할당비구조화-할당-문법)
@@ -76,6 +76,22 @@
       - [`let`과 `const`의 블록 스코프](#let과-const의-블록-스코프)
       - [var 키워드와 함수 스코프](#var-키워드와-함수-스코프)
       - [전역변수와 지역변수](#전역변수와-지역변수)
+    - [동기 / 비동기 처리 이해](#동기--비동기-처리-이해)
+      - [동기적 처리와 비동기적 처리](#동기적-처리와-비동기적-처리)
+        - [주요 비동기적 처리](#주요-비동기적-처리)
+      - [비동기 처리 예(setTimeout 함수)](#비동기-처리-예settimeout-함수)
+      - [콜백 함수 설정](#콜백-함수-설정)
+      - [콜백 지옥](#콜백-지옥)
+      - [해결방법](#해결방법)
+    - [Promise](#promise)
+      - [Promise 3가지 상태](#promise-3가지-상태)
+      - [`then` 메서드](#then-메서드)
+      - [`catch` 메서드](#catch-메서드)
+      - [`throw` 메서드](#throw-메서드)
+      - [`chaining`과 `return`](#chaining과-return)
+      - [`finally` 메서드](#finally-메서드)
+      - [`Promise.all()`](#promiseall)
+      - [`Promise.race`](#promiserace)
   
 <hr>
 
@@ -507,8 +523,8 @@ console.log(arr2); // [empty, 1, 2]
 ```
 
 ##### 배열 읽기(READ)
-```javascript 
-consolg.log(arr[0], arr[arr.length - 1]);
+```javascript
+console.log(arr[0], arr[arr.length - 1]);
 ```
 
 ##### 배열 수정(UPDATE)
@@ -622,7 +638,7 @@ let even = arr.filter((item) => item % 2 === 0); // [2, 4]
 
 <hr>
 
-## Section11. Javascript(Vanilla JS) 중급
+## Section12. Javascript(Vanilla JS) 중급
 > - 📕PDF
 >  - [x] [22_js_plus.pdf](https://drive.google.com/file/d/13TjITewVzKFLAPAtr0UwmPHF8uuW46bg/view?usp=drive_link "22_js_plus.pdf")
 >  - [x] [23_js_process.pdf](https://drive.google.com/file/d/15xJyjI0b3blxga6Ccy4xHu-mPaNgpfC1/view?usp=drive_link "23_js_process.pdf")
@@ -784,8 +800,146 @@ console.log(a);  // ReferenceError: a is not defined
 #### 전역변수와 지역변수 
 - 동일한 이름을 가진 변수를 전역과 지역에서 선언할 경우, **지역변수가 우선시** 됨
 
+### 동기 / 비동기 처리 이해
+> - 📕PDF
+>   - [x] [24_js_promise.pdf](https://drive.google.com/file/d/1Wu7rxtgdROQW1po2eyCG4Wh2CL5HxggA/view?usp=drive_link "24_js_promise.pdf")
+
+#### 동기적 처리와 비동기적 처리 
+- Synchronous(동기) : 요청을 보낸 후, 해당 요청의 응답을 받아야 다음 동작을 실행
+- Asynchronous(비동기) : 요청을 보낸 후, 응답과 관계없이 다음 동작을 실행
+
+##### 주요 비동기적 처리
+> 오래 걸리는 기능은 비동기적으로 처리됨
+- Rest API 요청
+- 파일/데이터베이스 처리
+- 타이머, 암호화/복호화 등
+
+#### 비동기 처리 예(setTimeout 함수)
+- `setTimeout()` : 일정 시간 후에 함수를 실행하는 메소드
+
+    ```javascript
+    setTimeout(function, miliseconds);
+    ```
+    - miliseconds : 대기 시간(밀리초 단위)
+    - function : ms만큼 기다린 후, 호출할 함수
+
+#### 콜백 함수 설정
+- 비동기 처리에서 일어날 수 있는 오류를 방지하기 위해, **콜백 함수**를 사용하여 비동기 처리를 수행함
+- 자바스크립트에서 함수는 first-class function
+
+```javascript
+function func1(callback) {
+    setTimeout(() => {
+        console.log("func1");
+        callback();
+    }, 1000);
+}
+
+function func2() {
+    console.log("func2");
+}
+func1(func2); // func1 func2
+```
+- func1에 func2를 콜백으로 넘기고, setTimeout이 끝나면 func2를 실행함
+
+#### 콜백 지옥
+- 콜백 함수를 중첩하여 사용하게 되면, 가독성이 떨어지고 유지보수가 어려워짐 
+- 이를 **콜백 지옥**이라고 함
 
 
+#### 해결방법 
+- `Promise`, `async/await`를 사용하여 비동기 처리를 수행함
+- `async/await`는 ES8에서 추가된 기능으로, 호환성을 확인해봐야 함
+
+### Promise 
+- ES6에서 공식적으로 추가된 문법, 비동기 처리를 위한 콜백함수의 단점을 극복하기 위해 제안됨
+
+1. `new Promise()` 생성자 함수로 Promise 객체를 생성
+2. `resolve`와 `reject`를 인자로 받아 비동기 처리 함수를 실행
+3. `excutor` 함수에서 비동기 처리가 성공하면 `resolve`를 호출하고, 실패하면 `reject`를 호출
+
+```javascript
+const myPromise = new Promise((resolve, reject) => {
+    // 비동기 처리
+    if (성공) {
+        resolve(결과);
+    } else {
+        reject(오류);
+    }
+});
+```
+
+#### Promise 3가지 상태 
+1. Pending(대기) : 비동기 처리가 진행 중인 상태
+2. Fulfilled(이행) : 비동기 처리가 성공적으로 완료된 상태
+3. Rejected(거부) : 비동기 처리가 실패한 상태
+
+#### `then` 메서드 
+```javascript
+promise.then(successCallback, failureCallback);
+``` 
+
+#### `catch` 메서드
+- 예외상황을 처리함
+
+#### `throw` 메서드
+- 사용자 정의 예외를 발생시킴
+    - catch블록이 있으면 catch블록으로 전달, 그렇지 않으면 프로그램 종료
+    ```javascript
+    throw new Error("Error message");
+    ```
+
+#### `chaining`과 `return`
+- chaining : then() 메서드를 연속으로 호출하는 것
+- return : then() 메서드에서 반환된 값을 다음 then() 메서드에서 사용할 수 있음
+
+```javascript
+const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Success");
+    }, 1000);
+});
+myPromise
+    .then((result) => {
+        console.log(result); // Success
+        return "Next Success";
+    })
+    .then((result) => {
+        console.log(result); // Next Success
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+```
+
+#### `finally` 메서드   
+- Promise의 상태(resolve 또는 reject)와 관계없이 항상 실행되는 메서드
+
+#### `Promise.all()`
+- 동기화 처리할 Promise를 묶어서 한번에 실행
+- 여러 함수가 다 실행이 완료된 후에, then 구문을 실행
+
+```javascript
+Promise.all([promise1, promise2, promise3])
+    .then((results) => {
+        console.log(results); // [result1, result2, result3]
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+```
+
+#### `Promise.race`
+- 여러 개의 Promise 중에서 가장 먼저 완료된 Promise의 결과를 반환
+```javascript
+Promise.race([promise1, promise2, promise3])
+    .then((result) => {
+        console.log(result); // 가장 먼저 완료된 Promise의 결과
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+```
 
 
 [🔝 돌아가기](#table-of-contents)
