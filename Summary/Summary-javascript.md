@@ -92,6 +92,13 @@
       - [`finally` 메서드](#finally-메서드)
       - [`Promise.all()`](#promiseall)
       - [`Promise.race`](#promiserace)
+  - [Section13. DOM / BOM 이해](#section13-dom--bom-이해)
+    - [DOM(Document Object Model)](#domdocument-object-model)
+      - [웹브라우저 동작 과정](#웹브라우저-동작-과정)
+      - [javascript 코드 삽입 위치](#javascript-코드-삽입-위치)
+      - [window와 Document](#window와-document)
+      - [window 와 BOM(Browser Object Model)](#window-와-bombrowser-object-model)
+    - [document CRUD(Create, Read, Update, Delete)](#document-crudcreate-read-update-delete)
   
 <hr>
 
@@ -940,6 +947,54 @@ Promise.race([promise1, promise2, promise3])
         console.error(error);
     });
 ```
+
+## Section13. DOM / BOM 이해
+> - 📕PDF
+>  - [x] [25_js_dom](https://drive.google.com/file/d/1-8bNOIQQh5Es4hUFIwvAvhXz2owLHtJJ/view?usp=sharing "25_js_dom.pdf")
+
+### DOM(Document Object Model) 
+- Document: 구조화된 데이터
+- DOM : 구조화된 문서를 객체로 표현한 것
+
+<p style="text-align:;">
+    <img width="600" height="" src="../MD_image/dom-structure.png">
+</p>
+
+#### 웹브라우저 동작 과정
+1. HTML 파일 가져오기
+    - 보통 HTML 파일은 웹서버로부터 가져옴
+2. HTML파일을 파싱(parsing)하여 DOM tree 생성, CSS 정보를 파싱하여 CSSOM tree 생성
+3. DOM/CSSOM tree를 결합하여 Render tree 생성
+
+<p style="text-align:;">
+    <img width="600" height="" src="../MD_image/render-tree.png">
+</p>
+
+#### javascript 코드 삽입 위치
+- `</body>` 태그 바로 위에 삽입하는 것이 좋음
+
+#### window와 Document  
+- window: 웹브라우저 객체
+- document: DOM 객체
+
+#### window 와 BOM(Browser Object Model)
+- `window`는 브라우저 환경 전체 객체를 가리키며, window를 생략할 수 있음
+```javascript 
+// 다음 두 코드는 동일함
+alert("Hello");
+window.alert("Hello");
+```
+- BOM의 주요 객체 
+    - location : 현재 URL 정보
+    - navigator : 브라우저 정보
+
+    ``` javascript 
+    console.log(window.location.href); // 현재 URL
+    console.log(window.navigator.userAgent); // 브라우저 정보
+    console.log(window.navigator.platform); // 운영체제 정보
+    ```
+
+### document CRUD(Create, Read, Update, Delete)
 
 
 [🔝 돌아가기](#table-of-contents)
