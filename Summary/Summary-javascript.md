@@ -98,7 +98,14 @@
       - [javascript 코드 삽입 위치](#javascript-코드-삽입-위치)
       - [window와 Document](#window와-document)
       - [window 와 BOM(Browser Object Model)](#window-와-bombrowser-object-model)
-    - [document CRUD(Create, Read, Update, Delete)](#document-crudcreate-read-update-delete)
+    - [document CRUD(Create, Read(Find), Update, Delete)](#document-crudcreate-readfind-update-delete)
+      - [조작이 필요한 HTML 찾기(Read)](#조작이-필요한-html-찾기read)
+      - [찾은 HTML 요소 확인/수정하기(Update)](#찾은-html-요소-확인수정하기update)
+      - [HTML 요소 생성/추가하기(Create)](#html-요소-생성추가하기create)
+      - [HTML 요소 삭제하기(Delete)](#html-요소-삭제하기delete)
+      - [HTML 요소 탐색](#html-요소-탐색)
+    - [이벤트](#이벤트)
+      - [이벤트 등록](#이벤트-등록)
   
 <hr>
 
@@ -994,7 +1001,98 @@ window.alert("Hello");
     console.log(window.navigator.platform); // 운영체제 정보
     ```
 
-### document CRUD(Create, Read, Update, Delete)
+### document CRUD(Create, Read<sup>(Find)</sup>, Update, Delete)
+> - 🧪실습파일
+>   - [x] [js_dom](https://codesandbox.io/p/sandbox/jsdom-ihzmu?file=%2Fsrc%2Findex.js%3A1%2C1-2%2C1 "Go to url")
+
+#### 조작이 필요한 HTML 찾기(Read)
+| 메서드                              | 설명                        |
+| ----------------------------------- | --------------------------- |
+| `document.getElementById()`         | ID로 요소 찾기              |
+| `document.getElementsByTagName()`   | 태그명으로 요소 찾기        |
+| `document.getElementsByClassName()` | 클래스명으로 요소 찾기      |
+| `document.querySelector()`          | CSS 선택자로 요소 찾기      |
+| `document.querySelectorAll()`       | CSS 선택자로 여러 요소 찾기 |
+
+#### 찾은 HTML 요소 확인/수정하기(Update)
+
+| 프로퍼티                               | 설명                                 |
+| -------------------------------------- | ------------------------------------ |
+| `element.innerText = new html content` | 요소 내용 확인/수정하기(태그 미포함) |
+| `element.innerHTML = new html content` | 요소 내용 확인/수정하기(태그 포함)   |
+| `element.attribute = new value`        | 요소 attribute 값 수정하기           |
+| `element.style.property = new style`   | 요소 CSS 속성 수정하기               |
+
+#### HTML 요소 생성/추가하기(Create)
+
+| 메서드                            | 설명                        |
+| --------------------------------- | --------------------------- |
+| `document.createElement(tagName)` | 새로운 HTML 요소 생성하기   |
+| `document.appendChild()`          | 요소를 부모 요소에 추가하기 |
+
+- `document.createElement()`
+    1. 요소 생성 
+    2. 태그 속성 설정 
+    3. CSS 속성 설정
+    ```javascript
+    <script>
+      const newBox1 = document.createElement("div"); // HTML 요소 생성
+      newBox1.innerText = "Kanghwan Cha";
+      newBox1.setAttribute("class", "box1");
+      newBox1.style.background = "#f2b441";
+      document.body.appendChild(newBox1);
+    </script>
+    ```
+
+#### HTML 요소 삭제하기(Delete) 
+| 메서드                           | 설명               |
+| -------------------------------- | ------------------ |
+| `element.removeChild(element)`   | 자식 요소 삭제하기 |
+| `element.replaceChild(new, old)` | 자식 요소 교체하기 |
+
+#### HTML 요소 탐색
+| 프로퍼티                         | 설명                   |
+| -------------------------------- | ---------------------- |
+| `element.parentNode`             | 부모 요소              |
+| `element.nextElementSibling`     | 다음 형제 요소         |
+| `element.previousElementSibling` | 이전 형제 요소         |
+| `element.children`               | 자식 요소들(배열 형태) |
+
+### 이벤트 
+- 웹페이지에서 발생하는 이벤트를 의미
+
+| 이벤트 이름 | 설명                                   |
+| ----------- | -------------------------------------- |
+| load        | 로드가 완료 되었을 때 발생             |
+| resize      | 윈도우 크기가 변경되었을 때 발생       |
+| keydown     | 키를 눌렀을 때 발생                    |
+| keyup       | 키에서 손을 뗐을 때 발생               |
+| change      | 변동이 있을 때 발생                    |
+| **click**   | 클릭할 때 발생                         |
+| **focus**   | 포커스를 얻었을 때 발생                |
+| mousedown   | 마우스를 클릭 했을 때 발생             |
+| mouseout    | 마우스가 객체 밖으로 나갔을 때 발생    |
+| mouseover   | 마우스가 객체 위로 올라갔을 때 발생    |
+| mousemove   | 마우스가 움직였을 때 발생              |
+| mouseup     | 마우스에서 손을 뗐을 때 발생           |
+| select      | option 태그 등에서 선택을 했을 때 발생 |
+
+#### 이벤트 등록
+- `addEventListener()` 메서드를 사용하여 이벤트를 등록함
+```javascript 
+EventTarget.addEventListener(`eventType`, functionName);
+// EventTarget : 이벤트를 등록할 HTML 요소
+// eventType : 이벤트 종류
+// functionName : 이벤트 발생 시 실행할 함수
+```
+
+- `removeEventListener()` 메서드를 사용하여 이벤트를 제거함
+```javascript
+EventTarget.removeEventListener(`eventType`, functionName);
+```
+
+
+
 
 
 [🔝 돌아가기](#table-of-contents)
