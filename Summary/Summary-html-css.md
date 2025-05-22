@@ -159,7 +159,7 @@
       - [flex-basis](#flex-basis)
       - [flex](#flex)
       - [align-self](#align-self)
-  - [Section8. 모던 웹페이지 제작](#section8-모던-웹페이지-제작)
+  - [Section8. 모던 웹페이지 제작(HTML/CSS)](#section8-모던-웹페이지-제작htmlcss)
     - [Header 설정](#header-설정)
       - [meta 태그 설정](#meta-태그-설정)
       - [open graph 설정](#open-graph-설정)
@@ -1967,7 +1967,7 @@ align-self : flex-start | flex-end | center | baseline | stretch;
 
 <hr>
 
-## Section8. 모던 웹페이지 제작
+## Section8. 모던 웹페이지 제작(HTML/CSS)
 ### Header 설정
 - [헤더 설정 파일 Materials/01_head/index.html](Materials/01_head/index.html "Go to url")
 - [css 기초 설정 Materials/01_head/css/style.css](Materials/01_head/css/style.css "Go to url")

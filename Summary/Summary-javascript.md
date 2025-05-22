@@ -106,6 +106,10 @@
       - [HTML 요소 탐색](#html-요소-탐색)
     - [이벤트](#이벤트)
       - [이벤트 등록](#이벤트-등록)
+  - [Section14. 모던 웹페이지 제작(Vanilla JS)](#section14-모던-웹페이지-제작vanilla-js)
+    - [back to top 기능](#back-to-top-기능)
+      - [FontAwesome 아이콘 적용 방법](#fontawesome-아이콘-적용-방법)
+      - [CSS 코드](#css-코드)
   
 <hr>
 
@@ -1089,6 +1093,44 @@ EventTarget.addEventListener(`eventType`, functionName);
 - `removeEventListener()` 메서드를 사용하여 이벤트를 제거함
 ```javascript
 EventTarget.removeEventListener(`eventType`, functionName);
+```
+
+## Section14. 모던 웹페이지 제작(Vanilla JS)
+### back to top 기능 
+#### FontAwesome 아이콘 적용 방법
+```css
+/* 아이콘 적용 방법
+  1. ::after (요소 뒤에 content 추가) 가상 요소에서,
+  2. content: "폰트어썸 유니코드"를 넣고, 
+  3. font-family: FontAwesome 이라고 넣으면 됨
+*/
+#backtotop::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-size: 1.5rem;
+  line-height: 40px;
+  color: #ffffff;
+}
+```
+
+#### CSS 코드
+```css
+#backtotop {
+  background-color: #968699;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+
+  border-radius: 20px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition-property: background-color, opacity, visibility;
+  transition-duration: 0.3s, 0.5s, 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 999;
+}
 ```
 
 

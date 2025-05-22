@@ -70,6 +70,10 @@
     - [CSS Diner(CSS Selector 연습)](https://flukeout.github.io/ "CSS diner(CSS Selector 연습)")
     - [liveweave - css 연습 사이트](https://liveweave.com/# "liveweave - css 연습 사이트")
 
+- JavaScript 관련
+    - [Window.scrollY - 브라우저의 스크롤 위치](https://developer.mozilla.org/ko/docs/Web/API/Window/scrollY "Window.scrollY - 브라우저의 스크롤 위치")
+    - [element.scrollTo - 스크롤 이동](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTo "element.scrollTo - 스크롤 이동")
+
 - ETC
     - [fontawesome - html icon](https://fontawesome.com/kits/new "fontawesome")
 
