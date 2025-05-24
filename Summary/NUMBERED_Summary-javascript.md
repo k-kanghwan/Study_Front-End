@@ -58,7 +58,7 @@
         - [2.4.4.2.11 `findIndex()` - 배열에서 특정 요소의 인덱스 찾기](#244211-findindex---배열에서-특정-요소의-인덱스-찾기)
         - [2.4.4.2.12 `find()` - 배열에서 특정 요소 찾기](#244212-find---배열에서-특정-요소-찾기)
         - [2.4.4.2.13 `filter()` - 배열에서 특정 조건을 만족하는 요소들로 새로운 배열 생성](#244213-filter---배열에서-특정-조건을-만족하는-요소들로-새로운-배열-생성)
-  - [2.5 Section11. Javascript(Vanilla JS) 중급](#25-section11-javascriptvanilla-js-중급)
+  - [2.5 Section12. Javascript(Vanilla JS) 중급](#25-section12-javascriptvanilla-js-중급)
     - [2.5.1 삼항 연산자](#251-삼항-연산자)
     - [2.5.2 함수의 기본 인자(파라미터) 값 설정 - 디폴트값 설정](#252-함수의-기본-인자파라미터-값-설정---디폴트값-설정)
     - [2.5.3 구조 분해 할당(비구조화 할당) 문법](#253-구조-분해-할당비구조화-할당-문법)
@@ -76,6 +76,40 @@
       - [2.5.9.1 `let`과 `const`의 블록 스코프](#2591-let과-const의-블록-스코프)
       - [2.5.9.2 var 키워드와 함수 스코프](#2592-var-키워드와-함수-스코프)
       - [2.5.9.3 전역변수와 지역변수](#2593-전역변수와-지역변수)
+    - [2.5.10 동기 / 비동기 처리 이해](#2510-동기--비동기-처리-이해)
+      - [2.5.10.1 동기적 처리와 비동기적 처리](#25101-동기적-처리와-비동기적-처리)
+        - [2.5.10.1.1 주요 비동기적 처리](#251011-주요-비동기적-처리)
+      - [2.5.10.2 비동기 처리 예(setTimeout 함수)](#25102-비동기-처리-예settimeout-함수)
+      - [2.5.10.3 콜백 함수 설정](#25103-콜백-함수-설정)
+      - [2.5.10.4 콜백 지옥](#25104-콜백-지옥)
+      - [2.5.10.5 해결방법](#25105-해결방법)
+    - [2.5.11 Promise](#2511-promise)
+      - [2.5.11.1 Promise 3가지 상태](#25111-promise-3가지-상태)
+      - [2.5.11.2 `then` 메서드](#25112-then-메서드)
+      - [2.5.11.3 `catch` 메서드](#25113-catch-메서드)
+      - [2.5.11.4 `throw` 메서드](#25114-throw-메서드)
+      - [2.5.11.5 `chaining`과 `return`](#25115-chaining과-return)
+      - [2.5.11.6 `finally` 메서드](#25116-finally-메서드)
+      - [2.5.11.7 `Promise.all()`](#25117-promiseall)
+      - [2.5.11.8 `Promise.race`](#25118-promiserace)
+  - [2.6 Section13. DOM / BOM 이해](#26-section13-dom--bom-이해)
+    - [2.6.1 DOM(Document Object Model)](#261-domdocument-object-model)
+      - [2.6.1.1 웹브라우저 동작 과정](#2611-웹브라우저-동작-과정)
+      - [2.6.1.2 javascript 코드 삽입 위치](#2612-javascript-코드-삽입-위치)
+      - [2.6.1.3 window와 Document](#2613-window와-document)
+      - [2.6.1.4 window 와 BOM(Browser Object Model)](#2614-window-와-bombrowser-object-model)
+    - [2.6.2 document CRUD(Create, Read(Find), Update, Delete)](#262-document-crudcreate-readfind-update-delete)
+      - [2.6.2.1 조작이 필요한 HTML 찾기(Read)](#2621-조작이-필요한-html-찾기read)
+      - [2.6.2.2 찾은 HTML 요소 확인/수정하기(Update)](#2622-찾은-html-요소-확인수정하기update)
+      - [2.6.2.3 HTML 요소 생성/추가하기(Create)](#2623-html-요소-생성추가하기create)
+      - [2.6.2.4 HTML 요소 삭제하기(Delete)](#2624-html-요소-삭제하기delete)
+      - [2.6.2.5 HTML 요소 탐색](#2625-html-요소-탐색)
+    - [2.6.3 이벤트](#263-이벤트)
+      - [2.6.3.1 이벤트 등록](#2631-이벤트-등록)
+  - [2.7 Section14. 모던 웹페이지 제작(Vanilla JS)](#27-section14-모던-웹페이지-제작vanilla-js)
+    - [2.7.1 back to top 기능](#271-back-to-top-기능)
+      - [2.7.1.1 FontAwesome 아이콘 적용 방법](#2711-fontawesome-아이콘-적용-방법)
+      - [3.1 CSS 코드](#31-css-코드)
   
 <hr>
 
@@ -507,8 +541,8 @@ console.log(arr2); // [empty, 1, 2]
 ```
 
 ##### 2.4.4.1.2 배열 읽기(READ)
-```javascript 
-consolg.log(arr[0], arr[arr.length - 1]);
+```javascript
+console.log(arr[0], arr[arr.length - 1]);
 ```
 
 ##### 2.4.4.1.3 배열 수정(UPDATE)
@@ -622,7 +656,7 @@ let even = arr.filter((item) => item % 2 === 0); // [2, 4]
 
 <hr>
 
-## 2.5 Section11. Javascript(Vanilla JS) 중급
+## 2.5 Section12. Javascript(Vanilla JS) 중급
 > - 📕PDF
 >  - [x] [22_js_plus.pdf](https://drive.google.com/file/d/13TjITewVzKFLAPAtr0UwmPHF8uuW46bg/view?usp=drive_link "22_js_plus.pdf")
 >  - [x] [23_js_process.pdf](https://drive.google.com/file/d/15xJyjI0b3blxga6Ccy4xHu-mPaNgpfC1/view?usp=drive_link "23_js_process.pdf")
@@ -783,6 +817,321 @@ console.log(a);  // ReferenceError: a is not defined
 
 #### 2.5.9.3 전역변수와 지역변수 
 - 동일한 이름을 가진 변수를 전역과 지역에서 선언할 경우, **지역변수가 우선시** 됨
+
+### 2.5.10 동기 / 비동기 처리 이해
+> - 📕PDF
+>   - [x] [24_js_promise.pdf](https://drive.google.com/file/d/1Wu7rxtgdROQW1po2eyCG4Wh2CL5HxggA/view?usp=drive_link "24_js_promise.pdf")
+
+#### 2.5.10.1 동기적 처리와 비동기적 처리 
+- Synchronous(동기) : 요청을 보낸 후, 해당 요청의 응답을 받아야 다음 동작을 실행
+- Asynchronous(비동기) : 요청을 보낸 후, 응답과 관계없이 다음 동작을 실행
+
+##### 2.5.10.1.1 주요 비동기적 처리
+> 오래 걸리는 기능은 비동기적으로 처리됨
+- Rest API 요청
+- 파일/데이터베이스 처리
+- 타이머, 암호화/복호화 등
+
+#### 2.5.10.2 비동기 처리 예(setTimeout 함수)
+- `setTimeout()` : 일정 시간 후에 함수를 실행하는 메소드
+
+    ```javascript
+    setTimeout(function, miliseconds);
+    ```
+    - miliseconds : 대기 시간(밀리초 단위)
+    - function : ms만큼 기다린 후, 호출할 함수
+
+#### 2.5.10.3 콜백 함수 설정
+- 비동기 처리에서 일어날 수 있는 오류를 방지하기 위해, **콜백 함수**를 사용하여 비동기 처리를 수행함
+- 자바스크립트에서 함수는 first-class function
+
+```javascript
+function func1(callback) {
+    setTimeout(() => {
+        console.log("func1");
+        callback();
+    }, 1000);
+}
+
+function func2() {
+    console.log("func2");
+}
+func1(func2); // func1 func2
+```
+- func1에 func2를 콜백으로 넘기고, setTimeout이 끝나면 func2를 실행함
+
+#### 2.5.10.4 콜백 지옥
+- 콜백 함수를 중첩하여 사용하게 되면, 가독성이 떨어지고 유지보수가 어려워짐 
+- 이를 **콜백 지옥**이라고 함
+
+
+#### 2.5.10.5 해결방법 
+- `Promise`, `async/await`를 사용하여 비동기 처리를 수행함
+- `async/await`는 ES8에서 추가된 기능으로, 호환성을 확인해봐야 함
+
+### 2.5.11 Promise 
+- ES6에서 공식적으로 추가된 문법, 비동기 처리를 위한 콜백함수의 단점을 극복하기 위해 제안됨
+
+1. `new Promise()` 생성자 함수로 Promise 객체를 생성
+2. `resolve`와 `reject`를 인자로 받아 비동기 처리 함수를 실행
+3. `excutor` 함수에서 비동기 처리가 성공하면 `resolve`를 호출하고, 실패하면 `reject`를 호출
+
+```javascript
+const myPromise = new Promise((resolve, reject) => {
+    // 비동기 처리
+    if (성공) {
+        resolve(결과);
+    } else {
+        reject(오류);
+    }
+});
+```
+
+#### 2.5.11.1 Promise 3가지 상태 
+1. Pending(대기) : 비동기 처리가 진행 중인 상태
+2. Fulfilled(이행) : 비동기 처리가 성공적으로 완료된 상태
+3. Rejected(거부) : 비동기 처리가 실패한 상태
+
+#### 2.5.11.2 `then` 메서드 
+```javascript
+promise.then(successCallback, failureCallback);
+``` 
+
+#### 2.5.11.3 `catch` 메서드
+- 예외상황을 처리함
+
+#### 2.5.11.4 `throw` 메서드
+- 사용자 정의 예외를 발생시킴
+    - catch블록이 있으면 catch블록으로 전달, 그렇지 않으면 프로그램 종료
+    ```javascript
+    throw new Error("Error message");
+    ```
+
+#### 2.5.11.5 `chaining`과 `return`
+- chaining : then() 메서드를 연속으로 호출하는 것
+- return : then() 메서드에서 반환된 값을 다음 then() 메서드에서 사용할 수 있음
+
+```javascript
+const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Success");
+    }, 1000);
+});
+myPromise
+    .then((result) => {
+        console.log(result); // Success
+        return "Next Success";
+    })
+    .then((result) => {
+        console.log(result); // Next Success
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+```
+
+#### 2.5.11.6 `finally` 메서드   
+- Promise의 상태(resolve 또는 reject)와 관계없이 항상 실행되는 메서드
+
+#### 2.5.11.7 `Promise.all()`
+- 동기화 처리할 Promise를 묶어서 한번에 실행
+- 여러 함수가 다 실행이 완료된 후에, then 구문을 실행
+
+```javascript
+Promise.all([promise1, promise2, promise3])
+    .then((results) => {
+        console.log(results); // [result1, result2, result3]
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+```
+
+#### 2.5.11.8 `Promise.race`
+- 여러 개의 Promise 중에서 가장 먼저 완료된 Promise의 결과를 반환
+```javascript
+Promise.race([promise1, promise2, promise3])
+    .then((result) => {
+        console.log(result); // 가장 먼저 완료된 Promise의 결과
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+```
+
+## 2.6 Section13. DOM / BOM 이해
+> - 📕PDF
+>  - [x] [25_js_dom](https://drive.google.com/file/d/1-8bNOIQQh5Es4hUFIwvAvhXz2owLHtJJ/view?usp=sharing "25_js_dom.pdf")
+
+### 2.6.1 DOM(Document Object Model) 
+- Document: 구조화된 데이터
+- DOM : 구조화된 문서를 객체로 표현한 것
+
+<p style="text-align:;">
+    <img width="600" height="" src="../MD_image/dom-structure.png">
+</p>
+
+#### 2.6.1.1 웹브라우저 동작 과정
+1. HTML 파일 가져오기
+    - 보통 HTML 파일은 웹서버로부터 가져옴
+2. HTML파일을 파싱(parsing)하여 DOM tree 생성, CSS 정보를 파싱하여 CSSOM tree 생성
+3. DOM/CSSOM tree를 결합하여 Render tree 생성
+
+<p style="text-align:;">
+    <img width="600" height="" src="../MD_image/render-tree.png">
+</p>
+
+#### 2.6.1.2 javascript 코드 삽입 위치
+- `</body>` 태그 바로 위에 삽입하는 것이 좋음
+
+#### 2.6.1.3 window와 Document  
+- window: 웹브라우저 객체
+- document: DOM 객체
+
+#### 2.6.1.4 window 와 BOM(Browser Object Model)
+- `window`는 브라우저 환경 전체 객체를 가리키며, window를 생략할 수 있음
+```javascript 
+// 다음 두 코드는 동일함
+alert("Hello");
+window.alert("Hello");
+```
+- BOM의 주요 객체 
+    - location : 현재 URL 정보
+    - navigator : 브라우저 정보
+
+    ``` javascript 
+    console.log(window.location.href); // 현재 URL
+    console.log(window.navigator.userAgent); // 브라우저 정보
+    console.log(window.navigator.platform); // 운영체제 정보
+    ```
+
+### 2.6.2 document CRUD(Create, Read<sup>(Find)</sup>, Update, Delete)
+> - 🧪실습파일
+>   - [x] [js_dom](https://codesandbox.io/p/sandbox/jsdom-ihzmu?file=%2Fsrc%2Findex.js%3A1%2C1-2%2C1 "Go to url")
+
+#### 2.6.2.1 조작이 필요한 HTML 찾기(Read)
+| 메서드                              | 설명                        |
+| ----------------------------------- | --------------------------- |
+| `document.getElementById()`         | ID로 요소 찾기              |
+| `document.getElementsByTagName()`   | 태그명으로 요소 찾기        |
+| `document.getElementsByClassName()` | 클래스명으로 요소 찾기      |
+| `document.querySelector()`          | CSS 선택자로 요소 찾기      |
+| `document.querySelectorAll()`       | CSS 선택자로 여러 요소 찾기 |
+
+#### 2.6.2.2 찾은 HTML 요소 확인/수정하기(Update)
+
+| 프로퍼티                               | 설명                                 |
+| -------------------------------------- | ------------------------------------ |
+| `element.innerText = new html content` | 요소 내용 확인/수정하기(태그 미포함) |
+| `element.innerHTML = new html content` | 요소 내용 확인/수정하기(태그 포함)   |
+| `element.attribute = new value`        | 요소 attribute 값 수정하기           |
+| `element.style.property = new style`   | 요소 CSS 속성 수정하기               |
+
+#### 2.6.2.3 HTML 요소 생성/추가하기(Create)
+
+| 메서드                            | 설명                        |
+| --------------------------------- | --------------------------- |
+| `document.createElement(tagName)` | 새로운 HTML 요소 생성하기   |
+| `document.appendChild()`          | 요소를 부모 요소에 추가하기 |
+
+- `document.createElement()`
+    1. 요소 생성 
+    2. 태그 속성 설정 
+    3. CSS 속성 설정
+    ```javascript
+    <script>
+      const newBox1 = document.createElement("div"); // HTML 요소 생성
+      newBox1.innerText = "Kanghwan Cha";
+      newBox1.setAttribute("class", "box1");
+      newBox1.style.background = "#f2b441";
+      document.body.appendChild(newBox1);
+    </script>
+    ```
+
+#### 2.6.2.4 HTML 요소 삭제하기(Delete) 
+| 메서드                           | 설명               |
+| -------------------------------- | ------------------ |
+| `element.removeChild(element)`   | 자식 요소 삭제하기 |
+| `element.replaceChild(new, old)` | 자식 요소 교체하기 |
+
+#### 2.6.2.5 HTML 요소 탐색
+| 프로퍼티                         | 설명                   |
+| -------------------------------- | ---------------------- |
+| `element.parentNode`             | 부모 요소              |
+| `element.nextElementSibling`     | 다음 형제 요소         |
+| `element.previousElementSibling` | 이전 형제 요소         |
+| `element.children`               | 자식 요소들(배열 형태) |
+
+### 2.6.3 이벤트 
+- 웹페이지에서 발생하는 이벤트를 의미
+
+| 이벤트 이름 | 설명                                   |
+| ----------- | -------------------------------------- |
+| load        | 로드가 완료 되었을 때 발생             |
+| resize      | 윈도우 크기가 변경되었을 때 발생       |
+| keydown     | 키를 눌렀을 때 발생                    |
+| keyup       | 키에서 손을 뗐을 때 발생               |
+| change      | 변동이 있을 때 발생                    |
+| **click**   | 클릭할 때 발생                         |
+| **focus**   | 포커스를 얻었을 때 발생                |
+| mousedown   | 마우스를 클릭 했을 때 발생             |
+| mouseout    | 마우스가 객체 밖으로 나갔을 때 발생    |
+| mouseover   | 마우스가 객체 위로 올라갔을 때 발생    |
+| mousemove   | 마우스가 움직였을 때 발생              |
+| mouseup     | 마우스에서 손을 뗐을 때 발생           |
+| select      | option 태그 등에서 선택을 했을 때 발생 |
+
+#### 2.6.3.1 이벤트 등록
+- `addEventListener()` 메서드를 사용하여 이벤트를 등록함
+```javascript 
+EventTarget.addEventListener(`eventType`, functionName);
+// EventTarget : 이벤트를 등록할 HTML 요소
+// eventType : 이벤트 종류
+// functionName : 이벤트 발생 시 실행할 함수
+```
+
+- `removeEventListener()` 메서드를 사용하여 이벤트를 제거함
+```javascript
+EventTarget.removeEventListener(`eventType`, functionName);
+```
+
+## 2.7 Section14. 모던 웹페이지 제작(Vanilla JS)
+### 2.7.1 back to top 기능 
+#### 2.7.1.1 FontAwesome 아이콘 적용 방법
+```css
+/* 아이콘 적용 방법
+  1. ::after (요소 뒤에 content 추가) 가상 요소에서,
+  2. content: "폰트어썸 유니코드"를 넣고, 
+  3. font-family: FontAwesome 이라고 넣으면 됨
+*/
+# 3 acktotop::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-size: 1.5rem;
+  line-height: 40px;
+  color: #ffffff;
+}
+```
+
+#### 3.1 CSS 코드
+```css
+# 4 acktotop {
+  background-color: #968699;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+
+  border-radius: 20px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition-property: background-color, opacity, visibility;
+  transition-duration: 0.3s, 0.5s, 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 999;
+}
+```
 
 
 
