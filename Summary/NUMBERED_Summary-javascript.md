@@ -110,6 +110,8 @@
     - [2.7.1 back to top 기능](#271-back-to-top-기능)
       - [2.7.1.1 FontAwesome 아이콘 적용 방법](#2711-fontawesome-아이콘-적용-방법)
       - [3.1 CSS 코드](#31-css-코드)
+      - [4.1 HTML5에서 변수값을 표기하는 방법](#41-html5에서-변수값을-표기하는-방법)
+      - [4.2 IE11과의 호환성 해결](#42-ie11과의-호환성-해결)
   
 <hr>
 
@@ -1133,7 +1135,22 @@ EventTarget.removeEventListener(`eventType`, functionName);
 }
 ```
 
+#### 4.1 HTML5에서 변수값을 표기하는 방법
 
+```html
+<ul class="class-list" data-position="0">
+```
+
+#### 4.2 IE11과의 호환성 해결
+
+1. Babel Standalone
+    - 최신 JavaScript 코드를 구버전 JS로 변환해 실행
+    - 개발용으로는 적합하나, **운영 환경(Production)**에서는 사용하지 않는 것이 좋음
+
+    ```html
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+        <script type="text/babel" src="js/main.js"></script>
+    ```
 
 
 

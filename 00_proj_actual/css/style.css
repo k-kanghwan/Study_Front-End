@@ -215,6 +215,15 @@ section {
   cursor: pointer;
 }
 
+.slide-prev-hover:hover {
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-2px);
+}
+.slide-next-hover:hover {
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(2px);
+}
+
 .arrow-container {
   display: flex;
 }
@@ -224,7 +233,7 @@ section {
   list-style: none;
   padding: 1rem 0;
   margin: 1rem 0 0 0;
-  overflow: hidden;
+  overflow: none;
 }
 
 .class-card {
@@ -274,12 +283,18 @@ section {
 
 .class-desc {
   margin-top: 1rem;
+  color: #968699;
+}
+
+.class-desc:hover {
+  color: #42bcbe;
+  cursor: pointer;
 }
 
 .class-title {
   font-size: 0.9rem;
   font-weight: bold;
-  color: #968699;
+  color: inherit;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -288,7 +303,7 @@ section {
 }
 .class-detail {
   font-size: 0.8rem;
-  color: #968699;
+  color: inherit;
   line-height: 1.5rem;
 }
 
@@ -360,6 +375,14 @@ footer {
   opacity: 1;
   visibility: visible;
   background-color: #968699;
+}
+
+ul li img:hover {
+  cursor: grab;
+}
+
+ul li img:active {
+  cursor: grabbing;
 }
 
 @media only screen and (min-width: 1200px) {
