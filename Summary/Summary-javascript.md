@@ -112,6 +112,8 @@
       - [CSS 코드](#css-코드)
       - [HTML5에서 변수값을 표기하는 방법](#html5에서-변수값을-표기하는-방법)
       - [IE11과의 호환성 해결](#ie11과의-호환성-해결)
+    - [유저의 마우스 위치](#유저의-마우스-위치)
+    - [mousestart / touchstart](#mousestart--touchstart)
   
 <hr>
 
@@ -280,7 +282,7 @@ let func = (매개변수) => expression;
 ## Section10. Javascript(Vanilla JS) 함수와 객체
 ### 객체 선언기법 이해
 > - 📕PDF
->  - [x] [19_js_basic_object](https://drive.google.com/file/d/1lZ_UwbNSmmqMojCcFnu6jO7K7Xj28TMb/view?usp=sharing "19_js_basic_object.pdf")
+>   - [x] [19_js_basic_object](https://drive.google.com/file/d/1lZ_UwbNSmmqMojCcFnu6jO7K7Xj28TMb/view?usp=sharing "19_js_basic_object.pdf")
 
 #### 객체
 - 객체 생성방법 
@@ -429,7 +431,7 @@ console.log(animal.hasOwnProperty("age")); // false
 
 ### for문
 > - 📕PDF
->  - [x] [20_js_repeat.pdf](https://drive.google.com/file/d/1vGCoMuHOXQ1skmTWM8qXoCpv7wr280Ar/view?usp=sharing "20_js_repeat.pdf")
+>   - [x] [20_js_repeat.pdf](https://drive.google.com/file/d/1vGCoMuHOXQ1skmTWM8qXoCpv7wr280Ar/view?usp=sharing "20_js_repeat.pdf")
 
 ```javascript
 for (초기문; 조건문; 증감문) {
@@ -660,8 +662,8 @@ let even = arr.filter((item) => item % 2 === 0); // [2, 4]
 
 ## Section12. Javascript(Vanilla JS) 중급
 > - 📕PDF
->  - [x] [22_js_plus.pdf](https://drive.google.com/file/d/13TjITewVzKFLAPAtr0UwmPHF8uuW46bg/view?usp=drive_link "22_js_plus.pdf")
->  - [x] [23_js_process.pdf](https://drive.google.com/file/d/15xJyjI0b3blxga6Ccy4xHu-mPaNgpfC1/view?usp=drive_link "23_js_process.pdf")
+>   - [x] [22_js_plus.pdf](https://drive.google.com/file/d/13TjITewVzKFLAPAtr0UwmPHF8uuW46bg/view?usp=drive_link "22_js_plus.pdf")
+>   - [x] [23_js_process.pdf](https://drive.google.com/file/d/15xJyjI0b3blxga6Ccy4xHu-mPaNgpfC1/view?usp=drive_link "23_js_process.pdf")
 
 ### 삼항 연산자
 - 문법 : `condition ? true : false`
@@ -758,7 +760,7 @@ const arr3 = [0, ...arr1, 7, ...arr2]; // [0, 1, 2, 3, 7, 4, 5, 6]
 
 ### 호이스팅(Hoisting) 이슈와 해결방법
 > - 📕PDF
->  - [x] [23_js_process.pdf](https://drive.google.com/file/d/15xJyjI0b3blxga6Ccy4xHu-mPaNgpfC1/view?usp=drive_link "23_js_process.pdf")
+>   - [x] [23_js_process.pdf](https://drive.google.com/file/d/15xJyjI0b3blxga6Ccy4xHu-mPaNgpfC1/view?usp=drive_link "23_js_process.pdf")
 
 - 호이스팅(hoisting)은 자바스크립트의 실행 컨텍스트에서 변수와 함수의 선언이 해당 스코프의 최상단으로 끌어올려지는 현상
     > **즉, 변수 선언전에 변수를 사용해도 에러가 발생하지 않음**
@@ -1151,6 +1153,29 @@ EventTarget.removeEventListener(`eventType`, functionName);
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
         <script type="text/babel" src="js/main.js"></script>
     ```
+
+### 유저의 마우스 위치
+
+```javascript
+document.addEventListener("mousemove", (event) => {
+    const x = event.clientX;
+    const y = event.clientY;
+    console.log(`Mouse position: (${x}, ${y})`);
+});
+```
+
+### mousestart / touchstart
+- `mousestart` : 마우스 클릭 시작 시 발생
+- `touchstart` : 터치 시작 시 발생
+```javascript
+document.addEventListener("mousedown", (event) => {
+    console.log("Mouse down at:", event.clientX, event.clientY);
+});
+document.addEventListener("touchstart", (event) => {
+    const touch = event.touches[0];
+    console.log("Touch start at:", touch.clientX, touch.clientY);
+});
+```
 
 
 

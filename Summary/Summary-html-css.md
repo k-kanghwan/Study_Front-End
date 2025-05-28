@@ -93,7 +93,7 @@
       - [상대 위치 (Relative Position)](#상대-위치-relative-position)
       - [절대 위치 (Absolute Position)](#절대-위치-absolute-position)
       - [고정 위치 (Fixed Position)](#고정-위치-fixed-position)
-      - [z-index, overflow 프로퍼티](#z-index-overflow-프로퍼티)
+      - [z-index 프로퍼티](#z-index-프로퍼티)
       - [overflow 프로퍼티](#overflow-프로퍼티)
     - [CSS transition 이해](#css-transition-이해)
       - [정의](#정의)
@@ -1433,7 +1433,7 @@ font: font-style(옵션) font-variant(옵션) font-weight(옵션) font-size(필�
     <img width="50%" height="" src="../MD_image/css-position.png">
 </span>
 
-#### z-index, overflow 프로퍼티
+#### z-index 프로퍼티
 > - 🧪실습파일
 >   - [x] [css_position](https://codesandbox.io/p/sandbox/cssposition-j3y46 "Go to url") index2.html
 -  z-index 프로퍼티에 큰 숫자값을 지정할수록 화면 전면에 출력
@@ -1652,7 +1652,7 @@ animation: name duration timing-function delay iteration-count direction fill-mo
 
 #### transform-origin 프로퍼티
 > - 🧪실습파일
-> - [x] [transform_origin](https://codesandbox.io/p/sandbox/csstransform-985ps?file=%2Findex2.html%3A17%2C1-18%2C1 "Go to url")
+>   - [x] [transform_origin](https://codesandbox.io/p/sandbox/csstransform-985ps?file=%2Findex2.html%3A17%2C1-18%2C1 "Go to url")
 참고 [https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin "Go to url")
 - 변형의 기준점 설정
 ```css
@@ -1692,9 +1692,9 @@ transform-origin: x y z;
 ## Section6. 중급 CSS와 반응형 기능
 ### CSS 상속 이해
 > - 📕PDF
->  - [x] [14_css_inherit.pdf](https://drive.google.com/file/d/1d8u_6ZVcuVRm5qcSZLiMsye7S81xXVmq/view?usp=sharing "14_css_inherit.pdf")
+>   - [x] [14_css_inherit.pdf](https://drive.google.com/file/d/1d8u_6ZVcuVRm5qcSZLiMsye7S81xXVmq/view?usp=sharing "14_css_inherit.pdf")
 > - 🧪실습파일
->  - [x] [css_inheritance](https://codesandbox.io/p/sandbox/cssinheritance-uhyym?file=%2Fsrc%2Findex.js%3A1%2C1-2%2C1 "Go to url")
+>   - [x] [css_inheritance](https://codesandbox.io/p/sandbox/cssinheritance-uhyym?file=%2Fsrc%2Findex.js%3A1%2C1-2%2C1 "Go to url")
 
 #### 주요 프로퍼티별 상속 여부 정리
 [참고사이트 : https://www.w3.org/TR/CSS2/propidx.html](https://www.w3.org/TR/CSS2/propidx.html "Go to url")

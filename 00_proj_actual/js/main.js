@@ -98,3 +98,87 @@ for (let i = 0; i < slidePrevList.length; i++) {
     arrowContainer.removeChild(slidePrevList[i]);
   }
 }
+
+/*----------------------------------------------------- */
+
+let touchstartX;
+let currentClassList;
+let currentImg;
+let currentActiveLi;
+let nowActiveLi;
+let mouseStart;
+
+function processTouchMove(event) {
+  event.preventDefault(); // 해당 요소의 고유의 동작을 중단
+
+  let currentX = event.clientX;
+  // console.log("touchstartX: " + touchstartX);
+  // console.log("currentX: " + currentX);
+  nowActiveLi =
+    Number(currentActiveLi) + Number(currentX) - Number(touchstartX);
+
+  currentClassList.style.transition = "transform 0.5s linear";
+  currentClassList.style.transform =
+    "translateX(" + String(nowActiveLi) + "px)";
+}
+
+function processTouchStart(event) {
+  mouseStart = true;
+
+  event.preventDefault(); // 해당 요소의 고유의 동작을 중단
+  touchstartX = event.clientX || event.touches[0].screenX;
+  currentImg = event.target;
+
+  currentImg.addEventListener("mousemove", processTouchMove);
+  currentImg.addEventListener("mouseup", processTouchEnd);
+
+  currentImg.addEventListener("touchmove", processTouchMove);
+  currentImg.addEventListener("touchend", processTouchEnd);
+
+  currentClassList = currentImg.parentElement.parentElement;
+  currentActiveLi = currentClassList.getAttribute("data-position");
+}
+
+function processTouchEnd(event) {
+  event.preventDefault(); // 해당 요소의 고유의 동작을 중단
+
+  if (mouseStart === true) {
+    currentImg.removeEventListener("mousemove", processTouchMove);
+    currentImg.removeEventListener("mouseup", processTouchEnd);
+
+    currentImg.removeEventListener("touchmove", processTouchMove);
+    currentImg.removeEventListener("touchend", processTouchEnd);
+
+    // 맨 처음 카드가 맨 앞에 배치되도록 초기 상태로 이동
+    currentClassList.style.transition = "transform 0.5s ease";
+    currentClassList.style.transform = "translateX(0px)";
+    currentClassList.setAttribute("data-position", 0);
+
+    let eachSlidePrev =
+      currentClassList.previousElementSibling.children[1].children[0];
+    let eachSlideNext =
+      currentClassList.previousElementSibling.children[1].children[1];
+    let eachLiList = currentClassList.getElementsByTagName("li");
+    if (currentClassList.clientWidth < eachLiList.length * 260) {
+      // 슬라이드 이전 버튼 활성화
+      eachSlidePrev.classList.add("slide-prev-hover");
+      eachSlidePrev.style.color = "#0433bf";
+      eachSlidePrev.addEventListener("click", transformPrev);
+
+      // 슬라이드 다음 버튼 활성화
+      eachSlideNext.classList.add("slide-next-hover");
+      eachSlideNext.style.color = "#0433bf";
+      eachSlideNext.addEventListener("click", transformNext);
+    }
+  }
+  mouseStart = false;
+}
+
+window.addEventListener("dragend", processTouchEnd);
+window.addEventListener("mouseup", processTouchEnd);
+
+const classImgLists = document.querySelectorAll("ul li img");
+for (let i = 0; i < classImgLists.length; i++) {
+  classImgLists[i].addEventListener("mousedown", processTouchStart);
+  classImgLists[i].addEventListener("touchstart", processTouchStart);
+}
